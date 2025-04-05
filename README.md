@@ -10,7 +10,6 @@ Visit it at https://andrewfragkiadakis.github.io.
 [![JavaScript](https://img.shields.io/badge/JavaScript-Used-yellow)](https://github.com/andrewfragkiadakis/afragkiadakis.github.io)
 
 ## Features
-- Interactive timeline for education and experience
 - Animated skill progress bars
 - Downloadable PDF version of my CV
 - Light and dark theme toggle (mobile-friendly)

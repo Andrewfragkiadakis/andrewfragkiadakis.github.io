@@ -12,7 +12,8 @@ Visit it at https://andrewfragkiadakis.github.io.
 ## Features
 - Animated skill progress bars
 - Downloadable PDF version of my CV
-- Light and dark theme toggle (mobile-friendly)
+- Light and dark theme toggle
+- Mobile-friendly webpage
 
 ## Screenshot
 ![Website Screenshot](screenshot.png)

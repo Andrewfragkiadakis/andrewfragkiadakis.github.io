@@ -10,11 +10,11 @@ Visit it at <a href="https://andrewfragkiadakis.github.io" target="_blank" rel="
 [![JavaScript](https://img.shields.io/badge/JavaScript-Used-yellow)](https://github.com/andrewfragkiadakis/afragkiadakis.github.io)
 
 ## Features
-- Animated skill progress bars
 - Downloadable PDF version of my CV (English and Greek)
-- Light and dark theme toggle
+- Light and dark theme toggle with dynamic coloring theme
 - Bilingual support (English/Greek) with smooth language switching
 - Mobile-friendly webpage
+- Animated skill progress bars
 
 ## Screenshot
 ![Website Screenshot](screenshot.png)

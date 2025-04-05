@@ -2,7 +2,7 @@
 This repository hosts my personal CV website, showcasing my skills, education, and experience in IT and Computer Engineering.
 
 ## Live Site
-Visit it at <a href="https://andrewfragkiadakis.github.io" target="_blank">https://andrewfragkiadakis.github.io</a> :arrow_upper_right:
+Visit it at <a href="https://andrewfragkiadakis.github.io" target="_blank">https://andrewfragkiadakis.github.io</a> <i class="fas fa-external-link-alt"></i>
 
 [![GitHub stars](https://img.shields.io/github/stars/andrewfragkiadakis/afragkiadakis.github.io?style=social)](https://github.com/andrewfragkiadakis/afragkiadakis.github.io/stargazers)
 [![HTML](https://img.shields.io/badge/HTML-Used-orange)](https://github.com/andrewfragkiadakis/afragkiadakis.github.io)

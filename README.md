@@ -1,5 +1,5 @@
 # Andreas Fragkiadakis - CV Website
-This repository hosts my personal CV website, showcasing my skills, education, and experience in IT and Computer Engineering. 
+This repository hosts my personal CV website, showcasing my skills, education, and experience in IT and Computer Engineering.
 
 ## Live Site
 Visit it at https://andrewfragkiadakis.github.io.
@@ -11,8 +11,9 @@ Visit it at https://andrewfragkiadakis.github.io.
 
 ## Features
 - Animated skill progress bars
-- Downloadable PDF version of my CV
+- Downloadable PDF version of my CV (English and Greek)
 - Light and dark theme toggle
+- Bilingual support (English/Greek) with smooth language switching
 - Mobile-friendly webpage
 
 ## Screenshot
@@ -20,7 +21,7 @@ Visit it at https://andrewfragkiadakis.github.io.
 
 ## About Me
 I’m an IT & Computer Engineering student with expertise in networking, system administration, and web development. 
-This site is a creative representation of my professional journey.
+This site is a creative representation of my professional journey, now available in both English and Greek.
 
 ---
 Built with ❤️ using HTML, CSS, and JavaScript.

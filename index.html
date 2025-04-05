@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andreas Fragkiadakis - CV Webpage  </title>
+    <title>Andreas Fragkiadakis - Personal CV and Portfolio</title>
     <meta property="og:title" content="Andreas Fragkiadakis - Personal CV and Portfolio">
     <meta property="og:description" content="IT & Computer Engineering student with expertise in networking, system administration, and web development. Fluent in English and German.">
     <!-- Favicon Links -->
@@ -12,299 +13,30 @@
     <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
     <link rel="apple-touch-icon" href="favicons/apple-touch-icon.png">
     <link rel="manifest" href="favicons/site.webmanifest">
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #f5fbf8;
-            --text-color: #333333;
-            --card-bg: #ffffff;
-            --accent-color: #266144;
-            --icon-color: #266144;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #121D16;       /* Dark, greenish background */
-            --text-color: #E6F0EA;      /* Soft, off‑white text */
-            --card-bg: #202020;        /* Dark surface for cards */
-            --accent-color: #4AA17C;    /* Lightened accent (from #266144) for clear calls-to‑action */
-            --icon-color: #6BC7A1;      /* Brighter variant for icons */
-            --shadow-color: rgba(0, 0, 0, 0.3);
-        }
-
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-
-        .theme-toggle, .lang-toggle {
-            position: fixed;
-            top: 10px;
-            z-index: 1000;
-            padding: 0.5rem 1rem;
-            background-color: var(--card-bg);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 2px 5px var(--shadow-color);
-            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-            color: var(--text-color);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .theme-toggle {
-            right: 20px;
-        }
-
-        .lang-toggle {
-            left: 20px;
-        }
-
-        .theme-toggle:hover, .lang-toggle:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-        }
-
-        .hide-on-scroll {
-            transform: translateY(-140%); /* Increased from -100% to -120% */
-        }
-
-        .content {
-            transition: opacity 0.5s ease;
-            opacity: 1;
-        }
-
-        .content.hidden {
-            opacity: 0;
-            display: none;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-            animation: fadeIn 1s ease-in;
-        }
-
-        .header h1 {
-            font-size: 3rem; /* Increased title (h1) size for desktop by 20% */
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .download-btn {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--accent-color);
-            color: var(--bg-color);
-            text-decoration: none;
-            border-radius: 5px;
-            transition: opacity 0.3s;
-            margin-top: 1rem;
-        }
-
-        .download-btn:hover {
-            opacity: 0.8;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-            animation: slideIn 1s ease-in;
-            flex-wrap: wrap;
-        }
-
-        .contact-info a, .contact-info span {
-            color: var(--icon-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: #0056b3;
-        }
-
-        .section {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-            animation: scaleUp 0.5s ease-in;
-        }
-
-        .section h2 {
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .section ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .section ul li {
-            margin-bottom: 0.5rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .section ul li::before {
-            content: '\f058';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        .experience-item, .education-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .experience-item h3, .education-item h3 {
-            color: var(--text-color);
-            font-size: 1.2rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .experience-item p, .education-item p {
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .skills-list {
-            margin-top: 1rem;
-        }
-
-        .skill-item {
-            margin-bottom: 1rem;
-        }
-
-        .skill-item p {
-            margin-bottom: 0.25rem;
-            color: var(--text-color);
-        }
-
-        .skill-bar {
-            width: 100%;
-            height: 20px;
-            background: #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .skill-fill {
-            height: 100%;
-            background: var(--accent-color);
-            width: 0;
-            transition: width 2s ease-in-out;
-        }
-
-        .skill-fill.animate {
-            width: var(--skill-width);
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            margin-top: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes scaleUp {
-            from { transform: scale(0.95); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .section {
-                padding: 1rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .theme-toggle, .lang-toggle {
-                padding: 0.5rem;
-            }
-
-            .theme-toggle span, .lang-toggle span {
-                display: none;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .theme-toggle span, .lang-toggle span {
-                display: inline;
-            }
-        }
-    </style>
+    <!-- Google Fonts for Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
+    <!-- Language Toggle Button -->
     <button class="lang-toggle" onclick="toggleLanguage()">
         <i class="fas fa-globe" style="color: var(--icon-color);"></i><span id="language-text">GR/EN</span>
     </button>
+
+    <!-- Theme Toggle Button -->
     <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon" style="color: var(--icon-color);"></i><span>Night Mode</span>
     </button>
+
+    <!-- Main Container -->
     <div class="container">
-        <!-- English Content -->
+        <!-- English Content - Shown by default -->
         <div class="language-content content en active">
+            <!-- Header Section -->
             <header class="header">
                 <h1>ANDREAS FRAGKIADAKIS</h1>
                 <div class="contact-info">
@@ -318,14 +50,15 @@
                 </a>
             </header>
 
+            <!-- About Me Section -->
             <section class="section">
-                <h2><i class="fas fa-user"></i> ABOUT ME </h2>
-                <p>Dedicated IT & Computer Engineering student with expertise in networking, system administration, and project management. Analytical and detail-oriented, with hands-on experience in web development, technical support, and infrastructure coordination. 
-                    Fluent in English (C2) and German (B2), delivering innovative solutions to drive efficiency and growth.</p>
+                <h2><i class="fas fa-user"></i> ABOUT ME</h2>
+                <p>Dedicated IT & Computer Engineering student with expertise in networking, system administration, and project management. Analytical and detail-oriented, with hands-on experience in web development, technical support, and infrastructure coordination. Fluent in English (C2) and German (B2), delivering innovative solutions to drive efficiency and growth.</p>
             </section>
 
+            <!-- Education Section -->
             <section class="section">
-                <h2><i class="fas fa-graduation-cap"></i> EDUCATION </h2>
+                <h2><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
                 <div class="education-item">
                     <h3>Integrated Master's Degree (5 Years), Computer Science</h3>
                     <p>University of West Attica, Athens, Greece | September 2019 – Present</p>
@@ -344,8 +77,9 @@
                 </div>
             </section>
 
+            <!-- Experience Section -->
             <section class="section">
-                <h2><i class="fas fa-briefcase"></i> EXPERIENCE </h2>
+                <h2><i class="fas fa-briefcase"></i> WORK EXPERIENCE</h2>
                 <div class="experience-item">
                     <h3>Information Technology Support Engineer</h3>
                     <p>OMILIA LTD, Athens, Greece | September 2024 – Present</p>
@@ -364,75 +98,103 @@
                         <li>Troubleshoot technical issues and propose modern solutions</li>
                     </ul>
                 </div>
-                <div class="experience-item">
-                    <h3>Information Technology Support Specialist</h3>
-                    <p>ANEMOMYLOI ANDROS AE, Andros, Greece | January 2023 – February 2024</p>
-                    <ul>
-                        <li>Delivered remote IT support and consultation services</li>
-                        <li>Supported company projects with IT infrastructure management</li>
-                        <li>Organized work portfolios and financial records</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3>Web Developer</h3>
-                    <p>Self-Employed, Athens, Greece | 2020 – November 2023</p>
-                    <ul>
-                        <li>Developed and launched two fully operational websites</li>
-                        <li>Self-taught web development technologies and methodologies</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3>Network Systems Installation & Configuration Technician</h3>
-                    <p>Weballdesign, Athens, Greece | 2020 – November 2022</p>
-                    <ul>
-                        <li>Installed and configured server/client systems in educational institutions</li>
-                        <li>Maintained network infrastructure (switches, routers, UPS) and performed diagnostics</li>
-                        <li>Trained on-site personnel and documented procedures</li>
-                    </ul>
+                <button id="see-more-btn-en" class="see-more-btn">See More <i class="fas fa-arrow-down"></i></button>
+                <div id="more-experience-en" class="more-experience">
+                    <div class="experience-item">
+                        <h3>Information Technology Support Specialist</h3>
+                        <p>ANEMOMYLOI ANDROS AE, Andros, Greece | January 2023 – February 2024</p>
+                        <ul>
+                            <li>Delivered remote IT support and consultation services</li>
+                            <li>Supported company projects with IT infrastructure management</li>
+                            <li>Organized work portfolios and financial records</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Web Developer</h3>
+                        <p>Self-Employed, Athens, Greece | 2020 – November 2023</p>
+                        <ul>
+                            <li>Developed and launched two fully operational websites</li>
+                            <li>Self-taught web development technologies and methodologies</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Network Systems Installation & Configuration Technician</h3>
+                        <p>Weballdesign, Athens, Greece | 2020 – November 2022</p>
+                        <ul>
+                            <li>Installed and configured server/client systems in educational institutions</li>
+                            <li>Maintained network infrastructure (switches, routers, UPS) and performed diagnostics</li>
+                            <li>Trained on-site personnel and documented procedures</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
+            <!-- Skills Section -->
             <section class="section">
                 <h2><i class="fas fa-tools"></i> Skills</h2>
                 <div class="skills-list">
                     <div class="skill-item">
                         <p>Advanced IT Skills</p>
-                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 91%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <p>Project Management</p>
+                        <p>Web Development</p>
                         <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Exceptional Communication (English C2 / German B2)</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
                     </div>
                     <div class="skill-item">
                         <p>Troubleshooting</p>
-                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 92%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <p>MS Suite, Databases, HTML, CSS, UI/UX</p>
+                        <p>Project Management</p>
                         <div class="skill-bar"><div class="skill-fill" style="--skill-width: 80%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <p>Network & System Administration</p>
+                        <p>Security Systems</p>
                         <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
                     </div>
-                    <div class="skill-item">
-                        <p>Exceptional Communication</p>
-                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <p>English (C2), German (B2)</p>
-                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 95%;"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <p>UAS EU A1-A3 Certificate</p>
-                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 100%;"></div></div>
-                    </div>
+                </div>
+            </section>
+            <!-- Personal Projects Section - Showcases past IT-related projects -->
+            <section class="section">
+                <h2><i class="fas fa-laptop-code"></i> Personal Projects</h2>
+                <div class="project-item">
+                    <h3>Portfolio Website</h3>
+                    <p>Self-developed | 2023 – Present</p>
+                    <ul>
+                        <li>Designed and built a responsive personal CV webpage using HTML, CSS, and JavaScript.</li>
+                        <li>Implemented light/dark mode, language toggle (English/Greek), and a collapsible experience section.</li>
+                        <li>Deployed on <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank"> GitHub Pages</a> for public access and continuous updates.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <h3>HappyFox 🦊 - A Mental Health Application</h3>
+                    <p>Team Project at SRH University Heidelberg | April 2023 – October 2023</p>
+                    <ul>
+                        <li>Developed a user-friendly mental health app for the Master Course "Fundamentals of UI & UX" at SRH University Heidelberg, aimed at promoting emotional well-being and mental balance through intuitive design.</li>
+                        <li>Deployed on <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank"> GitHub</a> for public access and continuous updates.</li>
+
+                </div>
+                <div class="project-item">
+                    <h3>Raspberry Pi Adblocker & Media Streamer</h3>
+                    <p>Personal Experiment | 2021</p>
+                    <ul>
+                        <li>Configured a Raspberry Pi as an adblocker using Pi-hole to filter network-wide advertisements.</li>
+                        <li>Set up photo and video streaming with Plex, enabling access across devices on the home network.</li>
+                        <li>Installed and managed Linux (Raspbian), optimized for low resource usage and stability.</li>
+                    </ul>
                 </div>
             </section>
         </div>
 
-        <!-- Greek Content -->
+        <!-- Greek Content - Hidden by default -->
         <div class="language-content content gr hidden">
+            <!-- Header Section (Greek) -->
             <header class="header">
                 <h1>ΑΝΔΡΕΑΣ ΦΡΑΓΚΙΑΔΑΚΗΣ</h1>
                 <div class="contact-info">
@@ -446,13 +208,15 @@
                 </a>
             </header>
 
+            <!-- About Me Section (Greek) -->
             <section class="section">
-                <h2><i class="fas fa-user"></i> ΣΧΕΤΙΚΑ ΜΕ ΕΜΕΝΑ </h2>
+                <h2><i class="fas fa-user"></i> ΣΧΕΤΙΚΑ ΜΕ ΕΜΕΝΑ</h2>
                 <p>Αφοσιωμένος και παθιασμένος φοιτητής Πληροφορικής & Μηχανικής Υπολογιστών, με γερά θεμέλια στη Μηχανική Δικτύων, τη Διαχείριση Συστημάτων και τη Διαχείριση Έργων. Αναλυτικός, οργανωμένος και προσανατολισμένος στη λεπτομέρεια, με αποδεδειγμένη ικανότητα να διαχειρίζομαι έργα υποστήριξης και υποδομών Πληροφορικής. Αναγνωρισμένος για την παροχή καινοτόμων λύσεων που επιλύουν τεχνικές προκλήσεις και προάγουν την επιχειρηματική ανάπτυξη. Το υπόβαθρό μου περιλαμβάνει πρακτική εμπειρία στην ανάπτυξη ιστοσελίδων, την τεχνική υποστήριξη και τη διαχείριση έργων, σε συνδυασμό με ισχυρές δεξιότητες επικοινωνίας και επάρκεια σε πολλές γλώσσες.</p>
             </section>
 
+            <!-- Education Section (Greek) -->
             <section class="section">
-                <h2><i class="fas fa-graduation-cap"></i> ΕΚΠΑΙΔΕΥΣΗ </h2>
+                <h2><i class="fas fa-graduation-cap"></i> ΕΚΠΑΙΔΕΥΣΗ</h2>
                 <div class="education-item">
                     <h3>Integrated Master's degree (5yrs), Computer Science</h3>
                     <p>Πανεπιστήμιο Δυτικής Αττικής | Σεπτέμβριος 2019 - Παρόν</p>
@@ -472,8 +236,9 @@
                 </div>
             </section>
 
+            <!-- Experience Section (Greek) -->
             <section class="section">
-                <h2><i class="fas fa-briefcase"></i> ΕΜΠΕΙΡΙΑ </h2>
+                <h2><i class="fas fa-briefcase"></i> ΕΠΑΓΓΕΛΜΑΤΙΚΗ ΕΜΠΕΙΡΙΑ</h2>
                 <div class="experience-item">
                     <h3>Μηχανικός Υποστήριξης Πληροφορικής</h3>
                     <p>OMILIA LTD, Αθήνα, Ελλάδα | Σεπτέμβριος 2024 – Σήμερα</p>
@@ -493,131 +258,110 @@
                         <li>Αντιμετώπιση τεχνικών ζητημάτων και πρόταση σύγχρονων λύσεων</li>
                     </ul>
                 </div>
-                <div class="experience-item">
-                    <h3>Ειδικός Υποστήριξης Πληροφορικής</h3>
-                    <p>ANEMOMYLOI ANDROS AE, Άνδρος, Νότιο Αιγαίο, Ελλάδα | Ιανουάριος 2023 - Φεβρουάριος 2024</p>
-                    <ul>
-                        <li>Παροχή υπηρεσιών απομακρυσμένης υποστήριξης και συμβουλών ΤΠ</li>
-                        <li>Συνδρομή στην υποδομή πληροφορικής και την υποστήριξη εταιρικών έργων</li>
-                        <li>Οργάνωση portfolio εταιρίας & οικονομικών αρχείων</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3>Web Developer</h3>
-                    <p>Freelance, Αθήνα, Ελλάδα | 2020 - Νοέμβριος 2023</p>
-                    <ul>
-                        <li>Ανάπτυξη και λανσάρισμα λειτουργίας δύο πλήρως λειτουργικών ιστότοπων</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3>Τεχνικός Εγκατάστασης και Διαμόρφωσης Δικτυακών Συστημάτων</h3>
-                    <p>Weballdesign, Αθήνα, Ελλάδα | 2020 - Νοέμβριος 2022</p>
-                    <ul>
-                        <li>Ρύθμιση και διαμόρφωση συστημάτων διακομιστών και πελατών σε εκπαιδευτικά ιδρύματα & σχολεία</li>
-                        <li>Ρύθμιση και συντήρηση υποδομών δικτύου, συμπεριλαμβανομένων Routers, Switches και UPS</li>
-                        <li>Διασφάλιση της σωστής συνδεσιμότητα δικτύου και διενέργεια διαγνωστικών δικτύου</li>
-                        <li>Διαμόρφωση ρυθμίσεων BIOS και εκκίνησης δικτύου για υπολογιστές-πελάτες</li>
-                        <li>Παροχή κατάρτισης και υποστήριξης στο προσωπικό για τη συνεχή συντήρηση και διαχείριση</li>
-                        <li>Λεπτομερής καταγραφή διαδικασιών εγκατάστασης και διαμόρφωσης για μελλοντική αναφορά και επίλυση προβλημάτων</li>
-                    </ul>
+                <button id="see-more-btn-gr" class="see-more-btn">Δείτε Περισσότερα <i class="fas fa-arrow-down"></i></button>
+                <div id="more-experience-gr" class="more-experience">
+                    <div class="experience-item">
+                        <h3>Ειδικός Υποστήριξης Πληροφορικής</h3>
+                        <p>ANEMOMYLOI ANDROS AE, Άνδρος, Νότιο Αιγαίο, Ελλάδα | Ιανουάριος 2023 - Φεβρουάριος 2024</p>
+                        <ul>
+                            <li>Παροχή υπηρεσιών απομακρυσμένης υποστήριξης και συμβουλών ΤΠ</li>
+                            <li>Συνδρομή στην υποδομή πληροφορικής και την υποστήριξη εταιρικών έργων</li>
+                            <li>Οργάνωση portfolio εταιρίας & οικονομικών αρχείων</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Web Developer</h3>
+                        <p>Freelance, Αθήνα, Ελλάδα | 2020 - Νοέμβριος 2023</p>
+                        <ul>
+                            <li>Ανάπτυξη και λανσάρισμα λειτουργίας δύο πλήρως λειτουργικών ιστότοπων</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Τεχνικός Εγκατάστασης και Διαμόρφωσης Δικτυακών Συστημάτων</h3>
+                        <p>Weballdesign, Αθήνα, Ελλάδα | 2020 - Νοέμβριος 2022</p>
+                        <ul>
+                            <li>Ρύθμιση και διαμόρφωση συστημάτων διακομιστών και πελατών σε εκπαιδευτικά ιδρύματα & σχολεία</li>
+                            <li>Ρύθμιση και συντήρηση υποδομών δικτύου, συμπεριλαμβανομένων Routers, Switches και UPS</li>
+                            <li>Διασφάλιση της σωστής συνδεσιμότητα δικτύου και διενέργεια διαγνωστικών δικτύου</li>
+                            <li>Διαμόρφωση ρυθμίσεων BIOS και εκκίνησης δικτύου για υπολογιστές-πελάτες</li>
+                            <li>Παροχή κατάρτισης και υποστήριξης στο προσωπικό για τη συνεχή συντήρηση και διαχείριση</li>
+                            <li>Λεπτομερής καταγραφή διαδικασιών εγκατάστασης και διαμόρφωσης για μελλοντική αναφορά και επίλυση προβλημάτων</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
+            <!-- Skills Section (Greek) -->
             <section class="section">
-                <h2><i class="fas fa-tools"></i> ΔΕΞΙΟΤΗΤΕΣ </h2>
+                <h2><i class="fas fa-tools"></i> ΔΕΞΙΟΤΗΤΕΣ</h2>
                 <div class="skills-list">
                     <div class="skill-item">
                         <p>Προηγμένες Δεξιότητες Πληροφορικής</p>
-                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 91%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <p>Διαχείριση Έργων</p>
+                        <p>Ανάπτυξη Ιστοσελίδων</p>
                         <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Εξαιρετική Επικοινωνία (Αγγλικά C2 / Γερμανικά B2)</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
                     </div>
                     <div class="skill-item">
                         <p>Αντιμετώπιση Προβλημάτων</p>
-                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 92%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <p>MS Suite, Βάσεις Δεδομένων, HTML, CSS, UI/UX</p>
+                        <p>Διαχείριση Έργων (Project Management)</p>
                         <div class="skill-bar"><div class="skill-fill" style="--skill-width: 80%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <p>Διαχείριση Δικτύων & Συστημάτων</p>
+                        <p>Συστήματα Ασφαλείας (AV-EDR)</p>
                         <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
                     </div>
-                    <div class="skill-item">
-                        <p>Εξαιρετική Επικοινωνία</p>
-                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <p>Αγγλικά (C2), Γερμανικά (B2)</p>
-                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 95%;"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <p>Πιστοποιητικό UAS EU A1-A3</p>
-                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 100%;"></div></div>
-                    </div>
+                </div>
+            </section>
+            <!-- Personal Projects Section - ((NEEDS Greek)) Showcases past IT-related projects -->
+            <section class="section">
+                <h2><i class="fas fa-laptop-code"></i> Personal Projects</h2>
+                <div class="project-item">
+                    <h3>Portfolio Website</h3>
+                    <p>Self-developed | 2023 – Present</p>
+                    <ul>
+                        <li>Designed and built a responsive personal CV webpage using HTML, CSS, and JavaScript.</li>
+                        <li>Implemented light/dark mode, language toggle (English/Greek), and a collapsible experience section.</li>
+                        <li>Deployed on <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank"> GitHub Pages</a> for public access and continuous updates.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <h3>HappyFox 🦊 - A Mental Health Application</h3>
+                    <p>Team Project at SRH University Heidelberg | April 2023 – October 2023</p>
+                    <ul>
+                        <li>Developed a user-friendly mental health app for the Master Course "Fundamentals of UI & UX" at SRH University Heidelberg, aimed at promoting emotional well-being and mental balance through intuitive design.</li>
+                        <li>Deployed on <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank"> GitHub</a> for public access and continuous updates.</li>
+
+                </div>
+                <div class="project-item">
+                    <h3>Raspberry Pi Adblocker & Media Streamer</h3>
+                    <p>Personal Experiment | 2021</p>
+                    <ul>
+                        <li>Configured a Raspberry Pi as an adblocker using Pi-hole to filter network-wide advertisements.</li>
+                        <li>Set up photo and video streaming with Plex, enabling access across devices on the home network.</li>
+                        <li>Installed and managed Linux (Raspbian), optimized for low resource usage and stability.</li>
+                    </ul>
                 </div>
             </section>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>© 2025 Andreas Fragkiadakis. All rights reserved.</p>
     </footer>
 
-    <script>
-        let currentLang = 'en';
-        let lastScrollTop = 0;
-
-        function toggleLanguage() {
-            const enContent = document.querySelector('.content.en');
-            const grContent = document.querySelector('.content.gr');
-            if (currentLang === 'en') {
-                enContent.classList.add('hidden');
-                enContent.classList.remove('active');
-                grContent.classList.remove('hidden');
-                grContent.classList.add('active');
-                currentLang = 'gr';
-                document.getElementById('language-text').textContent = 'EN/GR';
-            } else {
-                grContent.classList.add('hidden');
-                grContent.classList.remove('active');
-                enContent.classList.remove('hidden');
-                enContent.classList.add('active');
-                currentLang = 'en';
-                document.getElementById('language-text').textContent = 'GR/EN';
-            }
-        }
-
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-                document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-moon" style="color: var(--icon-color);"></i><span>Night Mode</span>';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-sun" style="color: var(--icon-color);"></i><span>Light Mode</span>';
-            }
-        }
-
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                document.querySelector('.theme-toggle').classList.add('hide-on-scroll');
-                document.querySelector('.lang-toggle').classList.add('hide-on-scroll');
-            } else {
-                document.querySelector('.theme-toggle').classList.remove('hide-on-scroll');
-                document.querySelector('.lang-toggle').classList.remove('hide-on-scroll');
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        }, false);
-
-        window.onload = function() {
-            const fills = document.querySelectorAll('.skill-fill');
-            fills.forEach(fill => fill.classList.add('animate'));
-        };
-    </script>
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 </body>
+
 </html>

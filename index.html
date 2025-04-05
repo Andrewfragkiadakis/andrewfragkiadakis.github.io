@@ -8,11 +8,10 @@
     <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
     <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="apple-touch-icon" href="favicons/apple-touch-icon.png">
-    <link rel="manifest" href="favicons/site.webmanifest">
-    <!-- Existing Links -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #f5fbf8;
@@ -85,6 +84,11 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        .hide-on-scroll {
+            transform: translateY(-100%);
+            opacity: 0;
         }
 
         .theme-toggle:hover, .lang-toggle:hover {
@@ -183,6 +187,7 @@
         .section ul li::before {
             content: '\f058';
             font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
             position: absolute;
             left: 0;
             color: var(--accent-color);
@@ -382,7 +387,7 @@
             </section>
 
             <section class="section">
-                <h2><i class="fas fa-tools"></i> Skills</h2>
+                <h2><i class="fas fa-tools"></i> SKILLS </h2>
                 <div class="skills-list">
                     <div class="skill-item">
                         <p>Advanced IT Skills</p>
@@ -420,7 +425,7 @@
             </section>
         </div>
 
-        <!-- Greek Content -->
+        <!-- Greek Content (Placeholder) -->
         <div class="language-content content gr hidden">
             <header class="header">
                 <h1>ΑΝΔΡΕΑΣ ΦΡΑΓΚΙΑΔΑΚΗΣ</h1>
@@ -554,6 +559,7 @@
 
     <script>
         let currentLang = 'en';
+        let lastScrollTop = 0;
 
         function toggleLanguage() {
             const enContent = document.querySelector('.content.en');
@@ -585,6 +591,20 @@
                 document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-sun"></i><span>Day Mode</span>';
             }
         }
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                document.querySelector('.theme-toggle').classList.add('hide-on-scroll');
+                document.querySelector('.lang-toggle').classList.add('hide-on-scroll');
+            } else {
+                // Scrolling up
+                document.querySelector('.theme-toggle').classList.remove('hide-on-scroll');
+                document.querySelector('.lang-toggle').classList.remove('hide-on-scroll');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
 
         window.onload = function() {
             const fills = document.querySelectorAll('.skill-fill');

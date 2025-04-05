@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andreas Fragkiadakis - Professional Portfolio</title>
-    <!-- Favicon Links (Update paths as needed) -->
+    <!-- Favicon Links -->
     <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
     <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="favicons/apple-touch-icon.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #f5fbf8;
@@ -52,43 +54,38 @@
             padding: 1rem;
         }
 
-        .theme-toggle {
+        .theme-toggle, .lang-toggle {
             position: fixed;
-            top: 1rem;
-            right: 1rem;
+            top: 10px;
+            z-index: 1000;
             padding: 0.5rem 1rem;
             background-color: var(--card-bg);
             border: none;
             border-radius: 5px;
             cursor: pointer;
             box-shadow: 0 2px 5px var(--shadow-color);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
             color: var(--text-color);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
+        .theme-toggle {
+            right: 20px;
+        }
+
         .lang-toggle {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: var(--card-bg);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 2px 5px var(--shadow-color);
-            transition: all 0.3s ease;
-            color: var(--text-color);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            left: 20px;
         }
 
         .theme-toggle:hover, .lang-toggle:hover {
             background-color: var(--accent-color);
             color: var(--bg-color);
+        }
+
+        .hide-on-scroll {
+            transform: translateY(-100%);
         }
 
         .content {
@@ -204,14 +201,46 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Footer Styles */
+        .skills-list {
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-item p {
+            margin-bottom: 0.25rem;
+            color: var(--text-color);
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: var(--accent-color);
+            width: 0;
+            transition: width 2s ease-in-out;
+        }
+
+        .skill-fill.animate {
+            width: var(--skill-width);
+        }
+
         footer {
             text-align: center;
             padding: 1rem;
             background-color: var(--card-bg);
             color: var(--text-color);
             margin-top: 2rem;
-            border-top: 1px solid var(--shadow-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px var(--shadow-color);
         }
 
         @keyframes fadeIn {
@@ -264,11 +293,9 @@
     </style>
 </head>
 <body>
-    <!-- Language Switcher with Globe Icon -->
     <button class="lang-toggle" onclick="toggleLanguage()">
         <i class="fas fa-globe" style="color: var(--icon-color);"></i><span id="language-text">GR/EN</span>
     </button>
-    <!-- Theme Toggle Button -->
     <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon" style="color: var(--icon-color);"></i><span>Night Mode</span>
     </button>
@@ -333,10 +360,74 @@
                         <li>Troubleshoot technical issues and propose modern solutions</li>
                     </ul>
                 </div>
+                <div class="experience-item">
+                    <h3>Information Technology Support Specialist</h3>
+                    <p>ANEMOMYLOI ANDROS AE, Andros, Greece | January 2023 – February 2024</p>
+                    <ul>
+                        <li>Delivered remote IT support and consultation services</li>
+                        <li>Supported company projects with IT infrastructure management</li>
+                        <li>Organized work portfolios and financial records</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Web Developer</h3>
+                    <p>Self-Employed, Athens, Greece | 2020 – November 2023</p>
+                    <ul>
+                        <li>Developed and launched two fully operational websites</li>
+                        <li>Self-taught web development technologies and methodologies</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Network Systems Installation & Configuration Technician</h3>
+                    <p>Weballdesign, Athens, Greece | 2020 – November 2022</p>
+                    <ul>
+                        <li>Installed and configured server/client systems in educational institutions</li>
+                        <li>Maintained network infrastructure (switches, routers, UPS) and performed diagnostics</li>
+                        <li>Trained on-site personnel and documented procedures</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-tools"></i> Skills</h2>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <p>Advanced IT Skills</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Project Management</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Troubleshooting</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>MS Suite, Databases, HTML, CSS, UI/UX</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Network & System Administration</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Exceptional Communication</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>English (C2), German (B2)</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>UAS EU A1-A3 Certificate</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 100%;"></div></div>
+                    </div>
+                </div>
             </section>
         </div>
 
-        <!-- Greek Content (Placeholder) -->
+        <!-- Greek Content -->
         <div class="language-content content gr hidden">
             <header class="header">
                 <h1>ΑΝΔΡΕΑΣ ΦΡΑΓΚΙΑΔΑΚΗΣ</h1>
@@ -378,7 +469,7 @@
             </section>
 
             <section class="section">
-                <h2><i class="fas fa-briefcase"></i> ΕΠΑΓΓΕΛΜΑΤΙΚΗ ΕΜΠΕΙΡΙΑ </h2>
+                <h2><i class="fas fa-briefcase"></i> ΕΜΠΕΙΡΙΑ </h2>
                 <div class="experience-item">
                     <h3>Μηχανικός Υποστήριξης Πληροφορικής</h3>
                     <p>OMILIA LTD, Αθήνα, Ελλάδα | Σεπτέμβριος 2024 – Σήμερα</p>
@@ -468,13 +559,13 @@
         </div>
     </div>
 
-    <!-- Footer with Copyright Notice -->
     <footer>
-        <p>&copy; 2025 Andreas Fragkiadakis. All rights reserved.</p>
+        <p>© 2025 Andreas Fragkiadakis. All rights reserved.</p>
     </footer>
 
     <script>
         let currentLang = 'en';
+        let lastScrollTop = 0;
 
         function toggleLanguage() {
             const enContent = document.querySelector('.content.en');
@@ -506,6 +597,23 @@
                 document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-sun" style="color: var(--icon-color);"></i><span>Day Mode</span>';
             }
         }
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                document.querySelector('.theme-toggle').classList.add('hide-on-scroll');
+                document.querySelector('.lang-toggle').classList.add('hide-on-scroll');
+            } else {
+                document.querySelector('.theme-toggle').classList.remove('hide-on-scroll');
+                document.querySelector('.lang-toggle').classList.remove('hide-on-scroll');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+
+        window.onload = function() {
+            const fills = document.querySelectorAll('.skill-fill');
+            fills.forEach(fill => fill.classList.add('animate'));
+        };
     </script>
 </body>
 </html>

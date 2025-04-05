@@ -70,9 +70,36 @@
             gap: 0.5rem;
         }
 
-        .theme-toggle:hover {
+        .lang-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--card-bg);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            transition: all 0.3s ease;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle:hover, .lang-toggle:hover {
             background-color: var(--accent-color);
             color: var(--bg-color);
+        }
+
+        .content {
+            transition: opacity 0.5s ease;
+            opacity: 1;
+        }
+
+        .content.hidden {
+            opacity: 0;
+            display: none;
         }
 
         .header {
@@ -242,153 +269,308 @@
                 gap: 0.5rem;
             }
 
-            .theme-toggle {
+            .theme-toggle, .lang-toggle {
                 padding: 0.5rem;
             }
 
-            .theme-toggle span {
+            .theme-toggle span, .lang-toggle span {
                 display: none;
             }
         }
 
         @media (min-width: 769px) {
-            .theme-toggle span {
+            .theme-toggle span, .lang-toggle span {
                 display: inline;
             }
         }
     </style>
 </head>
 <body>
+    <button class="lang-toggle" onclick="toggleLanguage()">
+        <i class="fas fa-language"></i><span id="language-text">GR/EN</span>
+    </button>
     <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon"></i><span>Night Mode</span>
     </button>
     <div class="container">
-        <header class="header">
-            <h1>ANDREAS FRAGKIADAKIS</h1>
-            <div class="contact-info">
-                <span><i class="fas fa-map-marker-alt"></i> Athens, Greece</span>
-                <a href="tel:+306973453683"><i class="fas fa-phone"></i> (+30) 697-345-3683</a>
-                <a href="mailto:andrewfragkiadakis@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-                <a href="https://linkedin.com/in/andreas-fragkiadakis" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            </div>
-            <a href="https://drive.google.com/uc?export=download&id=1Hqixrm513jVydD0Rk0bUzeoQbJpVGHvh" class="download-btn">
-                <i class="fas fa-download"></i> Download CV
-            </a>
-        </header>
+        <!-- English Content -->
+        <div class="language-content content en active">
+            <header class="header">
+                <h1>ANDREAS FRAGKIADAKIS</h1>
+                <div class="contact-info">
+                    <span><i class="fas fa-map-marker-alt"></i> Athens, Greece</span>
+                    <a href="tel:+306973453683"><i class="fas fa-phone"></i> (+30) 697-345-3683</a>
+                    <a href="mailto:andrewfragkiadakis@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://linkedin.com/in/andreas-fragkiadakis" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+                <a href="https://drive.google.com/uc?export=download&id=1Hqixrm513jVydD0Rk0bUzeoQbJpVGHvh" class="download-btn">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+            </header>
 
-        <section class="section">
-            <h2><i class="fas fa-user"></i> ABOUT ME </h2>
-            <p>Dedicated IT & Computer Engineering student with expertise in networking, system administration, and project management. Analytical and detail-oriented, with hands-on experience in web development, technical support, and infrastructure coordination. Fluent in English (C2) and German (B2), delivering innovative solutions to drive efficiency and growth.</p>
-        </section>
+            <section class="section">
+                <h2><i class="fas fa-user"></i> ABOUT ME </h2>
+                <p>Dedicated IT & Computer Engineering student with expertise in networking, system administration, and project management. Analytical and detail-oriented, with hands-on experience in web development, technical support, and infrastructure coordination. Fluent in English (C2) and German (B2), delivering innovative solutions to drive efficiency and growth.</p>
+            </section>
 
-        <section class="section">
-            <h2><i class="fas fa-graduation-cap"></i> EDUCATION </h2>
-            <div class="education-item">
-                <h3>Integrated Master's Degree (5 Years), Computer Science</h3>
-                <p>University of West Attica, Athens, Greece | September 2019 – Present</p>
-                <ul>
-                    <li>Distinguished member of the university’s Tech Society</li>
-                    <li>Relevant coursework: Advanced Computer Systems, AI, Network Security, Databases, Web Development, Cloud Computing</li>
-                    <li>GPA: 2.98</li>
-                </ul>
-            </div>
-            <div class="education-item">
-                <h3>Master of Science, Applied Computer Science</h3>
-                <p>SRH Hochschule Heidelberg, Germany | April 2023 – October 2023 (ERASMUS+ Semester)</p>
-                <ul>
-                    <li>Awarded presenter and team leader</li>
-                </ul>
-            </div>
-        </section>
+            <section class="section">
+                <h2><i class="fas fa-graduation-cap"></i> EDUCATION </h2>
+                <div class="education-item">
+                    <h3>Integrated Master's Degree (5 Years), Computer Science</h3>
+                    <p>University of West Attica, Athens, Greece | September 2019 – Present</p>
+                    <ul>
+                        <li>Distinguished member of the university’s Tech Society</li>
+                        <li>Relevant coursework: Advanced Computer Systems, AI, Network Security, Databases, Web Development, Cloud Computing</li>
+                        <li>GPA: 2.98</li>
+                    </ul>
+                </div>
+                <div class="education-item">
+                    <h3>Master of Science, Applied Computer Science</h3>
+                    <p>SRH Hochschule Heidelberg, Germany | April 2023 – October 2023 (ERASMUS+ Semester)</p>
+                    <ul>
+                        <li>Awarded presenter and team leader</li>
+                    </ul>
+                </div>
+            </section>
 
-        <section class="section">
-            <h2><i class="fas fa-briefcase"></i> EXPERIENCE </h2>
-            <div class="experience-item">
-                <h3>Information Technology Support Engineer</h3>
-                <p>OMILIA LTD, Athens, Greece | September 2024 – Present</p>
-                <ul>
-                    <li>Provide internal user support and troubleshoot IT infrastructure using tools like Anydesk and RDP</li>
-                    <li>Manage endpoint hardening and implement policies for PCI and SOC2 audits</li>
-                    <li>Oversee cloud and network infrastructure with Jira Cloud, Cisco ISE, Microsoft Active Directory, and ESXi</li>
-                    <li>Administer security and productivity tools including Google Workspace, HID systems, and 1Password</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Information Technology Support & Infrastructure Coordinator</h3>
-                <p>KEEP EAT HEALTHY, Athens, Greece | May 2022 – Present</p>
-                <ul>
-                    <li>Coordinate IT infrastructure installation and maintenance</li>
-                    <li>Troubleshoot technical issues and propose modern solutions</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Information Technology Support Specialist</h3>
-                <p>ANEMOMYLOI ANDROS AE, Andros, Greece | January 2023 – February 2024</p>
-                <ul>
-                    <li>Delivered remote IT support and consultation services</li>
-                    <li>Supported company projects with IT infrastructure management</li>
-                    <li>Organized work portfolios and financial records</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Web Developer</h3>
-                <p>Self-Employed, Athens, Greece | 2020 – November 2023</p>
-                <ul>
-                    <li>Developed and launched two fully operational websites</li>
-                    <li>Self-taught web development technologies and methodologies</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Network Systems Installation & Configuration Technician</h3>
-                <p>Weballdesign, Athens, Greece | 2020 – November 2022</p>
-                <ul>
-                    <li>Installed and configured server/client systems in educational institutions</li>
-                    <li>Maintained network infrastructure (switches, routers, UPS) and performed diagnostics</li>
-                    <li>Trained on-site personnel and documented procedures</li>
-                </ul>
-            </div>
-        </section>
+            <section class="section">
+                <h2><i class="fas fa-briefcase"></i> EXPERIENCE </h2>
+                <div class="experience-item">
+                    <h3>Information Technology Support Engineer</h3>
+                    <p>OMILIA LTD, Athens, Greece | September 2024 – Present</p>
+                    <ul>
+                        <li>Provide internal user support and troubleshoot IT infrastructure using tools like Anydesk and RDP</li>
+                        <li>Manage endpoint hardening and implement policies for PCI and SOC2 audits</li>
+                        <li>Oversee cloud and network infrastructure with Jira Cloud, Cisco ISE, Microsoft Active Directory, and ESXi</li>
+                        <li>Administer security and productivity tools including Google Workspace, HID systems, and 1Password</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Information Technology Support & Infrastructure Coordinator</h3>
+                    <p>KEEP EAT HEALTHY, Athens, Greece | May 2022 – Present</p>
+                    <ul>
+                        <li>Coordinate IT infrastructure installation and maintenance</li>
+                        <li>Troubleshoot technical issues and propose modern solutions</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Information Technology Support Specialist</h3>
+                    <p>ANEMOMYLOI ANDROS AE, Andros, Greece | January 2023 – February 2024</p>
+                    <ul>
+                        <li>Delivered remote IT support and consultation services</li>
+                        <li>Supported company projects with IT infrastructure management</li>
+                        <li>Organized work portfolios and financial records</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Web Developer</h3>
+                    <p>Self-Employed, Athens, Greece | 2020 – November 2023</p>
+                    <ul>
+                        <li>Developed and launched two fully operational websites</li>
+                        <li>Self-taught web development technologies and methodologies</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Network Systems Installation & Configuration Technician</h3>
+                    <p>Weballdesign, Athens, Greece | 2020 – November 2022</p>
+                    <ul>
+                        <li>Installed and configured server/client systems in educational institutions</li>
+                        <li>Maintained network infrastructure (switches, routers, UPS) and performed diagnostics</li>
+                        <li>Trained on-site personnel and documented procedures</li>
+                    </ul>
+                </div>
+            </section>
 
-        <section class="section">
-            <h2><i class="fas fa-tools"></i> Skills</h2>
-            <div class="skills-list">
-                <div class="skill-item">
-                    <p>Advanced IT Skills</p>
-                    <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+            <section class="section">
+                <h2><i class="fas fa-tools"></i> Skills</h2>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <p>Advanced IT Skills</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Project Management</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Troubleshooting</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>MS Suite, Databases, HTML, CSS, UI/UX</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Network & System Administration</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Exceptional Communication</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>English (C2), German (B2)</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>UAS EU A1-A3 Certificate</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 100%;"></div></div>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <p>Project Management</p>
-                    <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
+            </section>
+        </div>
+
+        <!-- Greek Content -->
+        <div class="language-content content gr hidden">
+            <header class="header">
+                <h1>ΑΝΔΡΕΑΣ ΦΡΑΓΚΙΑΔΑΚΗΣ</h1>
+                <div class="contact-info">
+                    <span><i class="fas fa-map-marker-alt"></i> Αθήνα, Ελλάδα</span>
+                    <a href="tel:+306973453683"><i class="fas fa-phone"></i> (+30) 697-345-3683</a>
+                    <a href="mailto:andrewfragkiadakis@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://linkedin.com/in/andreas-fragkiadakis" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
-                <div class="skill-item">
-                    <p>Troubleshooting</p>
-                    <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                <a href="https://drive.google.com/uc?export=download&id=1Hqixrm513jVydD0Rk0bUzeoQbJpVGHvh" class="download-btn">
+                    <i class="fas fa-download"></i> Λήψη CV
+                </a>
+            </header>
+
+            <section class="section">
+                <h2><i class="fas fa-user"></i> ΣΧΕΤΙΚΑ ΜΕ ΕΜΕΝΑ </h2>
+                <p>Αφοσιωμένος και παθιασμένος φοιτητής Πληροφορικής & Μηχανικής Υπολογιστών, με γερά θεμέλια στη Μηχανική Δικτύων, τη Διαχείριση Συστημάτων και τη Διαχείριση Έργων. Αναλυτικός, οργανωμένος και προσανατολισμένος στη λεπτομέρεια, με αποδεδειγμένη ικανότητα να διαχειρίζομαι έργα υποστήριξης και υποδομών Πληροφορικής. Αναγνωρισμένος για την παροχή καινοτόμων λύσεων που επιλύουν τεχνικές προκλήσεις και προάγουν την επιχειρηματική ανάπτυξη. Το υπόβαθρό μου περιλαμβάνει πρακτική εμπειρία στην ανάπτυξη ιστοσελίδων, την τεχνική υποστήριξη και τη διαχείριση έργων, σε συνδυασμό με ισχυρές δεξιότητες επικοινωνίας και επάρκεια σε πολλές γλώσσες.</p>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-graduation-cap"></i> ΕΚΠΑΙΔΕΥΣΗ </h2>
+                <div class="education-item">
+                    <h3>Ολοκληρωμένο Μεταπτυχιακό Δίπλωμα (5 έτη), Επιστήμη Υπολογιστών</h3>
+                    <p>Πανεπιστήμιο Δυτικής Αττικής, Αθήνα, Ελλάδα | Σεπτέμβριος 2019 – Σήμερα</p>
+                    <ul>
+                        <li>Διακεκριμένο μέλος της Tech Society του πανεπιστημίου</li>
+                        <li>Σχετικά μαθήματα: Προηγμένα Συστήματα Υπολογιστών, Τεχνητή Νοημοσύνη, Ασφάλεια Δικτύων, Συστήματα Διαχείρισης Βάσεων Δεδομένων, Μηχανική Λογισμικού, Ανάπτυξη Ιστοσελίδων, Υπολογιστικό Νέφος</li>
+                        <li>GPA: 2.98</li>
+                    </ul>
                 </div>
-                <div class="skill-item">
-                    <p>MS Suite, Databases, HTML, CSS, UI/UX</p>
-                    <div class="skill-bar"><div class="skill-fill" style="--skill-width: 80%;"></div></div>
+                <div class="education-item">
+                    <h3>Μεταπτυχιακό στην Εφαρμοσμένη Επιστήμη Υπολογιστών</h3>
+                    <p>SRH Hochschule Heidelberg, Γερμανία | Απρίλιος 2023 – Οκτώβριος 2023 (Εξάμηνο ERASMUS+)</p>
+                    <ul>
+                        <li>Βραβευμένος παρουσιαστής και αρχηγός ομάδας</li>
+                    </ul>
                 </div>
-                <div class="skill-item">
-                    <p>Network & System Administration</p>
-                    <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-briefcase"></i> ΕΜΠΕΙΡΙΑ </h2>
+                <div class="experience-item">
+                    <h3>Μηχανικός Υποστήριξης Πληροφορικής</h3>
+                    <p>OMILIA LTD, Αθήνα, Ελλάδα | Σεπτέμβριος 2024 – Σήμερα</p>
+                    <ul>
+                        <li>Παροχή εσωτερικής υποστήριξης χρηστών και αντιμετώπιση προβλημάτων υποδομής Πληροφορικής με εργαλεία όπως Anydesk και RDP</li>
+                        <li>Διαχείριση ενίσχυσης τερματικών και εφαρμογή πολιτικών για ελέγχους PCI και SOC2</li>
+                        <li>Επίβλεψη υποδομών cloud και δικτύου με εργαλεία όπως Jira Cloud, Cisco ISE, Microsoft Active Directory και ESXi</li>
+                        <li>Διαχείριση λύσεων ασφάλειας και παραγωγικότητας όπως Google Workspace, συστήματα HID και 1Password</li>
+                    </ul>
                 </div>
-                <div class="skill-item">
-                    <p>Exceptional Communication</p>
-                    <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                <div class="experience-item">
+                    <h3>Συντονιστής Υποστήριξης Πληροφορικής & Υποδομών</h3>
+                    <p>KEEP EAT HEALTHY, Αθήνα, Ελλάδα | Μάιος 2022 – Σήμερα</p>
+                    <ul>
+                        <li>Συντονισμός εγκατάστασης και συντήρησης υποδομών Πληροφορικής</li>
+                        <li>Αντιμετώπιση τεχνικών προβλημάτων και πρόταση σύγχρονων λύσεων</li>
+                    </ul>
                 </div>
-                <div class="skill-item">
-                    <p>English (C2), German (B2)</p>
-                    <div class="skill-bar"><div class="skill-fill" style="--skill-width: 95%;"></div></div>
+                <div class="experience-item">
+                    <h3>Ειδικός Υποστήριξης Πληροφορικής</h3>
+                    <p>ANEMOMYLOI ANDROS AE, Άνδρος, Ελλάδα | Ιανουάριος 2023 – Φεβρουάριος 2024</p>
+                    <ul>
+                        <li>Παροχή απομακρυσμένης υποστήριξης και συμβουλευτικών υπηρεσιών Πληροφορικής</li>
+                        <li>Υποστήριξη έργων της εταιρείας με διαχείριση υποδομών Πληροφορικής</li>
+                        <li>Οργάνωση χαρτοφυλακίων εργασίας και οικονομικών αρχείων</li>
+                    </ul>
                 </div>
-                <div class="skill-item">
-                    <p>UAS EU A1-A3 Certificate</p>
-                    <div class="skill-bar"><div class="skill-fill" style="--skill-width: 100%;"></div></div>
+                <div class="experience-item">
+                    <h3>Προγραμματιστής Ιστοσελίδων</h3>
+                    <p>Αυτοαπασχολούμενος, Αθήνα, Ελλάδα | 2020 – Νοέμβριος 2023</p>
+                    <ul>
+                        <li>Ανέπτυξα και κυκλοφόρησα δύο πλήρως λειτουργικές ιστοσελίδες</li>
+                        <li>Αυτοδίδακτος σε τεχνολογίες και μεθοδολογίες ανάπτυξης ιστοσελίδων</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
+                <div class="experience-item">
+                    <h3>Τεχνικός Εγκατάστασης και Διαμόρφωσης Συστημάτων Δικτύου</h3>
+                    <p>Weballdesign, Αθήνα, Ελλάδα | 2020 – Νοέμβριος 2022</p>
+                    <ul>
+                        <li>Εγκατάσταση και διαμόρφωση συστημάτων διακομιστή/πελάτη σε εκπαιδευτικά ιδρύματα</li>
+                        <li>Συντήρηση υποδομών δικτύου (switches, routers, UPS) και εκτέλεση διαγνωστικών</li>
+                        <li>Εκπαίδευση προσωπικού επί τόπου και τεκμηρίωση διαδικασιών</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-tools"></i> ΔΕΞΙΟΤΗΤΕΣ </h2>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <p>Προηγμένες Δεξιότητες Πληροφορικής</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Διαχείριση Έργων</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Αντιμετώπιση Προβλημάτων</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>MS Suite, Βάσεις Δεδομένων, HTML, CSS, UI/UX</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Διαχείριση Δικτύων & Συστημάτων</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Εξαιρετική Επικοινωνία</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Αγγλικά (C2), Γερμανικά (B2)</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Πιστοποιητικό UAS EU A1-A3</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--skill-width: 100%;"></div></div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
     <script>
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            const enContent = document.querySelector('.content.en');
+            const grContent = document.querySelector('.content.gr');
+            if (currentLang === 'en') {
+                enContent.classList.add('hidden');
+                enContent.classList.remove('active');
+                grContent.classList.remove('hidden');
+                grContent.classList.add('active');
+                currentLang = 'gr';
+                document.getElementById('language-text').textContent = 'EN/GR';
+            } else {
+                grContent.classList.add('hidden');
+                grContent.classList.remove('active');
+                enContent.classList.remove('hidden');
+                enContent.classList.add('active');
+                currentLang = 'en';
+                document.getElementById('language-text').textContent = 'GR/EN';
+            }
+        }
+
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             if (currentTheme === 'dark') {

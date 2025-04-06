@@ -47,17 +47,18 @@ body {
     position: fixed;    /* Stays in place when scrolling */
     top: 10px;          /* Distance from top */
     z-index: 1000;      /* Stays above other elements */
-    padding: 0.5rem 1rem; /* Button padding */
+    padding: 0.5rem 1rem; /* Default Button padding (for desktop) */
     background-color: var(--card-bg); /* Uses theme variable */
     border: none;       /* No border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer;    /* Hand cursor on hover */
     box-shadow: 0 2px 5px var(--shadow-color); /* Shadow effect */
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Smooth changes */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, padding 0.3s ease, font-size 0.3s ease; /* Added padding/font-size to transition */
     color: var(--text-color); /* Text/icon color */
     display: flex;      /* Aligns icon and text */
     align-items: center; /* Vertically centers content */
     gap: 0.5rem;         /* Space between icon and text */
+    font-size: 1rem; /* Default base font size */
 }
 
 .theme-toggle {
@@ -354,15 +355,27 @@ footer {
         gap: 0.5rem;            /* Less space between */
     }
 
+    /* --- START: Mobile Toggle Button Styles --- */
     .theme-toggle, .lang-toggle {
-        padding: 0.5rem;        /* Smaller buttons */
+        /* Increase padding for a larger tap area */
+        padding: 0.8rem;
+        /* Adjust positioning slightly if needed */
+        top: 15px;
     }
 
+    /* Adjust icon size within the buttons on mobile */
+    .theme-toggle i, .lang-toggle i {
+         font-size: 1.2rem; /* Increase icon size */
+    }
+
+    /* Keep text hidden on mobile */
     .theme-toggle span, .lang-toggle span {
         display: none;          /* Hides text on small screens */
     }
+    /* --- END: Mobile Toggle Button Styles --- */
 
-   /* NOTE: The specific #scrollToTopBtn.show rule previously here was removed */
-   /* as the main rules now correctly handle visibility for all screen sizes. */
+
+    /* NOTE: The specific #scrollToTopBtn.show rule previously here was removed */
+    /* as the main rules now correctly handle visibility for all screen sizes. */
 
 }

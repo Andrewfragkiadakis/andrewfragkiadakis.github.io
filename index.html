@@ -9,14 +9,17 @@
     <meta property="og:description" content="IT & Computer Engineering student with expertise in networking, system administration, and web development. Fluent in English and German.">
 
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2DZ0EVXX28"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2DZ0EVXX28');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DZ0EVXX28"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      // MODIFIED CONFIG LINE: Added {'cookie_domain': 'auto'}
+      gtag('config', 'G-2DZ0EVXX28', {
+        'cookie_domain': 'auto'
+      });
+    </script>
 
     <!-- Favicon Links -->
     <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">

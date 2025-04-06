@@ -392,3 +392,128 @@ footer {
     /* as the main rules now correctly handle visibility for all screen sizes. */
 
 }
+
+
+
+
+
+
+/* --- START: Project Showcase Styles --- */
+
+.projects-grid {
+    display: grid;
+    /* Creates columns that automatically fit, each at least 300px wide */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem; /* Space between cards */
+    margin-top: 1.5rem; /* Space below the section title */
+}
+
+.project-item {
+    background-color: var(--card-bg); /* Use card background color from theme */
+    border-radius: 10px; /* Match section border-radius */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Slightly stronger shadow */
+    overflow: hidden; /* Ensures image corners are rounded */
+    display: flex;
+    flex-direction: column; /* Stack image and content vertically */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.project-item:hover {
+    transform: translateY(-5px); /* Lift card slightly on hover */
+    box-shadow: 0 8px 16px var(--shadow-color); /* Increase shadow on hover */
+}
+
+.project-item img {
+    display: block; /* Remove extra space below image */
+    width: 100%;
+    height: 200px; /* Fixed height for image area */
+    object-fit: cover; /* Cover the area, cropping if needed */
+    /* Optional: Add a border or remove if image touches edges */
+    /* border-bottom: 1px solid #eee; */
+}
+
+.project-content {
+    padding: 1rem 1.2rem; /* Padding inside the card below image */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows content to fill space if cards have uneven text */
+}
+
+.project-content h3 {
+    margin-bottom: 0.5rem;
+    color: var(--accent-color); /* Use accent color for title */
+    font-size: 1.3rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.project-tags .tag {
+    background-color: rgba(128, 128, 128, 0.15); /* Subtle grey background */
+    color: var(--text-color); /* Use default text color */
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px; /* Pill shape */
+    font-size: 0.75rem; /* Smaller font */
+    font-weight: 500;
+    white-space: nowrap; /* Prevent tags from breaking lines */
+}
+
+/* Style description paragraph */
+.project-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    flex-grow: 1; /* Pushes links to the bottom */
+    margin-bottom: 1rem; /* Ensure space before links */
+}
+
+.project-links {
+    margin-top: auto; /* Pushes links to the very bottom */
+    padding-top: 0.5rem; /* Space above links if description is short */
+    display: flex;
+    gap: 0.8rem; /* Space between buttons */
+}
+
+.project-links a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.project-links a i {
+    font-size: 1rem; /* Adjust icon size if needed */
+}
+
+
+/* Style primary/secondary buttons differently */
+.project-links .btn-primary { /* Example for a 'Live Demo' button */
+     background-color: var(--accent-color);
+     color: var(--bg-color);
+ }
+
+.project-links .btn-secondary { /* Example for a 'GitHub' button */
+     background-color: #e0e0e0; /* Light grey */
+     color: #333;
+ }
+ [data-theme="dark"] .project-links .btn-secondary { /* Dark mode secondary button */
+      background-color: #444;
+      color: var(--text-color);
+ }
+
+
+.project-links a:hover {
+    opacity: 0.8;
+}
+
+
+/* --- END: Project Showcase Styles --- */

@@ -23,11 +23,11 @@
     </script>
 
     <!-- Favicon Links -->
-    <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
-    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="apple-touch-icon" href="favicons/apple-touch-icon.png">
-    <link rel="manifest" href="favicons/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="images/favicons/favicon.ico">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicons/site.webmanifest">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts for Roboto -->
@@ -190,55 +190,105 @@
                 </div>
             </section>
             <!-- Personal Projects Section - Showcases past IT-related projects -->
-            <section class="section">
-                <h2><i class="fas fa-laptop-code"></i> Personal Projects</h2>
-                <div class="project-item">
-                    <h3>Portfolio Website</h3>
-                    <p>Self-developed | 2023 – Present</p>
-                    <ul>
-                        <li>Designed and built a responsive personal CV webpage using HTML, CSS, and JavaScript.</li>
-                        <li>Implemented light/dark mode, language toggle (English/Greek), and a collapsible experience section.</li>
-                        <li>Deployed on <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank"> GitHub Pages</a> for public access and continuous updates.</li>
-                    </ul>
-                </div>
+            <section id="projects" class="section">  <h2><i class="fas fa-laptop-code"></i> Personal Projects</h2>
 
-                <div class="project-item">
-                    <h3>HappyFox 🦊 - A Mental Health Application</h3>
-                    <p>Team Project at SRH University Heidelberg | April 2023 – October 2023</p>
-                    <ul>
-                        <li>Developed a user-friendly mental health app for the Master Course "Fundamentals of UI & UX" at SRH University Heidelberg, aimed at promoting emotional well-being and mental balance through intuitive design.</li>
-                        <li>Deployed on <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank"> GitHub</a> for public access and continuous updates.</li>
-
-                </div>
-                <div class="project-item">
-                    <h3>Raspberry Pi Adblocker & Media Streamer</h3>
-                    <p>Personal Experiment | 2021</p>
-                    <ul>
-                        <li>Configured a Raspberry Pi as an adblocker using Pi-hole to filter network-wide advertisements.</li>
-                        <li>Set up photo and video streaming with Plex, enabling access across devices on the home network.</li>
-                        <li>Installed and managed Linux (Raspbian), optimized for low resource usage and stability.</li>
-                    </ul>
-                </div>
-                <div class="project-item">
-                    <h3>Research: Do Large Language Models Know What Humans Know?</h3>
-                    <p>Solo Research Project at SRH University Heidelberg | April 2023 – October 2023</p>
-                    <ul>
-                        <li>Conducted a study for "Current Topics in Computer Science" comparing GPT-3 and human performance on the False Belief Task to assess belief attribution in LLMs.</li>
-                        <li>Designed 192 FBT passages and analyzed GPT-3’s accuracy (74.5% surprisal, 73.4% token generation) against 1,156 human participants (82.7% post-filtering).</li>
-                        <li>Published in <em>Cognitive Science</em> (July 2023), cited by 10 publications, exploring if language statistics alone enable theory of mind sensitivity.</li>
-                    </ul>
-                </div>
-                <div class="project-item">
-                    <h3>The Friendly Wheelchair</h3>
-                    <p>International Project Management Project at SRH University Heidelberg | July 2023 – December 2024</p>
-                    <ul>
-                        <li>Developed comprehensive PM plan for an AI-powered self-driving wheelchair concept to enhance patient navigation and streamline registration processes at Heidelberg Clinics.</li>
-                        <li>Created detailed technical specifications for a wheelchair system featuring AI navigation, natural language processing, and integration with hospital patient management systems.</li>
-                        <li>Applied V-Model methodology with Agile/SCRUM practices to outline an 18-month project roadmap with risk analysis, stakeholder management, and milestone planning for a €2 million budget.</li>
-                        <li>Produced a 34-page detailed project report and created a professional presentation (17 slides) to showcase proof of concept and project feasibility to stakeholders.</li>
-                    </ul>
-                </div>
-            </section>
+                <div class="projects-grid">
+            
+                    <div class="project-item">
+                        <img src="images/portfolio-site.png" alt="Portfolio Website Screenshot"> {/* <--- REPLACE image/portfolio-site.png */}
+                        <div class="project-content">
+                            <h3>Portfolio Website</h3>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Responsive Design</span>
+                            </div>
+                            <p>Designed and built this responsive personal CV page. Features light/dark mode, language toggle (EN/GR), and dynamic content sections.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank" class="btn btn-secondary">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                {/* Add a Live Demo link if different from current site */}
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="project-item">
+                        <img src="images/happyfox-app.png" alt="HappyFox App Mockup"> {/* <--- REPLACE images/happyfox-app.png */}
+                        <div class="project-content">
+                            <h3>HappyFox 🦊 - Mental Health App</h3>
+                             <div class="project-tags">
+                                <span class="tag">UI/UX Design</span>
+                                <span class="tag">Team Project</span>
+                                 <span class="tag">SRH Heidelberg</span>
+                                 {/* Add Figma or other tools if used */}
+                            </div>
+                            <p>Developed UI/UX concepts for a user-friendly mental health app aimed at promoting emotional well-being during a Master's course.</p>
+                             <div class="project-links">
+                                <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank" class="btn btn-secondary">
+                                     <i class="fab fa-github"></i> GitHub
+                                </a>
+                                 {/* Add Link to Figma/Prototype if available */}
+                             </div>
+                        </div>
+                    </div>
+            
+                    <div class="project-item">
+                         <img src="images/raspberry-pi.png" alt="Raspberry Pi Project Graphic"> {/* <--- REPLACE images/raspberry-pi.png */}
+                         <div class="project-content">
+                             <h3>Raspberry Pi Adblocker & Streamer</h3>
+                             <div class="project-tags">
+                                 <span class="tag">Raspberry Pi</span>
+                                 <span class="tag">Linux</span>
+                                 <span class="tag">Networking</span>
+                                 <span class="tag">Pi-hole</span>
+                                 <span class="tag">Plex</span>
+                             </div>
+                             <p>Configured a Raspberry Pi for network-wide adblocking (Pi-hole) and media streaming (Plex) on a home network.</p>
+                             <div class="project-links">
+                                 {/* Add GitHub link if code/config is available */}
+                             </div>
+                         </div>
+                    </div>
+            
+                    <div class="project-item">
+                         <img src="images/llm-research.png" alt="LLM Research Concept Graphic"> {/* <--- REPLACE images/llm-research.png */}
+                         <div class="project-content">
+                             <h3>Research: LLMs & Human Knowledge</h3>
+                             <div class="project-tags">
+                                 <span class="tag">Research</span>
+                                 <span class="tag">Cognitive Science</span>
+                                 <span class="tag">LLMs</span>
+                                 <span class="tag">GPT-3</span>
+                                 {/*<span class="tag">Python</span> Add if applicable */}
+                             </div>
+                             <p>Compared GPT-3 and human performance on the False Belief Task to assess belief attribution in LLMs. Published in <i>Cognitive Science</i>.</p>
+                             <div class="project-links">
+                                {/* Link to Publication? */}
+                             </div>
+                         </div>
+                    </div>
+            
+                     <div class="project-item">
+                         <img src="images/friendly-wheelchair.png" alt="Friendly Wheelchair Concept Graphic"> {/* <--- REPLACE images/friendly-wheelchair.png */}
+                         <div class="project-content">
+                             <h3>The Friendly Wheelchair (Concept)</h3>
+                             <div class="project-tags">
+                                 <span class="tag">Project Management</span>
+                                 <span class="tag">AI</span>
+                                 <span class="tag">NLP</span>
+                                 <span class="tag">Agile/SCRUM</span>
+                                 <span class="tag">Healthcare IT</span>
+                             </div>
+                             <p>Developed a detailed project management plan and technical specifications for an AI-powered self-driving wheelchair concept for Heidelberg Clinics.</p>
+                             <div class="project-links">
+                                 {/* Link to Project Report/Presentation if shareable? */}
+                             </div>
+                         </div>
+                     </div>
+            
+                </div> </section>
         </div>
 
         <!-- Greek Content - Hidden by default -->

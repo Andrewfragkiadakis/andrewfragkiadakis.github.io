@@ -358,7 +358,7 @@ footer {
     /* --- START: Mobile Toggle Button Styles --- */
     .theme-toggle, .lang-toggle {
         /* Increase padding for a larger tap area */
-        padding: 0.8rem;
+        padding: 0.5rem;
         /* Adjust positioning slightly if needed */
         top: 15px;
     }

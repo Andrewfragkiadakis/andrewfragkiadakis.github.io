@@ -25,14 +25,15 @@ function toggleLanguage() {
 
 // Function to toggle between light and dark themes
 function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme'); // Get current theme
-    if (currentTheme === 'dark') { // If dark mode is active
-        document.documentElement.removeAttribute('data-theme'); // Switch to light
-        document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-moon" style="color: var(--icon-color);"></i><span>Night Mode</span>'; // Update button
-    } else { // If light mode is active
-        document.documentElement.setAttribute('data-theme', 'dark'); // Switch to dark
-        document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-sun" style="color: var(--icon-color);"></i><span>Light Mode</span>'; // Update button
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-moon" style="color: var(--icon-color);"></i><span>Night Mode</span>';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-sun" style="color: var(--icon-color);"></i><span>Light Mode</span>';
     }
+    updateThemeColorMeta(); // Update meta tag after theme change
 }
 
 // --- START: Updated Scroll to Top Button Logic ---
@@ -112,3 +113,24 @@ document.getElementById('see-more-btn-gr').addEventListener('click', function() 
 });
 
 // Note: Merged the original scroll listener for theme/lang toggles with the new one for the scroll-to-top button.
+
+// Function to update the theme-color meta tag
+function updateThemeColorMeta() {
+    const metaThemeColor = document.querySelector("meta[name=theme-color]");
+    if (metaThemeColor) {
+        // Get the computed background color from the body
+        // .trim() removes potential leading/trailing whitespace
+        const bodyBgColor = getComputedStyle(document.body).getPropertyValue('--bg-color').trim();
+        if (bodyBgColor) {
+             metaThemeColor.setAttribute('content', bodyBgColor);
+             // console.log("Theme color meta updated to:", bodyBgColor); // For debugging
+        }
+    } else {
+        console.warn("Meta tag theme-color not found!");
+    }
+}
+
+// --- ADD THIS LINE AT THE END OF THE SCRIPT ---
+// Set the initial theme color based on the default theme
+document.addEventListener('DOMContentLoaded', updateThemeColorMeta);
+// --- END ADD ---

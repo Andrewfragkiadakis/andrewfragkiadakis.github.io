@@ -286,11 +286,9 @@ footer {
 .more-experience.expanded {
     max-height: 1000px;         /* Expands to show content (adjust if needed) */
 }
-
-/* --- START: Updated Scroll to Top Button Styles --- */
+/* --- START: Updated Scroll to Top Button Styles (Desktop & Mobile) --- */
 
 #scrollToTopBtn {
-    display: none; /* Hidden by default, shown via JS */
     position: fixed; /* Fixed/sticky position */
     bottom: 30px; /* Adjust vertical position from bottom */
     right: 20px; /* Adjust horizontal position from right */
@@ -306,41 +304,36 @@ footer {
     height: 45px; /* Set a fixed height (equal to width for circle) */
     font-size: 18px; /* Adjust icon size if needed */
     box-shadow: 0 2px 5px var(--shadow-color); /* Add a shadow */
-    transition: background-color 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Smooth transitions */
-    opacity: 0; /* Start faded out */
-    visibility: hidden; /* Start hidden */
   
     /* Use flexbox to center the icon perfectly */
     display: flex;
     align-items: center;
     justify-content: center;
+  
+    /* Initial state: hidden */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px); /* Start slightly lower for fade-in effect */
+  
+    /* Transitions for smooth appearance/disappearance and hover */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  #scrollToTopBtn.show {
+    /* Visible state: Fully opaque and in position */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Move to final position */
   }
   
   #scrollToTopBtn:hover {
-    opacity: 0.85; /* Slightly fade on hover for feedback */
-    /* Alt: Use a slightly darker shade if you have one defined, e.g., background-color: var(--accent-color-dark); */
+    /* Add slight scale effect on hover instead of opacity change */
+    transform: scale(1.05);
+    /* You could also slightly darken the background if preferred and possible */
+    /* background-color: darken(var(--accent-color), 5%); */ /* Example if using Sass/Less */
   }
   
-  /* Media query to show the button ONLY on mobile */
-  @media (max-width: 768px) {
-    #scrollToTopBtn.show {
-      display: flex; /* Use flex here too */
-      opacity: 0.8; /* Make it slightly transparent when visible */
-      visibility: visible; /* Make it visible */
-    }
-  }
-  
-  /* Ensure it's always hidden on larger screens */
-  @media (min-width: 769px) {
-      #scrollToTopBtn {
-          display: none !important;
-          opacity: 0 !important;
-          visibility: hidden !important;
-      }
-  }
-  
-  /* --- END: Updated Scroll to Top Button Styles --- */
-
+  /* --- END: Updated Scroll to Top Button Styles (Desktop & Mobile) --- */
 
 /* Media queries for responsiveness - Adjusts styles for different screen sizes */
 @media (max-width: 768px) {

@@ -35,42 +35,51 @@ function toggleTheme() {
     }
 }
 
-// --- START: Scroll to Top Button Logic ---
+// --- START: Updated Scroll to Top Button Logic ---
 // Get the button
 let scrollToTopButton = document.getElementById("scrollToTopBtn");
-const scrollThreshold = 200; // Show button after scrolling 200px
-const mobileMaxWidth = 768; // Corresponds to the CSS @media query
+// Increase the scroll threshold - button appears later
+const scrollThreshold = 600; // Show button after scrolling 600px (increased from 200)
 
-// When the user scrolls down 200px from the top of the document, show the button (only on mobile)
-window.onscroll = function() {scrollFunction()};
-
+// Define the scrollFunction separately to attach/detach if needed,
+// though window.onscroll is simple enough here.
 function scrollFunction() {
-    const isMobile = window.innerWidth <= mobileMaxWidth;
-    if (isMobile && (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold)) {
+    // Check scroll position - Removed the mobile check
+    if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
         scrollToTopButton.classList.add('show');
     } else {
-         // Remove show class regardless of screen size if scroll is less than threshold
-         // Or if it's not mobile
         scrollToTopButton.classList.remove('show');
     }
 
-    // Also handle hiding/showing theme/lang toggles
+    // Also handle hiding/showing theme/lang toggles (existing logic)
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop; // Current scroll position
-    if (scrollTop > lastScrollTop) { // Scrolling down
-        document.querySelector('.theme-toggle').classList.add('hide-on-scroll'); // Hide theme button
-        document.querySelector('.lang-toggle').classList.add('hide-on-scroll');  // Hide language button
-    } else { // Scrolling up
-        document.querySelector('.theme-toggle').classList.remove('hide-on-scroll'); // Show theme button
-        document.querySelector('.lang-toggle').classList.remove('hide-on-scroll');  // Show language button
+    // Use a small buffer to prevent hiding on slight upward scrolls during momentum scrolling
+    const scrollBuffer = 5;
+    if (scrollTop > lastScrollTop + scrollBuffer) { // Scrolling down
+        document.querySelector('.theme-toggle').classList.add('hide-on-scroll');
+        document.querySelector('.lang-toggle').classList.add('hide-on-scroll');
+    } else if (scrollTop < lastScrollTop - scrollBuffer) { // Scrolling up
+        document.querySelector('.theme-toggle').classList.remove('hide-on-scroll');
+        document.querySelector('.lang-toggle').classList.remove('hide-on-scroll');
     }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Update last scroll position
+    // Update lastScrollTop, ensuring it's not negative
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 }
+
+// Assign the function to the scroll event
+window.onscroll = scrollFunction;
+
 
 // When the user clicks on the button, scroll to the top of the document
 scrollToTopButton.addEventListener('click', function() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Standard smooth scroll
+    });
+    // Note: The exact speed/duration of 'smooth' is browser-dependent.
+    // Custom JavaScript animation would be needed for precise control.
 });
-// --- END: Scroll to Top Button Logic ---
+// --- END: Updated Scroll to Top Button Logic ---
 
 // Animate skill bars on page load - Triggers progress bar animation
 window.onload = function() {

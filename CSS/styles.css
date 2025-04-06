@@ -475,7 +475,12 @@ footer {
     margin-top: auto; /* Pushes links to the very bottom */
     padding-top: 0.5rem; /* Space above links if description is short */
     display: flex;
-    gap: 0.8rem; /* Space between buttons */
+    /* --- START CHANGES --- */
+    flex-direction: column; /* Stack items vertically instead of horizontally */
+    align-items: flex-start; /* Align buttons to the start (left) of the container */
+    /* Use align-items: center; if you want the buttons centered horizontally */
+    /* --- END CHANGES --- */
+    gap: 0.5rem; /* Adjust vertical gap between buttons if needed (was 0.8rem) */
 }
 
 .project-links a {
@@ -488,6 +493,8 @@ footer {
     font-size: 0.9rem;
     font-weight: 500;
     transition: opacity 0.3s ease;
+    width: fit-content; /* Ensures button width adjusts to its content */
+
 }
 
 .project-links a i {

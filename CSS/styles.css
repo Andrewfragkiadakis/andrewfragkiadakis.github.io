@@ -1,8 +1,8 @@
 /* Root variables for light theme - Defines default colors for the page */
 :root {
-    --bg-color: #f5fbf8;        /* Background color */
+    --bg-color: #f5fbf8;      /* Background color */
     --text-color: #333333;      /* Text color */
-    --card-bg: #ffffff;         /* Background for cards/sections */
+    --card-bg: #ffffff;       /* Background for cards/sections */
     --accent-color: #266144;    /* Highlight color for buttons and titles */
     --icon-color: #266144;      /* Color for icons */
     --shadow-color: rgba(0, 0, 0, 0.1); /* Shadow color */
@@ -12,7 +12,7 @@
 [data-theme="dark"] {
     --bg-color: #121D16;       /* Dark, greenish background */
     --text-color: #E6F0EA;      /* Soft, off-white text */
-    --card-bg: #202020;        /* Dark surface for cards */
+    --card-bg: #202020;       /* Dark surface for cards */
     --accent-color: #4AA17C;    /* Lightened accent for buttons */
     --icon-color: #6BC7A1;      /* Brighter variant for icons */
     --shadow-color: rgba(0, 0, 0, 0.3); /* Darker shadow */
@@ -37,35 +37,35 @@ body {
 
 /* Container for main content - Centers and limits width of content */
 .container {
-    max-width: 900px;    /* Maximum width of content */
-    margin: 0 auto;      /* Centers the container */
-    padding: 1rem;       /* Inner spacing */
+    max-width: 900px;   /* Maximum width of content */
+    margin: 0 auto;     /* Centers the container */
+    padding: 1rem;      /* Inner spacing */
 }
 
 /* Theme and language toggle buttons - Styles for the buttons at the top */
 .theme-toggle, .lang-toggle {
-    position: fixed;     /* Stays in place when scrolling */
-    top: 10px;           /* Distance from top */
-    z-index: 1000;       /* Stays above other elements */
+    position: fixed;    /* Stays in place when scrolling */
+    top: 10px;          /* Distance from top */
+    z-index: 1000;      /* Stays above other elements */
     padding: 0.5rem 1rem; /* Button padding */
     background-color: var(--card-bg); /* Uses theme variable */
-    border: none;        /* No border */
-    border-radius: 5px;  /* Rounded corners */
-    cursor: pointer;     /* Hand cursor on hover */
+    border: none;       /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;    /* Hand cursor on hover */
     box-shadow: 0 2px 5px var(--shadow-color); /* Shadow effect */
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Smooth changes */
     color: var(--text-color); /* Text/icon color */
-    display: flex;       /* Aligns icon and text */
+    display: flex;      /* Aligns icon and text */
     align-items: center; /* Vertically centers content */
     gap: 0.5rem;         /* Space between icon and text */
 }
 
 .theme-toggle {
-    right: 20px;         /* Positioned on the right */
+    right: 20px;        /* Positioned on the right */
 }
 
 .lang-toggle {
-    left: 20px;          /* Positioned on the left */
+    left: 20px;         /* Positioned on the left */
 }
 
 /* Hover effects for toggle buttons */
@@ -92,13 +92,13 @@ body {
 
 /* Header styling - Styles the top section with your name and contact info */
 .header {
-    text-align: center;    /* Centers content */
-    margin-bottom: 2rem;   /* Space below header */
+    text-align: center;   /* Centers content */
+    margin-bottom: 2rem;  /* Space below header */
     animation: fadeIn 1s ease-in; /* Fade-in animation */
 }
 
 .header h1 {
-    font-size: 3rem;       /* Large title size */
+    font-size: 3rem;      /* Large title size */
     color: var(--accent-color); /* Uses theme variable */
     margin-bottom: 0.5rem; /* Space below title */
 }
@@ -121,7 +121,7 @@ body {
 
 /* Contact information - Styles the contact links/icons */
 .contact-info {
-    display: flex;         /* Aligns items horizontally */
+    display: flex;        /* Aligns items horizontally */
     justify-content: center; /* Centers items */
     gap: 1.5rem;           /* Space between items */
     margin-bottom: 1rem;   /* Space below */
@@ -253,13 +253,69 @@ footer {
 
 @keyframes slideIn {
     from { transform: translateY(-20px); opacity: 0; } /* Starts above and invisible */
-    to { transform: translateY(0); opacity: 1; }       /* Ends in place and visible */
+    to { transform: translateY(0); opacity: 1; }      /* Ends in place and visible */
 }
 
 @keyframes scaleUp {
     from { transform: scale(0.95); opacity: 0; } /* Starts smaller and invisible */
-    to { transform: scale(1); opacity: 1; }       /* Ends full size and visible */
+    to { transform: scale(1); opacity: 1; }      /* Ends full size and visible */
 }
+
+/* See more button styling - Styles the expandable section button */
+.see-more-btn {
+    background-color: var(--accent-color); /* Uses theme variable */
+    color: var(--bg-color);     /* Text color */
+    padding: 0.5rem 1rem;       /* Inner spacing */
+    border: none;               /* No border */
+    border-radius: 5px;         /* Rounded corners */
+    cursor: pointer;            /* Hand cursor */
+    display: flex;              /* Aligns icon and text */
+    align-items: center;        /* Vertically centers */
+    justify-content: center;    /* Horizontally centers */
+    gap: 0.5rem;                /* Space between icon and text */
+    margin: 1rem auto;          /* Centers button */
+}
+
+/* More experience section - Controls hidden content with animation */
+.more-experience {
+    max-height: 0;              /* Hidden by default */
+    overflow: hidden;           /* Hides overflow */
+    transition: max-height 2s ease; /* Smooth expansion */
+}
+
+.more-experience.expanded {
+    max-height: 1000px;         /* Expands to show content (adjust if needed) */
+}
+
+/* --- START: Scroll to Top Button Styles --- */
+
+#scrollToTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button 20px from the bottom */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap other fixed elements */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: var(--accent-color); /* Set a background color */
+  color: var(--bg-color); /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px 12px; /* Some padding */
+  border-radius: 50%; /* Circular shape */
+  font-size: 18px; /* Increase font size */
+  box-shadow: 0 2px 5px var(--shadow-color); /* Add a shadow */
+  transition: background-color 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Smooth transitions */
+  opacity: 0; /* Start hidden */
+  visibility: hidden; /* Start hidden */
+}
+
+#scrollToTopBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+  opacity: 1; /* Ensure full opacity on hover */
+}
+
+/* --- END: Scroll to Top Button Styles --- */
+
 
 /* Media queries for responsiveness - Adjusts styles for different screen sizes */
 @media (max-width: 768px) {
@@ -287,36 +343,21 @@ footer {
     .theme-toggle span, .lang-toggle span {
         display: none;          /* Hides text on small screens */
     }
+
+    /* Show Scroll to Top Button ONLY on mobile */
+    #scrollToTopBtn.show {
+        display: block; /* Make it visible */
+        opacity: 0.8; /* Slightly transparent */
+        visibility: visible;
+    }
 }
 
 @media (min-width: 769px) {
     .theme-toggle span, .lang-toggle span {
         display: inline;        /* Shows text on larger screens */
     }
-}
-
-/* See more button styling - Styles the expandable section button */
-.see-more-btn {
-    background-color: var(--accent-color); /* Uses theme variable */
-    color: var(--bg-color);     /* Text color */
-    padding: 0.5rem 1rem;       /* Inner spacing */
-    border: none;               /* No border */
-    border-radius: 5px;         /* Rounded corners */
-    cursor: pointer;            /* Hand cursor */
-    display: flex;              /* Aligns icon and text */
-    align-items: center;        /* Vertically centers */
-    justify-content: center;    /* Horizontally centers */
-    gap: 0.5rem;                /* Space between icon and text */
-    margin: 1rem auto;          /* Centers button */
-}
-
-/* More experience section - Controls hidden content with animation */
-.more-experience {
-    max-height: 0;              /* Hidden by default */
-    overflow: hidden;           /* Hides overflow */
-    transition: max-height 2s ease; /* Smooth expansion */
-}
-
-.more-experience.expanded {
-    max-height: 1000px;         /* Expands to show content (adjust if needed) */
+    /* Ensure Scroll to Top Button is ALWAYS hidden on larger screens */
+    #scrollToTopBtn {
+        display: none !important;
+    }
 }

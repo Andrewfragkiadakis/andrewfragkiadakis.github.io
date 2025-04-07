@@ -579,10 +579,7 @@ footer#contact {
         padding: 0.5rem;
        /* Optional: adjust padding */
    }
-   /* Other existing mobile adjustments */
-    .header h1 {
-        font-size: 2rem;
-   }
+
     .section {
         padding: 1rem;
    }

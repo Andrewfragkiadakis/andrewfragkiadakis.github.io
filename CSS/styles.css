@@ -210,7 +210,7 @@ body {
     color: var(--accent-color);
     margin-bottom: 1.5rem;
 }
-/* Base Button Style (Consolidated) */
+/* Base Button Style (Consolidated - Common Properties EXCEPT font-size) */
 .btn, .download-btn, .see-more-btn {
     display: inline-flex;
     align-items: center;
@@ -224,11 +224,23 @@ body {
     border-radius: 20px;
     cursor: pointer;
     transition: transform 0.2s ease-out, background-color 0.2s ease-out, opacity 0.2s ease-out, box-shadow 0.2s ease-out;
-    font-size: 1.3rem;
+    /* font-size: 1.3rem; <-- REMOVED FROM HERE */
     font-weight: 500;
     line-height: 1.2;
     box-shadow: 0 2px 5px var(--shadow-color);
 }
+
+/* Font size for general .btn and .see-more-btn */
+.btn, .see-more-btn {
+    font-size: 1rem; /* NEW FONT SIZE */
+}
+
+/* Font size specific to download button */
+.download-btn {
+    font-size: 1.3rem; /* KEEPING THIS FONT SIZE */
+}
+
+/* Specific layout rules (keep as they were) */
 .download-btn {
     margin-top: 1rem;
 }
@@ -236,19 +248,25 @@ body {
     margin: 1rem auto;
     display: flex;
 }
-.project-links a.btn {
+.project-links a.btn { /* Will now inherit font-size: 1rem from .btn */
     width: fit-content;
 }
 .project-links a.btn i {
-    font-size: 1rem;
+    font-size: 1rem; /* Kept original size, relative to parent now 1rem */
 }
-/* Button Hover & Active states */
+
+/* Button Hover & Active states (keep targeting all relevant classes) */
 @media (hover: hover) {
     .btn:hover, .download-btn:hover, .see-more-btn:hover {
         transform: translateY(-3px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         opacity: 0.9;
    }
+}
+.btn:active, .download-btn:active, .see-more-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    opacity: 1;
 }
 .btn:active, .download-btn:active, .see-more-btn:active {
     transform: translateY(1px);
@@ -590,13 +608,7 @@ footer#contact {
     margin-bottom: 1rem;
     flex-wrap: wrap;
 }
-    #scrollToTopBtn {
-        right: 15px;
-        bottom: 20px;
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-   }
+
    /* Adjusted bottom */
     .about-skills-container {
         grid-template-columns: 1fr;

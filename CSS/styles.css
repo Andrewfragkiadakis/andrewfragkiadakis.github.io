@@ -340,8 +340,9 @@ footer#contact { text-align: center; padding: 2rem 1rem; background-color: var(-
     .skills-content { padding-top: 1rem; }
     /* Adjust theme/lang toggle size/position slightly if needed */
     .theme-toggle, .lang-toggle {
-       padding: 0.3rem 0.6rem;
-       font-size: 0.8rem;
+       padding: 0.5rem 0.8rem;
+       font-size: 1rem;
+
     }
 
     /* Add this new rule AT THE END of your CSS file */

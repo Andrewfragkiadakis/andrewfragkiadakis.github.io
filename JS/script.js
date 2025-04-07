@@ -1,49 +1,39 @@
 // Initialize state
 let currentLang = 'en';
 let lastScrollTop = 0;
-// --- Preloader Hiding on Window Load ---
-window.addEventListener('load', () => {
-    // Force scroll to top AFTER everything is loaded
-    window.scrollTo(0, 0);
 
-    const preloader = document.getElementById('preloader');
-    // Don't fade if reduced motion is preferred - hide immediately via CSS
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        if (preloader) {
-             // Add hidden class (starts fade-out transition defined in CSS)
-             preloader.classList.add('hidden');
-        }
-    } else {
-         // If reduced motion, ensure it's hidden (CSS should also handle this)
-         if (preloader) {
-            preloader.style.display = 'none';
-         }
-    }
-    // Reset scroll position again just in case preloader hiding caused a shift
-    // Might be redundant, but safe.
-    setTimeout(() => window.scrollTo(0, 0), 0);
-});
 // --- Language Toggle ---
 function toggleLanguage() {
-    const enContent = document.querySelector('.content.en');
-    const grContent = document.querySelector('.content.gr');
-    const activeContent = (currentLang === 'en') ? enContent : grContent;
-    const inactiveContent = (currentLang === 'en') ? grContent : enContent;
-    // const transitionDuration = 400; // No longer needed for timeout
+    const mainEnContent = document.querySelector('.content.en');
+    const mainGrContent = document.querySelector('.content.gr');
+    const navLangEn = document.querySelectorAll('.nav-item .lang-en');
+    const navLangGr = document.querySelectorAll('.nav-item .lang-gr');
 
-    // Start hiding the currently active content by adding 'hidden' class
-    activeContent.classList.add('hidden');
-    activeContent.classList.remove('active'); // Mark as inactive immediately
+    if (currentLang === 'en') {
+        // Hide English, Show Greek
+        mainEnContent?.classList.add('hidden');
+        mainEnContent?.classList.remove('active');
+        navLangEn.forEach(el => el.classList.add('hidden'));
 
-    // Prepare the inactive content for display
-    inactiveContent.classList.remove('hidden'); // Remove hidden to start fade-in
-    inactiveContent.classList.add('active');    // Mark as active
+        mainGrContent?.classList.remove('hidden');
+        mainGrContent?.classList.add('active');
+        navLangGr.forEach(el => el.classList.remove('hidden'));
 
-    // Update current language and button text
-    currentLang = (currentLang === 'en') ? 'gr' : 'en';
-    document.getElementById('language-text').textContent = (currentLang === 'en') ? 'GR/EN' : 'EN/GR';
+        currentLang = 'gr';
+        document.getElementById('language-text').textContent = 'EN/GR';
+    } else {
+        // Hide Greek, Show English
+        mainGrContent?.classList.add('hidden');
+        mainGrContent?.classList.remove('active');
+        navLangGr.forEach(el => el.classList.add('hidden'));
 
-    // No setTimeout needed as positioning is not changing complexly
+        mainEnContent?.classList.remove('hidden');
+        mainEnContent?.classList.add('active');
+        navLangEn.forEach(el => el.classList.remove('hidden'));
+
+        currentLang = 'en';
+        document.getElementById('language-text').textContent = 'GR/EN';
+    }
 }
 
 
@@ -57,14 +47,13 @@ function toggleTheme() {
         document.documentElement.setAttribute('data-theme', 'dark');
         document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-sun" style="color: var(--icon-color);"></i><span>Light Mode</span>';
     }
-    updateThemeColorMeta(); // Update meta tag after theme change
+    updateThemeColorMeta();
 }
 
 // --- Theme Color Meta Tag Update ---
 function updateThemeColorMeta() {
     const metaThemeColor = document.querySelector("meta[name=theme-color]");
     if (metaThemeColor) {
-        // Get the computed background color from the body
         const bodyBgColor = getComputedStyle(document.body).getPropertyValue('--bg-color').trim();
         if (bodyBgColor) {
              metaThemeColor.setAttribute('content', bodyBgColor);
@@ -76,15 +65,15 @@ function updateThemeColorMeta() {
 
 // --- Scroll Event Handling (Scroll-to-top and Hide Toggles) ---
 let scrollToTopButton = document.getElementById("scrollToTopBtn");
-const scrollThreshold = 600; // Show button after scrolling 600px
-const scrollBuffer = 5; // Buffer for hiding toggles
+const scrollThreshold = 600;
+const scrollBuffer = 5;
 
 function handleScroll() {
     // Scroll-to-top button visibility
     if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
-        scrollToTopButton.classList.add('show');
+        scrollToTopButton?.classList.add('show');
     } else {
-        scrollToTopButton.classList.remove('show');
+        scrollToTopButton?.classList.remove('show');
     }
 
     // Hide/show theme/lang toggles
@@ -92,10 +81,10 @@ function handleScroll() {
     const themeToggle = document.querySelector('.theme-toggle');
     const langToggle = document.querySelector('.lang-toggle');
 
-    if (scrollTop > lastScrollTop + scrollBuffer) { // Scrolling down
+    if (scrollTop > lastScrollTop + scrollBuffer && scrollTop > 100) {
         themeToggle?.classList.add('hide-on-scroll');
         langToggle?.classList.add('hide-on-scroll');
-    } else if (scrollTop < lastScrollTop - scrollBuffer || scrollTop === 0) { // Scrolling up or at top
+    } else if (scrollTop < lastScrollTop - scrollBuffer || scrollTop <= 100) {
         themeToggle?.classList.remove('hide-on-scroll');
         langToggle?.classList.remove('hide-on-scroll');
     }
@@ -105,11 +94,8 @@ function handleScroll() {
 window.addEventListener('scroll', handleScroll);
 
 // Scroll to Top Button Click
-scrollToTopButton.addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Native smooth scroll
-    });
+scrollToTopButton?.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 // --- "See More" Toggle ---
@@ -118,28 +104,20 @@ function setupSeeMoreToggle(buttonId, contentId, moreText, lessText) {
     const content = document.getElementById(contentId);
     if (button && content) {
         button.addEventListener('click', function() {
-            if (content.classList.contains('expanded')) {
-                content.classList.remove('expanded');
-                this.innerHTML = `${moreText} <i class="fas fa-arrow-down"></i>`;
-            } else {
-                content.classList.add('expanded');
-                this.innerHTML = `${lessText} <i class="fas fa-arrow-up"></i>`;
-            }
+            const isExpanded = content.classList.toggle('expanded');
+            this.innerHTML = isExpanded
+                ? `${lessText} <i class="fas fa-arrow-up"></i>`
+                : `${moreText} <i class="fas fa-arrow-down"></i>`;
         });
     }
 }
 
 // --- Button Click Feedback ---
 function addButtonFeedback(buttonElement) {
-    buttonElement.addEventListener('click', () => {
-        // Prevent adding class if reduced motion is preferred
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            return;
-        }
+    buttonElement?.addEventListener('click', () => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         buttonElement.classList.add('button-feedback');
-        setTimeout(() => {
-            buttonElement.classList.remove('button-feedback');
-        }, 200); // Match animation duration
+        setTimeout(() => buttonElement.classList.remove('button-feedback'), 200);
     });
 }
 
@@ -152,64 +130,113 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSeeMoreToggle('see-more-btn-en', 'more-experience-en', 'See More', 'See Less');
     setupSeeMoreToggle('see-more-btn-gr', 'more-experience-gr', 'Δείτε Περισσότερα', 'Δείτε Λιγότερα');
 
-    // --- Intersection Observer for Scroll-Triggered Animations ---
+    // --- Intersection Observer for Scroll-Triggered Fades ---
     const sectionsToFade = document.querySelectorAll('.fade-in-section');
     if ('IntersectionObserver' in window) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% is visible
-        };
-
-        const observerCallback = (entries, observer) => {
+        const fadeObserverOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const fadeObserverCallback = (entries, observer) => {
             entries.forEach(entry => {
-                // Don't animate if reduced motion is preferred
                 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                   entry.target.classList.add('is-visible'); // Make visible immediately
+                   entry.target.classList.add('is-visible');
                    observer.unobserve(entry.target);
                    return;
                 }
-
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Stop observing once visible
+                    observer.unobserve(entry.target);
                 }
             });
         };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-        sectionsToFade.forEach(section => {
-            observer.observe(section);
-        });
+        const fadeObserver = new IntersectionObserver(fadeObserverCallback, fadeObserverOptions);
+        sectionsToFade.forEach(section => fadeObserver.observe(section));
     } else {
-         // Fallback for browsers without IntersectionObserver: make sections visible
          sectionsToFade.forEach(section => section.classList.add('is-visible'));
     }
 
     // --- Add Click Feedback to Buttons ---
     const buttonsToAnimate = document.querySelectorAll(
-        '.download-btn, .see-more-btn, .theme-toggle, .lang-toggle, #scrollToTopBtn, .project-links a'
+        '.btn', '.download-btn', '.see-more-btn',
+        '.theme-toggle', '.lang-toggle', '#scrollToTopBtn'
     );
-    buttonsToAnimate.forEach(button => {
-        addButtonFeedback(button);
-    });
+    buttonsToAnimate.forEach(button => addButtonFeedback(button));
+
+    // --- Sticky Nav & Active Link Highlighting ---
+    const nav = document.getElementById('main-nav');
+    const navLinks = nav?.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('#about-skills, #education, #experience, #projects'); // Sections linked in nav
+
+    if (nav && navLinks && sections.length > 0) {
+
+        // Function to set active link
+        const setActiveLink = (targetId) => {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (targetId && link.getAttribute('href') === `#${targetId}`) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+        // Add click listener for immediate feedback
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Prevent default if needed, though smooth scroll CSS handles it
+                // e.preventDefault();
+                const targetId = link.getAttribute('href')?.substring(1);
+                setActiveLink(targetId);
+                // No need for manual scroll if CSS `scroll-behavior: smooth` is active
+            });
+        });
+
+
+        // Intersection Observer for scroll-based highlighting
+        if ('IntersectionObserver' in window) {
+            const navHeight = nav.offsetHeight;
+             // Adjust margin: Trigger when section top is ~150px below nav top, up to 40% from bottom
+            const rootMargin = `-${navHeight + 50}px 0px -40% 0px`;
+
+            const activeLinkObserverOptions = {
+                root: null,
+                rootMargin: rootMargin,
+                threshold: 0 // Trigger slightly before/after boundary crossing
+            };
+
+             let intersectingSections = {}; // Keep track of currently intersecting sections
+
+            const activeLinkCallback = (entries) => {
+                 entries.forEach(entry => {
+                     intersectingSections[entry.target.id] = entry.isIntersecting;
+                 });
+
+                 let latestVisibleSectionId = null;
+                 // Find the ID of the section closest to the top that is intersecting
+                 for (const section of sections) { // Iterate in document order
+                     if (intersectingSections[section.id]) {
+                         latestVisibleSectionId = section.id;
+                         break; // Found the topmost visible one
+                     }
+                 }
+                 setActiveLink(latestVisibleSectionId); // Highlight the determined section
+            };
+
+            const activeLinkObserver = new IntersectionObserver(activeLinkCallback, activeLinkObserverOptions);
+            sections.forEach(section => activeLinkObserver.observe(section));
+
+        } // End if IntersectionObserver
+
+    } // End if (nav && navLinks...)
 
 }); // End DOMContentLoaded
 
 
 // --- Preloader Hiding on Window Load ---
 window.addEventListener('load', () => {
+    window.scrollTo(0, 0); // Force scroll to top
     const preloader = document.getElementById('preloader');
-    // Don't fade if reduced motion is preferred - hide immediately via CSS
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        if (preloader) {
-             // Add hidden class (starts fade-out transition defined in CSS)
-             preloader.classList.add('hidden');
-        }
+        if (preloader) preloader.classList.add('hidden');
     } else {
-         // If reduced motion, ensure it's hidden (CSS should also handle this)
-         if (preloader) {
-            preloader.style.display = 'none';
-         }
+        if (preloader) preloader.style.display = 'none';
     }
+    setTimeout(() => window.scrollTo(0, 0), 0);
 });

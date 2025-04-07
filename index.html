@@ -41,11 +41,29 @@
         <i class="fas fa-moon" style="color: var(--icon-color);"></i><span>Night Mode</span>
     </button>
 
+    <nav id="main-nav">
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="#about-skills" class="nav-item">
+                    <span class="lang-en">ABOUT</span><span class="lang-gr hidden">ΣΧΕΤΙΚΑ</span>
+                </a>
+                <a href="#education" class="nav-item">
+                     <span class="lang-en">EDUCATION</span><span class="lang-gr hidden">ΕΚΠΑΙΔΕΥΣΗ</span>
+                </a>
+                <a href="#experience" class="nav-item">
+                     <span class="lang-en">EXPERIENCE</span><span class="lang-gr hidden">ΕΜΠΕΙΡΙΑ</span>
+                </a>
+                <a href="#projects" class="nav-item">
+                     <span class="lang-en">PROJECTS</span><span class="lang-gr hidden">PROJECTS</span>
+                 </a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
 
         <div class="language-content content en active">
             <header class="header fade-in-section">
-
                 <h1>ANDREAS FRAGKIADAKIS</h1>
                 <div class="contact-info">
                     <span><i class="fas fa-map-marker-alt"></i> Athens, Greece</span>
@@ -59,7 +77,6 @@
             </header>
 
              <section id="about-skills" class="section fade-in-section">
-
                 <div class="about-skills-container">
                     <div class="about-content">
                         <h2><i class="fas fa-user"></i> ABOUT ME</h2>
@@ -70,37 +87,18 @@
                     <div class="skills-content">
                         <h2><i class="fas fa-tools"></i> CORE SKILLS</h2>
                         <div class="skills-highlights">
-                             <div class="highlight-item">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Network & Systems Administration</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-laptop-code"></i>
-                                <span>Web Development</span>
-                            </div>
-                             <div class="highlight-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Security Systems</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-lightbulb"></i>
-                                <span>Troubleshooting</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-tasks"></i>
-                                <span>Project Management</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-language"></i>
-                                <span> Communication (English C2 / German B2)</span>
-                            </div>
+                             <div class="highlight-item"><i class="fas fa-network-wired"></i><span>Network & Systems Administration</span></div>
+                            <div class="highlight-item"><i class="fas fa-laptop-code"></i><span>Web Development</span></div>
+                             <div class="highlight-item"><i class="fas fa-shield-alt"></i><span>Security Systems</span></div>
+                            <div class="highlight-item"><i class="fas fa-lightbulb"></i><span>Troubleshooting</span></div>
+                            <div class="highlight-item"><i class="fas fa-tasks"></i><span>Project Management</span></div>
+                            <div class="highlight-item"><i class="fas fa-language"></i><span> Communication (English C2 / German B2)</span></div>
                         </div>
                     </div>
                 </div>
              </section>
 
-            <section class="section fade-in-section">
-
+            <section id="education" class="section fade-in-section">
                 <h2><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
                 <div class="education-item">
                     <h3>Integrated Master's Degree (5 Years), Computer Science</h3>
@@ -120,8 +118,7 @@
                 </div>
             </section>
 
-            <section class="section fade-in-section">
-
+            <section id="experience" class="section fade-in-section">
                 <h2><i class="fas fa-briefcase"></i> WORK EXPERIENCE</h2>
                 <div class="experience-item">
                     <h3>Information Technology Support Engineer</h3>
@@ -173,7 +170,6 @@
             </section>
 
             <section id="projects" class="section fade-in-section">
-
                 <h2><i class="fas fa-laptop-code"></i> PERSONAL PROJECTS</h2>
                  <div class="projects-grid">
                     <div class="project-item">
@@ -188,7 +184,7 @@
                             </div>
                             <p>Designed and built this responsive personal CV page. Features light/dark mode, language toggle (EN/GR), and dynamic content sections.</p>
                             <div class="project-links">
-                                <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank" rel="noopener noreferrer" class="btn">
                                     <i class="fab fa-github"></i> GitHub
                                 </a>
                             </div>
@@ -206,12 +202,33 @@
                             </div>
                             <p>Developed UI/UX concepts for a user-friendly mental health app aimed at promoting emotional well-being during a Master's course.</p>
                              <div class="project-links">
-                                <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank" rel="noopener noreferrer" class="btn">
                                      <i class="fab fa-github"></i> GitHub
                                 </a>
                              </div>
                         </div>
                     </div>
+
+                    <div class="project-item">
+                        <img src="images\Schiller Project\schiller.png" alt="Schiller Website Screenshot">
+                        <div class="project-content">
+                            <h3>Schiller Language Centers Website</h3>
+                            <div class="project-tags">
+                                <span class="tag">Wix</span>
+                                <span class="tag">Wix Studio</span>
+                                <span class="tag">Web Development</span>
+                                <span class="tag">Educational</span>
+                            </div>
+                            <p>Developed the website for Schiller Language Centers in Rethymno, Greece (2022) using the Wix platform (Wix Studio). The site showcases courses in English, German, and Educational Robotics for various age groups, highlighting 30 years of experience and success rates. Includes location details and contact form.</p>
+                            <div class="project-links">
+                                <a href="https://www.schiller.edu.gr/" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fas fa-external-link-alt"></i> Live Site
+                                </a>
+                                </div>
+                        </div>
+                    </div>
+
+                    
                     <div class="project-item">
                          <img src="images/Raspberry Pi Adblocker & Streamer/raspberry-pi.png" alt="Raspberry Pi Project Graphic">
                          <div class="project-content">
@@ -224,7 +241,6 @@
                                  <span class="tag">Plex</span>
                              </div>
                              <p>Configured a Raspberry Pi for network-wide adblocking (Pi-hole) and media streaming (Plex) on a home network.</p>
-
                          </div>
                     </div>
                     <div class="project-item">
@@ -241,10 +257,10 @@
                              </div>
                              <p>Compared GPT-3 and human performance on the False Belief Task to assess belief attribution in LLMs. Published in <i>Cognitive Science</i>.</p>
                              <div class="project-links">
-                                 <a href="https://drive.google.com/uc?export=download&id=1w_3VG01O34Q9lNhrvKmhXno2OfptYJYi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" download="Fragkiadakis-Report & Infographic.pdf">
+                                 <a href="https://drive.google.com/uc?export=download&id=1w_3VG01O34Q9lNhrvKmhXno2OfptYJYi" target="_blank" rel="noopener noreferrer" class="btn" download="Fragkiadakis-Report & Infographic.pdf">
                                       <i class="fas fa-download"></i> Download Report
                                  </a>
-                                 <a href="https://onlinelibrary.wiley.com/doi/10.1111/cogs.13309" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                 <a href="https://onlinelibrary.wiley.com/doi/10.1111/cogs.13309" target="_blank" rel="noopener noreferrer" class="btn">
                                       <i class="fas fa-book-open"></i> View Publication
                                  </a>
                              </div>
@@ -263,7 +279,7 @@
                              </div>
                              <p>Developed a detailed project management plan and technical specifications for an AI-powered self-driving wheelchair concept for Heidelberg Clinics.</p>
                              <div class="project-links">
-                                 <a href="https://drive.google.com/uc?export=download&id=18gqsCB6UYA1wMTBFjkw2jBoYMqK_HsZT" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" download="The Friendly Wheelchair - Project Report.pdf">
+                                 <a href="https://drive.google.com/uc?export=download&id=18gqsCB6UYA1wMTBFjkw2jBoYMqK_HsZT" target="_blank" rel="noopener noreferrer" class="btn" download="The Friendly Wheelchair - Project Report.pdf">
                                       <i class="fas fa-download"></i> Download Report
                                  </a>
                              </div>
@@ -271,12 +287,10 @@
                     </div>
                 </div>
             </section>
-
         </div>
 
         <div class="language-content content gr hidden">
              <header class="header fade-in-section">
-
                 <h1>ΑΝΔΡΕΑΣ ΦΡΑΓΚΙΑΔΑΚΗΣ</h1>
                  <div class="contact-info">
                     <span><i class="fas fa-map-marker-alt"></i> Αθήνα, Ελλάδα</span>
@@ -289,8 +303,7 @@
                 </a>
             </header>
 
-             <section id="about-skills-gr" class="section fade-in-section">
-
+             <section id="about-skills" class="section fade-in-section">
                  <div class="about-skills-container">
                     <div class="about-content">
                         <h2><i class="fas fa-user"></i> ΣΧΕΤΙΚΑ ΜΕ ΕΜΕΝΑ</h2>
@@ -302,37 +315,18 @@
                      <div class="skills-content">
                         <h2><i class="fas fa-tools"></i> ΒΑΣΙΚΕΣ ΔΕΞΙΟΤΗΤΕΣ</h2>
                         <div class="skills-highlights">
-                           <div class="highlight-item">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Δικτύωση & Διαχ. Συστημάτων</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-laptop-code"></i>
-                                <span>Ανάπτυξη Web</span>
-                            </div>
-                             <div class="highlight-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Ασφάλεια Συστημάτων</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-lightbulb"></i>
-                                <span>Επίλυση Προβλημάτων</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-tasks"></i>
-                                <span>Διαχείριση Έργων</span>
-                            </div>
-                             <div class="highlight-item">
-                                <i class="fas fa-language"></i>
-                                <span>Επικοινωνία (Αγγλικά C2 / Γερμανικά B2)</span>
-                            </div>
+                           <div class="highlight-item"><i class="fas fa-network-wired"></i><span>Δικτύωση & Διαχ. Συστημάτων</span></div>
+                           <div class="highlight-item"><i class="fas fa-laptop-code"></i><span>Ανάπτυξη Web</span></div>
+                           <div class="highlight-item"><i class="fas fa-shield-alt"></i><span>Ασφάλεια Συστημάτων</span></div>
+                           <div class="highlight-item"><i class="fas fa-lightbulb"></i><span>Επίλυση Προβλημάτων</span></div>
+                           <div class="highlight-item"><i class="fas fa-tasks"></i><span>Διαχείριση Έργων</span></div>
+                           <div class="highlight-item"><i class="fas fa-language"></i><span>Επικοινωνία (Αγγλικά C2 / Γερμανικά B2)</span></div>
                         </div>
                     </div>
                 </div>
              </section>
 
-            <section class="section fade-in-section">
-
+             <section id="education" class="section fade-in-section">
                 <h2><i class="fas fa-graduation-cap"></i> ΕΚΠΑΙΔΕΥΣΗ</h2>
                 <div class="education-item">
                     <h3>Integrated Master's degree (5yrs), Computer Science</h3>
@@ -353,8 +347,7 @@
                 </div>
             </section>
 
-            <section class="section fade-in-section">
-
+            <section id="experience" class="section fade-in-section">
                 <h2><i class="fas fa-briefcase"></i> ΕΠΑΓΓΕΛΜΑΤΙΚΗ ΕΜΠΕΙΡΙΑ</h2>
                 <div class="experience-item">
                     <h3>Μηχανικός Υποστήριξης Πληροφορικής</h3>
@@ -408,8 +401,7 @@
                 </div>
             </section>
 
-            <section id="projects-gr" class="section fade-in-section">
-
+            <section id="projects" class="section fade-in-section">
                 <h2><i class="fas fa-laptop-code"></i> ΠΡΟΣΩΠΙΚΑ PROJECTS</h2>
                  <div class="projects-grid">
                     <div class="project-item">
@@ -424,7 +416,7 @@
                             </div>
                              <p>Σχεδίαση και κατασκευή αυτής της αποκριτικής ιστοσελίδας CV. Διαθέτει light/dark mode, εναλλαγή γλώσσας (EN/GR) και δυναμικές ενότητες περιεχομένου.</p>
                              <div class="project-links">
-                                <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank" rel="noopener noreferrer" class="btn">
                                     <i class="fab fa-github"></i> GitHub
                                 </a>
                             </div>
@@ -442,12 +434,35 @@
                              </div>
                              <p>Ανάπτυξη concepts UI/UX για μια φιλική προς τον χρήστη εφαρμογή ψυχικής υγείας με στόχο την προώθηση της συναισθηματικής ευεξίας κατά τη διάρκεια μεταπτυχιακού μαθήματος.</p>
                               <div class="project-links">
-                                <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank" rel="noopener noreferrer" class="btn">
                                       <i class="fab fa-github"></i> GitHub
                                 </a>
                               </div>
                         </div>
                     </div>
+
+
+                    <div class="project-item">
+                        <img src="images\Schiller Project\schiller.png" alt="Schiller Website Screenshot">
+                        <div class="project-content">
+                            <h3>Ιστοσελίδα Κέντρων Ξένων Γλωσσών Schiller</h3>
+                            <div class="project-tags">
+                                <span class="tag">Wix</span>
+                                <span class="tag">Wix Studio</span>
+                                <span class="tag">Ανάπτυξη Web</span>
+                                <span class="tag">Εκπαιδευτικό</span>
+                            </div>
+                            <p>Ανάπτυξη της ιστοσελίδας για τα Κέντρα Ξένων Γλωσσών Schiller στο Ρέθυμνο (2022) με χρήση της πλατφόρμας Wix (Wix Studio). Η σελίδα παρουσιάζει μαθήματα Αγγλικών, Γερμανικών και Εκπαιδευτικής Ρομποτικής για διάφορες ηλικίες, τονίζοντας την 30ετή εμπειρία και τα ποσοστά επιτυχίας. Περιλαμβάνει πληροφορίες τοποθεσιών και φόρμα επικοινωνίας.</p>
+                            <div class="project-links">
+                                <a href="https://www.schiller.edu.gr/" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fas fa-external-link-alt"></i> Ιστοσελίδα
+                                </a>
+                                </div>
+                        </div>
+                    </div>
+
+
+                    
                     <div class="project-item">
                           <img src="images/Raspberry Pi Adblocker & Streamer/raspberry-pi.png" alt="Raspberry Pi Project Graphic">
                           <div class="project-content">
@@ -478,10 +493,10 @@
                               </div>
                               <p>Σύγκριση απόδοσης GPT-3 και ανθρώπων στο False Belief Task για την αξιολόγηση της απόδοσης πεποιθήσεων σε LLMs. Δημοσιεύθηκε στο <i>Cognitive Science</i>.</p>
                               <div class="project-links">
-                                  <a href="https://drive.google.com/uc?export=download&id=1w_3VG01O34Q9lNhrvKmhXno2OfptYJYi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" download="Fragkiadakis-Report & Infographic.pdf">
+                                  <a href="https://drive.google.com/uc?export=download&id=1w_3VG01O34Q9lNhrvKmhXno2OfptYJYi" target="_blank" rel="noopener noreferrer" class="btn" download="Fragkiadakis-Report & Infographic.pdf">
                                        <i class="fas fa-download"></i> Λήψη Αναφοράς
                                   </a>
-                                  <a href="https://onlinelibrary.wiley.com/doi/10.1111/cogs.13309" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                  <a href="https://onlinelibrary.wiley.com/doi/10.1111/cogs.13309" target="_blank" rel="noopener noreferrer" class="btn">
                                        <i class="fas fa-book-open"></i> Προβολή Δημοσίευσης
                                   </a>
                               </div>
@@ -500,7 +515,7 @@
                               </div>
                               <p>Ανάπτυξη λεπτομερούς σχεδίου διαχείρισης έργου και τεχνικών προδιαγραφών για ένα concept αυτόνομου αναπηρικού αμαξιδίου με AI για τις κλινικές της Χαϊδελβέργης.</p>
                               <div class="project-links">
-                                  <a href="https://drive.google.com/uc?export=download&id=18gqsCB6UYA1wMTBFjkw2jBoYMqK_HsZT" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" download="The Friendly Wheelchair - Project Report.pdf">
+                                  <a href="https://drive.google.com/uc?export=download&id=18gqsCB6UYA1wMTBFjkw2jBoYMqK_HsZT" target="_blank" rel="noopener noreferrer" class="btn" download="The Friendly Wheelchair - Project Report.pdf">
                                        <i class="fas fa-download"></i> Λήψη Αναφοράς
                                   </a>
                               </div>
@@ -509,10 +524,7 @@
                  </div>
             </section>
 
-        </div>
-    </div>
-
-    <footer>
+        </div> </div> <footer id="contact">
         <p>© 2025 Andreas Fragkiadakis. All rights reserved.</p>
     </footer>
 

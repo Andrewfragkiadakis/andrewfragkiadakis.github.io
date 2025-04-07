@@ -558,3 +558,65 @@ footer {
 }
 
 /* --- END: Skills Highlights Styles --- */
+
+/* --- START: Combined About/Skills Section Layout --- */
+
+.about-skills-container {
+    display: grid;
+    /* Adjust column ratio as needed, e.g., 1.5fr 1fr gives more space to text */
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2.5rem; /* Space between the About and Skills columns */
+    align-items: start; /* Align items to the top */
+}
+
+/* Adjust heading margins within the columns if needed */
+.about-content h2,
+.skills-content h2 {
+     margin-bottom: 1rem; /* Ensure consistent heading spacing */
+}
+
+/* Optional: Add some padding to the top of the skills column if needed */
+.skills-content {
+    padding-top: 0rem; /* Example: Add space if heading feels too close to top */
+}
+
+/* Adjust skills highlights margin - remove top margin as it's now inside a container */
+.skills-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem 2rem;
+    margin-top: 1rem; /* Reduced margin-top */
+    text-align: center;
+}
+/* Keep existing .highlight-item styles */
+.highlight-item {
+    text-align: center;
+    flex-basis: 130px;
+}
+.highlight-item i {
+    display: block;
+    font-size: 2.2rem;
+    color: var(--accent-color);
+    margin-bottom: 0.7rem;
+}
+.highlight-item span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    line-height: 1.3;
+}
+
+
+/* --- Responsive Stacking for Combined Section --- */
+@media (max-width: 800px) { /* Adjust breakpoint as needed */
+    .about-skills-container {
+        grid-template-columns: 1fr; /* Stack to a single column */
+        gap: 2rem; /* Adjust vertical gap when stacked */
+    }
+     .skills-content {
+         padding-top: 1rem; /* Add space above skills when stacked */
+     }
+}
+
+/* --- END: Combined About/Skills Section Layout --- */

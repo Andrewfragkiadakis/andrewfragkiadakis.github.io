@@ -9,49 +9,40 @@
     <meta property="og:description" content="IT & Computer Engineering student with expertise in networking, system administration, and web development. Fluent in English and German.">
     <meta name="theme-color" content="#f5fbf8" />
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DZ0EVXX28"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       // MODIFIED CONFIG LINE: Added {'cookie_domain': 'auto'}
       gtag('config', 'G-2DZ0EVXX28', {
         'cookie_domain': 'andrewfragkiadakis.github.io'
     });
     </script>
 
-    <!-- Favicon Links -->
     <link rel="icon" type="image/x-icon" href="images/favicons/favicon.ico">
     <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
     <link rel="apple-touch-icon" href="images/favicons/apple-touch-icon.png">
     <link rel="manifest" href="images/favicons/site.webmanifest">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts for Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- CSS Styles -->
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 
 <body>
-    <!-- Language Toggle Button -->
     <button class="lang-toggle" onclick="toggleLanguage()">
         <i class="fas fa-globe" style="color: var(--icon-color);"></i><span id="language-text">GR/EN</span>
     </button>
 
-    <!-- Theme Toggle Button -->
     <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon" style="color: var(--icon-color);"></i><span>Night Mode</span>
     </button>
 
-    <!-- Main Container -->
     <div class="container">
-        <!-- English Content - Shown by default -->
+
         <div class="language-content content en active">
-            <!-- Header Section -->
             <header class="header">
                 <h1>ANDREAS FRAGKIADAKIS</h1>
                 <div class="contact-info">
@@ -65,16 +56,45 @@
                 </a>
             </header>
 
-            <!-- About Me Section -->
-            <section class="section">
-                <h2><i class="fas fa-user"></i> ABOUT ME</h2>
-                <p>Dedicated <strong>IT & Computer Engineering student</strong> with expertise in networking, system administration, and project management. Analytical and detail-oriented, with hands-on
-                    experience in web development, technical support, and infrastructure coordination. Fluent in <strong>English (C2)</strong> and <strong>German (B2)</strong>, delivering innovative solutions to drive efficiency and growth.</p>
+             <section id="about-skills" class="section">
+                <div class="about-skills-container">
+                    <div class="about-content">
+                        <h2><i class="fas fa-user"></i> ABOUT ME</h2>
+                        <p>Dedicated <strong>IT & Computer Engineering student</strong> with expertise in networking, system administration, and project management. Analytical and detail-oriented, with hands-on
+                            experience in web development, technical support, and infrastructure coordination. Fluent in <strong>English (C2)</strong> and <strong>German (B2)</strong>, delivering innovative solutions to drive efficiency and growth.</p>
+                        <p>Currently writing my <strong>Thesis</strong> titled "<strong>New Hybrid Wireless-Optical Networks (Radio over Fiber) for Fifth Generation (5G) Networks</strong>" and working at <strong>OMILIA LTD</strong> as an <strong>IT Engineer</strong>.</p>
+                    </div>
+                    <div class="skills-content">
+                        <h2><i class="fas fa-tools"></i> CORE SKILLS</h2>
+                        <div class="skills-highlights">
+                             <div class="highlight-item">
+                                <i class="fas fa-network-wired"></i>
+                                <span>Network & Systems Administration</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>Web Development</span>
+                            </div>
+                             <div class="highlight-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Security Systems</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Troubleshooting</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-tasks"></i>
+                                <span>Project Management</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-language"></i>
+                                <span> Communication (English C2 / German B2)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> </section>
 
-                <p>Currently writing my <strong>Thesis</strong> titled "<strong>New Hybrid Wireless-Optical Networks (Radio over Fiber) for Fifth Generation (5G) Networks</strong>" and working at <strong>OMILIA LTD</strong> as an <strong>IT Engineer</strong>.</p>
-            </section>
-
-            <!-- Education Section -->
             <section class="section">
                 <h2><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
                 <div class="education-item">
@@ -95,7 +115,6 @@
                 </div>
             </section>
 
-            <!-- Experience Section -->
             <section class="section">
                 <h2><i class="fas fa-briefcase"></i> WORK EXPERIENCE</h2>
                 <div class="experience-item">
@@ -147,47 +166,11 @@
                 </div>
             </section>
 
-            <!-- Skills Section -->
-           <section id="skills" class="section">
-                <h2><i class="fas fa-tools"></i> Skills</h2>
-
-                <div class="skills-highlights"> 
-                    <div class="highlight-item">
-                        <i class="fas fa-network-wired"></i>
-                        <span>Network & Systems Administration</span>
-                    </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-laptop-code"></i>
-                        <span>Web Development</span>
-                    </div>
-                     <div class="highlight-item">
-                        <i class="fas fa-shield-alt"></i> 
-                        <span>Security Systems</span>
-                    </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <span>Troubleshooting</span> 
-                    </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-tasks"></i> 
-                        <span>Project Management</span>
-                    </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-language"></i>
-                        <span> Communication (English C2 / German B2)</span> 
-                    </div>
-                </div>
-
-            </section>
-
-            
-            <!-- Personal Projects Section - Showcases past IT-related projects -->
-            <section id="projects" class="section">  <h2><i class="fas fa-laptop-code"></i> Personal Projects</h2>
-
-                <div class="projects-grid">
-            
+            <section id="projects" class="section">
+                <h2><i class="fas fa-laptop-code"></i> PERSONAL PROJECTS</h2>
+                 <div class="projects-grid">
                     <div class="project-item">
-                        <img src="images\Porftolio website\portfolio-site.png" alt="Portfolio Website Screenshot"> 
+                        <img src="images\Porftolio website\portfolio-site.png" alt="Portfolio Website Screenshot">
                         <div class="project-content">
                             <h3>Portfolio Website</h3>
                             <div class="project-tags">
@@ -198,15 +181,14 @@
                             </div>
                             <p>Designed and built this responsive personal CV page. Features light/dark mode, language toggle (EN/GR), and dynamic content sections.</p>
                             <div class="project-links">
-                                <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank" class="btn btn-secondary">
+                                <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                                     <i class="fab fa-github"></i> GitHub
                                 </a>
                             </div>
                         </div>
                     </div>
-            
                     <div class="project-item">
-                        <img src="images\happyfox\happyfox-app.png" alt="HappyFox App Mockup">
+                        <img src="images/happyfox/happyfox-app.png" alt="HappyFox App Mockup"> 
                         <div class="project-content">
                             <h3>HappyFox 🦊 - Mental Health App</h3>
                              <div class="project-tags">
@@ -217,15 +199,14 @@
                             </div>
                             <p>Developed UI/UX concepts for a user-friendly mental health app aimed at promoting emotional well-being during a Master's course.</p>
                              <div class="project-links">
-                                <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank" class="btn btn-secondary">
+                                <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                                      <i class="fab fa-github"></i> GitHub
                                 </a>
                              </div>
                         </div>
                     </div>
-            
                     <div class="project-item">
-                         <img src="images\Raspberry Pi Adblocker & Streamer\raspberry-pi.png" alt="Raspberry Pi Project Graphic"> 
+                         <img src="images/Raspberry Pi Adblocker & Streamer/raspberry-pi.png" alt="Raspberry Pi Project Graphic"> 
                          <div class="project-content">
                              <h3>Raspberry Pi Adblocker & Streamer</h3>
                              <div class="project-tags">
@@ -237,12 +218,12 @@
                              </div>
                              <p>Configured a Raspberry Pi for network-wide adblocking (Pi-hole) and media streaming (Plex) on a home network.</p>
                              <div class="project-links">
+                                 {/* No links provided */}
                              </div>
                          </div>
                     </div>
-            
                     <div class="project-item">
-                         <img src="images\Research LLMs & Human Knowledge\llm-research.png" alt="LLM Research Concept Graphic"> 
+                         <img src="images/Research LLMs & Human Knowledge/llm-research.png" alt="LLM Research Concept Graphic"> 
                          <div class="project-content">
                              <h3>Research: LLMs & Human Knowledge</h3>
                              <div class="project-tags">
@@ -250,49 +231,45 @@
                                  <span class="tag">Cognitive Science</span>
                                  <span class="tag">LLMs</span>
                                  <span class="tag">GPT-3</span>
-                                 <span class="tag">Python</span> 
+                                 <span class="tag">Python</span>
                                  <span class="tag">CTCS</span>
                              </div>
                              <p>Compared GPT-3 and human performance on the False Belief Task to assess belief attribution in LLMs. Published in <i>Cognitive Science</i>.</p>
                              <div class="project-links">
-                                <a href="https://drive.google.com/uc?export=download&id=1w_3VG01O34Q9lNhrvKmhXno2OfptYJYi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" download="Fragkiadakis-Report & Infographic.pdf">
-                                    <i class="fas fa-download"></i> Download Comparison Report
-                                </a>
-                                <a href="https://onlinelibrary.wiley.com/doi/10.1111/cogs.13309" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                                    <i class="fas fa-book-open"></i> View Publication
-                                </a>
-                            </div>                            
+                                 <a href="https://drive.google.com/uc?export=download&id=1w_3VG01O34Q9lNhrvKmhXno2OfptYJYi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" download="Fragkiadakis-Report & Infographic.pdf">
+                                      <i class="fas fa-download"></i> Download Report
+                                 </a>
+                                 <a href="https://onlinelibrary.wiley.com/doi/10.1111/cogs.13309" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                      <i class="fas fa-book-open"></i> View Publication
+                                 </a>
+                             </div>
                          </div>
                     </div>
-            
-                    <div class="project-item">
-                        <img src="images\The Friendly Wheelchair (Concept)\friendly-wheelchair.png" alt="Friendly Wheelchair Concept Graphic"> <div class="project-content">
-                            <h3>The Friendly Wheelchair (Concept)</h3>
-                            <div class="project-tags">
-                                <span class="tag">Project Management</span>
-                                <span class="tag">AI</span>
-                                <span class="tag">NLP</span>
-                                <span class="tag">Agile/SCRUM</span>
-                                <span class="tag">Healthcare IT</span>
-                            </div>
-                            <p>Developed a detailed project management plan and technical specifications for an AI-powered self-driving wheelchair concept for Heidelberg Clinics.</p>
-                            <div class="project-links">
-                                <a href="https://drive.google.com/uc?export=download&id=18gqsCB6UYA1wMTBFjkw2jBoYMqK_HsZT" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                                     <i class="fas fa-download"></i> Download Report
-                                </a>
+                     <div class="project-item">
+                         <img src="images/The Friendly Wheelchair (Concept)/friendly-wheelchair.png" alt="Friendly Wheelchair Concept Graphic"> 
+                         <div class="project-content">
+                             <h3>The Friendly Wheelchair (Concept)</h3>
+                             <div class="project-tags">
+                                 <span class="tag">Project Management</span>
+                                 <span class="tag">AI</span>
+                                 <span class="tag">NLP</span>
+                                 <span class="tag">Agile/SCRUM</span>
+                                 <span class="tag">Healthcare IT</span>
                              </div>
-                        </div>
-                   </div>
-            
+                             <p>Developed a detailed project management plan and technical specifications for an AI-powered self-driving wheelchair concept for Heidelberg Clinics.</p>
+                             <div class="project-links">
+                                 <a href="https://drive.google.com/uc?export=download&id=18gqsCB6UYA1wMTBFjkw2jBoYMqK_HsZT" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" download="The Friendly Wheelchair - Project Report.pdf">
+                                      <i class="fas fa-download"></i> Download Report
+                                 </a>
+                             </div>
+                         </div>
+                    </div>
                 </div> </section>
-        </div>
 
-        <!-- Greek Content - Hidden by default -->
-        <div class="language-content content gr hidden">
-            <!-- Header Section (Greek) -->
+        </div><div class="language-content content gr hidden">
             <header class="header">
                 <h1>ΑΝΔΡΕΑΣ ΦΡΑΓΚΙΑΔΑΚΗΣ</h1>
-                <div class="contact-info">
+                 <div class="contact-info">
                     <span><i class="fas fa-map-marker-alt"></i> Αθήνα, Ελλάδα</span>
                     <a href="tel:+306973453683"><i class="fas fa-phone"></i> (+30) 697-345-3683</a>
                     <a href="mailto:andrewfragkiadakis@gmail.com"><i class="fas fa-envelope"></i> Email</a>
@@ -303,17 +280,46 @@
                 </a>
             </header>
 
-            <!-- About Me Section (Greek) -->
-            <section class="section">
-                <h2><i class="fas fa-user"></i> ΣΧΕΤΙΚΑ ΜΕ ΕΜΕΝΑ</h2>
-                <p>Αφοσιωμένος <strong>Φοιτητής Πληροφορικής & Μηχανικής Υπολογιστών</strong> με εξειδίκευση στα Δίκτυα, τη διαχείριση συστημάτων και το project management.  Αναλυτικός και προσηλωμένος στη
-                    λεπτομέρεια, με πρακτική εμπειρία στην ανάπτυξη ιστοσελίδων, τεχνική υποστήριξη και συντονισμό υποδομών. Άπταιστη γνώση της <strong>Αγγλικής (C2)</strong> και <strong>Γερμανικής (B2)</strong>, παρέχοντας καινοτόμες λύσεις για την αύξηση
-                    της αποδοτικότητας και της ανάπτυξης.</p>
+             <section id="about-skills-gr" class="section">
+                 <div class="about-skills-container">
+                    <div class="about-content">
+                        <h2><i class="fas fa-user"></i> ΣΧΕΤΙΚΑ ΜΕ ΕΜΕΝΑ</h2>
+                        <p>Αφοσιωμένος <strong>Φοιτητής Πληροφορικής & Μηχανικής Υπολογιστών</strong> με εξειδίκευση στα Δίκτυα, τη διαχείριση συστημάτων και το project management.  Αναλυτικός και προσηλωμένος στη
+                            λεπτομέρεια, με πρακτική εμπειρία στην ανάπτυξη ιστοσελίδων, τεχνική υποστήριξη και συντονισμό υποδομών. Άπταιστη γνώση της <strong>Αγγλικής (C2)</strong> και <strong>Γερμανικής (B2)</strong>, παρέχοντας καινοτόμες λύσεις για την αύξηση
+                            της αποδοτικότητας και της ανάπτυξης.</p>
+                        <p>Αυτή τη στιγμή γράφω τη <strong>Διπλωματική μου εργασία</strong> με τίτλο "<strong>Νέα Υβριδικά Ασύρματα-Οπτικά Δίκτυα (Radio over Fiber) για Δίκτυα Πέμπτης Γενιάς (5G)</strong>" και εργάζομαι στην <strong>OMILIA LTD</strong> ως <strong>Μηχανικός Υποστήριξης Πληροφορικής</strong>.</p>
+                    </div>
+                     <div class="skills-content">
+                        <h2><i class="fas fa-tools"></i> ΒΑΣΙΚΕΣ ΔΕΞΙΟΤΗΤΕΣ</h2>
+                        <div class="skills-highlights">
+                           <div class="highlight-item">
+                                <i class="fas fa-network-wired"></i>
+                                <span>Δικτύωση & Διαχ. Συστημάτων</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>Ανάπτυξη Web</span>
+                            </div>
+                             <div class="highlight-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Ασφάλεια Συστημάτων</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Επίλυση Προβλημάτων</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-tasks"></i>
+                                <span>Διαχείριση Έργων</span>
+                            </div>
+                             <div class="highlight-item">
+                                <i class="fas fa-language"></i>
+                                <span>Επικοινωνία (Αγγλικά C2 / Γερμανικά B2)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> </section>
 
-                <p>Αυτή τη στιγμή γράφω τη <strong>Διπλωματική μου εργασία</strong> με τίτλο "<strong>Νέα Υβριδικά Ασύρματα-Οπτικά Δίκτυα (Radio over Fiber) για Δίκτυα Πέμπτης Γενιάς (5G)</strong>" και εργάζομαι στην <strong>OMILIA LTD</strong> ως <strong>Μηχανικός Υποστήριξης Πληροφορικής</strong>.</p>
-            </section>
-
-            <!-- Education Section (Greek) -->
             <section class="section">
                 <h2><i class="fas fa-graduation-cap"></i> ΕΚΠΑΙΔΕΥΣΗ</h2>
                 <div class="education-item">
@@ -335,7 +341,6 @@
                 </div>
             </section>
 
-            <!-- Experience Section (Greek) -->
             <section class="section">
                 <h2><i class="fas fa-briefcase"></i> ΕΠΑΓΓΕΛΜΑΤΙΚΗ ΕΜΠΕΙΡΙΑ</h2>
                 <div class="experience-item">
@@ -390,100 +395,113 @@
                 </div>
             </section>
 
-            <!-- Skills Section (Greek) -->
-            <section class="section">
-                <h2><i class="fas fa-tools"></i> ΔΕΞΙΟΤΗΤΕΣ</h2>
-                <div class="skills-list">
-                    <div class="skill-item">
-                        <p>Προηγμένες Δεξιότητες Πληροφορικής</p>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--skill-width: 91%;"></div>
+            <section id="projects-gr" class="section">
+                <h2><i class="fas fa-laptop-code"></i> ΠΡΟΣΩΠΙΚΑ PROJECTS</h2>
+                 <div class="projects-grid">
+                    <div class="project-item">
+                        <img src="images\Porftolio website\portfolio-site.png" alt="Portfolio Website Screenshot"> 
+                        <div class="project-content">
+                            <h3>Προσωπική Ιστοσελίδα Portfolio</h3>
+                             <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Responsive Design</span>
+                            </div>
+                             <p>Σχεδίαση και κατασκευή αυτής της αποκριτικής ιστοσελίδας CV. Διαθέτει light/dark mode, εναλλαγή γλώσσας (EN/GR) και δυναμικές ενότητες περιεχομένου.</p>
+                             <div class="project-links">
+                                <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="skill-item">
-                        <p>Ανάπτυξη Ιστοσελίδων</p>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--skill-width: 85%;"></div>
+                     <div class="project-item">
+                        <img src="images/happyfox/happyfox-app.png" alt="HappyFox App Mockup"> 
+                        <div class="project-content">
+                            <h3>HappyFox 🦊 - Εφαρμογή Ψυχικής Υγείας</h3>
+                              <div class="project-tags">
+                                <span class="tag">UI/UX Design</span>
+                                <span class="tag">Figma</span>
+                                <span class="tag">Team Project</span>
+                                  <span class="tag">SRH Heidelberg</span>
+                             </div>
+                             <p>Ανάπτυξη concepts UI/UX για μια φιλική προς τον χρήστη εφαρμογή ψυχικής υγείας με στόχο την προώθηση της συναισθηματικής ευεξίας κατά τη διάρκεια μεταπτυχιακού μαθήματος.</p>
+                              <div class="project-links">
+                                <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                      <i class="fab fa-github"></i> GitHub
+                                </a>
+                              </div>
                         </div>
                     </div>
-                    <div class="skill-item">
-                        <p>Εξαιρετική Επικοινωνία (Αγγλικά C2 / Γερμανικά B2)</p>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--skill-width: 90%;"></div>
-                        </div>
+                    <div class="project-item">
+                          <img src="images/Raspberry Pi Adblocker & Streamer/raspberry-pi.png" alt="Raspberry Pi Project Graphic"> 
+                          <div class="project-content">
+                              <h3>Raspberry Pi Adblocker & Streamer</h3>
+                              <div class="project-tags">
+                                  <span class="tag">Raspberry Pi</span>
+                                  <span class="tag">Linux</span>
+                                  <span class="tag">Networking</span>
+                                  <span class="tag">Pi-hole</span>
+                                  <span class="tag">Plex</span>
+                              </div>
+                              <p>Διαμόρφωση Raspberry Pi για αποκλεισμό διαφημίσεων σε όλο το δίκτυο (Pi-hole) και streaming πολυμέσων (Plex) σε οικιακό δίκτυο.</p>
+                              <div class="project-links">
+                              </div>
+                          </div>
                     </div>
-                    <div class="skill-item">
-                        <p>Αντιμετώπιση Προβλημάτων</p>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--skill-width: 92%;"></div>
-                        </div>
+                    <div class="project-item">
+                          <img src="images/Research LLMs & Human Knowledge/llm-research.png" alt="LLM Research Concept Graphic"> 
+                          <div class="project-content">
+                              <h3>Έρευνα: LLMs & Ανθρώπινη Γνώση</h3>
+                              <div class="project-tags">
+                                  <span class="tag">Research</span>
+                                  <span class="tag">Cognitive Science</span>
+                                  <span class="tag">LLMs</span>
+                                  <span class="tag">GPT-3</span>
+                                  <span class="tag">Python</span>
+                                  <span class="tag">CTCS</span>
+                              </div>
+                              <p>Σύγκριση απόδοσης GPT-3 και ανθρώπων στο False Belief Task για την αξιολόγηση της απόδοσης πεποιθήσεων σε LLMs. Δημοσιεύθηκε στο <i>Cognitive Science</i>.</p>
+                              <div class="project-links">
+                                  <a href="https://drive.google.com/uc?export=download&id=1w_3VG01O34Q9lNhrvKmhXno2OfptYJYi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" download="Fragkiadakis-Report & Infographic.pdf">
+                                       <i class="fas fa-download"></i> Λήψη Αναφοράς
+                                  </a>
+                                  <a href="https://onlinelibrary.wiley.com/doi/10.1111/cogs.13309" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                       <i class="fas fa-book-open"></i> Προβολή Δημοσίευσης
+                                  </a>
+                              </div>
+                          </div>
                     </div>
-                    <div class="skill-item">
-                        <p>Διαχείριση Έργων (Project Management)</p>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--skill-width: 80%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <p>Συστήματα Ασφαλείας (AV-EDR)</p>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--skill-width: 85%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Personal Projects Section - ((NEEDS Greek)) Showcases past IT-related projects -->
-            <section class="section">
-                <h2><i class="fas fa-laptop-code"></i> Personal Projects</h2>
-                <div class="project-item">
-                    <h3>Portfolio Website</h3>
-                    <p>Self-developed | 2023 – Present</p>
-                    <ul>
-                        <li>Designed and built a responsive personal CV webpage using HTML, CSS, and JavaScript.</li>
-                        <li>Implemented light/dark mode, language toggle (English/Greek), and a collapsible experience section.</li>
-                        <li>Deployed on <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank"> GitHub Pages</a> for public access and continuous updates.</li>
-                    </ul>
-                </div>
+                      <div class="project-item">
+                          <img src="images/The Friendly Wheelchair (Concept)/friendly-wheelchair.png" alt="Friendly Wheelchair Concept Graphic"> 
+                          <div class="project-content">
+                              <h3>The Friendly Wheelchair (Concept)</h3>
+                              <div class="project-tags">
+                                  <span class="tag">Project Management</span>
+                                  <span class="tag">AI</span>
+                                  <span class="tag">NLP</span>
+                                  <span class="tag">Agile/SCRUM</span>
+                                  <span class="tag">Healthcare IT</span>
+                              </div>
+                              <p>Ανάπτυξη λεπτομερούς σχεδίου διαχείρισης έργου και τεχνικών προδιαγραφών για ένα concept αυτόνομου αναπηρικού αμαξιδίου με AI για τις κλινικές της Χαϊδελβέργης.</p>
+                              <div class="project-links">
+                                  <a href="https://drive.google.com/uc?export=download&id=18gqsCB6UYA1wMTBFjkw2jBoYMqK_HsZT" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" download="The Friendly Wheelchair - Project Report.pdf">
+                                       <i class="fas fa-download"></i> Λήψη Αναφοράς
+                                  </a>
+                              </div>
+                          </div>
+                     </div>
+                 </div> </section>
 
-                <div class="project-item">
-                    <h3>HappyFox 🦊 - A Mental Health Application</h3>
-                    <p>Team Project at SRH University Heidelberg | April 2023 – October 2023</p>
-                    <ul>
-                        <li>Developed a user-friendly mental health app for the Master Course "Fundamentals of UI & UX" at SRH University Heidelberg, aimed at promoting emotional well-being and mental balance through intuitive design.</li>
-                        <li>Deployed on <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank"> GitHub</a> for public access and continuous updates.</li>
-
-                </div>
-                <div class="project-item">
-                    <h3>Raspberry Pi Adblocker & Media Streamer</h3>
-                    <p>Personal Experiment | 2021</p>
-                    <ul>
-                        <li>Configured a Raspberry Pi as an adblocker using Pi-hole to filter network-wide advertisements.</li>
-                        <li>Set up photo and video streaming with Plex, enabling access across devices on the home network.</li>
-                        <li>Installed and managed Linux (Raspbian), optimized for low resource usage and stability.</li>
-                    </ul>
-                </div>
-                <div class="project-item"></div>
-                <h3>Research: Do Large Language Models Know What Humans Know?</h3>
-                <p>Solo Research Project at SRH University Heidelberg | April 2023 – October 2023</p>
-                <ul>
-                    <li>Conducted a study for "Current Topics in Computer Science" comparing GPT-3 and human performance on the False Belief Task to assess belief attribution in LLMs.</li>
-                    <li>Designed 192 FBT passages and analyzed GPT-3’s accuracy (74.5% surprisal, 73.4% token generation) against 1,156 human participants (82.7% post-filtering).</li>
-                    <li>Published in <em>Cognitive Science</em> (July 2023), cited by 10 publications, exploring if language statistics alone enable theory of mind sensitivity.</li>
-                </ul>
-        </div>
-        </section>
-    </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
+        </div></div> <footer>
         <p>© 2025 Andreas Fragkiadakis. All rights reserved.</p>
     </footer>
+
     <button id="scrollToTopBtn" title="Go to top">
         <i class="fas fa-arrow-up"></i>
     </button>
-    <!-- JavaScript -->
+
     <script src="JS/script.js"></script>
 </body>
-
 </html>

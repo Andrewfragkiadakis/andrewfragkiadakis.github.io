@@ -14,8 +14,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      // MODIFIED CONFIG LINE: Added {'cookie_domain': 'auto'}
       gtag('config', 'G-2DZ0EVXX28', {
         'cookie_domain': 'andrewfragkiadakis.github.io'
     });
@@ -32,6 +30,9 @@
 </head>
 
 <body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
     <button class="lang-toggle" onclick="toggleLanguage()">
         <i class="fas fa-globe" style="color: var(--icon-color);"></i><span id="language-text">GR/EN</span>
     </button>
@@ -43,7 +44,8 @@
     <div class="container">
 
         <div class="language-content content en active">
-            <header class="header">
+            <header class="header fade-in-section">
+
                 <h1>ANDREAS FRAGKIADAKIS</h1>
                 <div class="contact-info">
                     <span><i class="fas fa-map-marker-alt"></i> Athens, Greece</span>
@@ -56,7 +58,8 @@
                 </a>
             </header>
 
-             <section id="about-skills" class="section">
+             <section id="about-skills" class="section fade-in-section">
+
                 <div class="about-skills-container">
                     <div class="about-content">
                         <h2><i class="fas fa-user"></i> ABOUT ME</h2>
@@ -93,9 +96,11 @@
                             </div>
                         </div>
                     </div>
-                </div> </section>
+                </div>
+             </section>
 
-            <section class="section">
+            <section class="section fade-in-section">
+
                 <h2><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
                 <div class="education-item">
                     <h3>Integrated Master's Degree (5 Years), Computer Science</h3>
@@ -115,7 +120,8 @@
                 </div>
             </section>
 
-            <section class="section">
+            <section class="section fade-in-section">
+
                 <h2><i class="fas fa-briefcase"></i> WORK EXPERIENCE</h2>
                 <div class="experience-item">
                     <h3>Information Technology Support Engineer</h3>
@@ -166,7 +172,8 @@
                 </div>
             </section>
 
-            <section id="projects" class="section">
+            <section id="projects" class="section fade-in-section">
+
                 <h2><i class="fas fa-laptop-code"></i> PERSONAL PROJECTS</h2>
                  <div class="projects-grid">
                     <div class="project-item">
@@ -188,7 +195,7 @@
                         </div>
                     </div>
                     <div class="project-item">
-                        <img src="images/happyfox/happyfox-app.png" alt="HappyFox App Mockup"> 
+                        <img src="images/happyfox/happyfox-app.png" alt="HappyFox App Mockup">
                         <div class="project-content">
                             <h3>HappyFox 🦊 - Mental Health App</h3>
                              <div class="project-tags">
@@ -206,7 +213,7 @@
                         </div>
                     </div>
                     <div class="project-item">
-                         <img src="images/Raspberry Pi Adblocker & Streamer/raspberry-pi.png" alt="Raspberry Pi Project Graphic"> 
+                         <img src="images/Raspberry Pi Adblocker & Streamer/raspberry-pi.png" alt="Raspberry Pi Project Graphic">
                          <div class="project-content">
                              <h3>Raspberry Pi Adblocker & Streamer</h3>
                              <div class="project-tags">
@@ -217,11 +224,11 @@
                                  <span class="tag">Plex</span>
                              </div>
                              <p>Configured a Raspberry Pi for network-wide adblocking (Pi-hole) and media streaming (Plex) on a home network.</p>
-                             
+
                          </div>
                     </div>
                     <div class="project-item">
-                         <img src="images/Research LLMs & Human Knowledge/llm-research.png" alt="LLM Research Concept Graphic"> 
+                         <img src="images/Research LLMs & Human Knowledge/llm-research.png" alt="LLM Research Concept Graphic">
                          <div class="project-content">
                              <h3>Research: LLMs & Human Knowledge</h3>
                              <div class="project-tags">
@@ -244,7 +251,7 @@
                          </div>
                     </div>
                      <div class="project-item">
-                         <img src="images/The Friendly Wheelchair (Concept)/friendly-wheelchair.png" alt="Friendly Wheelchair Concept Graphic"> 
+                         <img src="images/The Friendly Wheelchair (Concept)/friendly-wheelchair.png" alt="Friendly Wheelchair Concept Graphic">
                          <div class="project-content">
                              <h3>The Friendly Wheelchair (Concept)</h3>
                              <div class="project-tags">
@@ -262,10 +269,14 @@
                              </div>
                          </div>
                     </div>
-                </div> </section>
+                </div>
+            </section>
 
-        </div><div class="language-content content gr hidden">
-            <header class="header">
+        </div>
+
+        <div class="language-content content gr hidden">
+             <header class="header fade-in-section">
+
                 <h1>ΑΝΔΡΕΑΣ ΦΡΑΓΚΙΑΔΑΚΗΣ</h1>
                  <div class="contact-info">
                     <span><i class="fas fa-map-marker-alt"></i> Αθήνα, Ελλάδα</span>
@@ -278,7 +289,8 @@
                 </a>
             </header>
 
-             <section id="about-skills-gr" class="section">
+             <section id="about-skills-gr" class="section fade-in-section">
+
                  <div class="about-skills-container">
                     <div class="about-content">
                         <h2><i class="fas fa-user"></i> ΣΧΕΤΙΚΑ ΜΕ ΕΜΕΝΑ</h2>
@@ -316,9 +328,11 @@
                             </div>
                         </div>
                     </div>
-                </div> </section>
+                </div>
+             </section>
 
-            <section class="section">
+            <section class="section fade-in-section">
+
                 <h2><i class="fas fa-graduation-cap"></i> ΕΚΠΑΙΔΕΥΣΗ</h2>
                 <div class="education-item">
                     <h3>Integrated Master's degree (5yrs), Computer Science</h3>
@@ -339,7 +353,8 @@
                 </div>
             </section>
 
-            <section class="section">
+            <section class="section fade-in-section">
+
                 <h2><i class="fas fa-briefcase"></i> ΕΠΑΓΓΕΛΜΑΤΙΚΗ ΕΜΠΕΙΡΙΑ</h2>
                 <div class="experience-item">
                     <h3>Μηχανικός Υποστήριξης Πληροφορικής</h3>
@@ -393,11 +408,12 @@
                 </div>
             </section>
 
-            <section id="projects-gr" class="section">
+            <section id="projects-gr" class="section fade-in-section">
+
                 <h2><i class="fas fa-laptop-code"></i> ΠΡΟΣΩΠΙΚΑ PROJECTS</h2>
                  <div class="projects-grid">
                     <div class="project-item">
-                        <img src="images\Porftolio website\portfolio-site.png" alt="Portfolio Website Screenshot"> 
+                        <img src="images\Porftolio website\portfolio-site.png" alt="Portfolio Website Screenshot">
                         <div class="project-content">
                             <h3>Προσωπική Ιστοσελίδα Portfolio</h3>
                              <div class="project-tags">
@@ -415,7 +431,7 @@
                         </div>
                     </div>
                      <div class="project-item">
-                        <img src="images/happyfox/happyfox-app.png" alt="HappyFox App Mockup"> 
+                        <img src="images/happyfox/happyfox-app.png" alt="HappyFox App Mockup">
                         <div class="project-content">
                             <h3>HappyFox 🦊 - Εφαρμογή Ψυχικής Υγείας</h3>
                               <div class="project-tags">
@@ -433,7 +449,7 @@
                         </div>
                     </div>
                     <div class="project-item">
-                          <img src="images/Raspberry Pi Adblocker & Streamer/raspberry-pi.png" alt="Raspberry Pi Project Graphic"> 
+                          <img src="images/Raspberry Pi Adblocker & Streamer/raspberry-pi.png" alt="Raspberry Pi Project Graphic">
                           <div class="project-content">
                               <h3>Raspberry Pi Adblocker & Streamer</h3>
                               <div class="project-tags">
@@ -449,7 +465,7 @@
                           </div>
                     </div>
                     <div class="project-item">
-                          <img src="images/Research LLMs & Human Knowledge/llm-research.png" alt="LLM Research Concept Graphic"> 
+                          <img src="images/Research LLMs & Human Knowledge/llm-research.png" alt="LLM Research Concept Graphic">
                           <div class="project-content">
                               <h3>Έρευνα: LLMs & Ανθρώπινη Γνώση</h3>
                               <div class="project-tags">
@@ -472,7 +488,7 @@
                           </div>
                     </div>
                       <div class="project-item">
-                          <img src="images/The Friendly Wheelchair (Concept)/friendly-wheelchair.png" alt="Friendly Wheelchair Concept Graphic"> 
+                          <img src="images/The Friendly Wheelchair (Concept)/friendly-wheelchair.png" alt="Friendly Wheelchair Concept Graphic">
                           <div class="project-content">
                               <h3>The Friendly Wheelchair (Concept)</h3>
                               <div class="project-tags">
@@ -490,9 +506,13 @@
                               </div>
                           </div>
                      </div>
-                 </div> </section>
+                 </div>
+            </section>
 
-        </div></div> <footer>
+        </div>
+    </div>
+
+    <footer>
         <p>© 2025 Andreas Fragkiadakis. All rights reserved.</p>
     </footer>
 

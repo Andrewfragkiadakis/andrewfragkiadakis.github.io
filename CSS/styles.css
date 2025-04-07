@@ -26,13 +26,18 @@
     font-family: 'Roboto', sans-serif; /* Default font */
 }
 
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Body styling - Sets the overall page appearance */
 body {
     background-color: var(--bg-color); /* Uses theme variable */
     color: var(--text-color);          /* Uses theme variable */
     line-height: 1.6;                  /* Spacing between lines */
     padding: 1rem;                     /* Space around the page */
-    transition: all 0.3s ease;         /* Smooth theme transitions */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transitions */
 }
 
 /* Container for main content - Centers and limits width of content */
@@ -40,6 +45,8 @@ body {
     max-width: 900px;   /* Maximum width of content */
     margin: 0 auto;     /* Centers the container */
     padding: 1rem;      /* Inner spacing */
+    position: relative; /* Needed for potential child absolute positioning needs */
+    /* overflow-x: hidden; /* Removed */
 }
 
 /* Theme and language toggle buttons - Styles for the buttons at the top */
@@ -50,10 +57,11 @@ body {
     padding: 0.5rem 1rem; /* Default Button padding (for desktop) */
     background-color: var(--card-bg); /* Uses theme variable */
     border: none;       /* No border */
-    border-radius: 5px; /* Rounded corners */
+    /* Make border-radius match .download-btn */
+    border-radius: 12px; 
     cursor: pointer;    /* Hand cursor on hover */
     box-shadow: 0 2px 5px var(--shadow-color); /* Shadow effect */
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, padding 0.3s ease, font-size 0.3s ease; /* Ensure transform is included */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, padding 0.3s ease, font-size 0.3s ease, box-shadow 0.2s ease-out; /* Unified transitions */
     color: var(--text-color); /* Text/icon color */
     display: flex;      /* Aligns icon and text */
     align-items: center; /* Vertically centers content */
@@ -70,21 +78,19 @@ body {
 }
 
 /* Interaction effects for toggle buttons */
-
-/* Active state (during click/tap) - Apply to all devices */
 .theme-toggle:active, .lang-toggle:active {
     background-color: var(--accent-color); /* Green background */
     color: var(--bg-color);                /* Contrasting icon color */
-    /* Optional: Add slight press effect */
-    transform: scale(0.95);
+    transform: scale(0.95) translateY(1px); /* Combined effect */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Hover state - Apply only to devices that support true hover (like desktops) */
 @media (hover: hover) {
     .theme-toggle:hover, .lang-toggle:hover {
         background-color: var(--accent-color); /* Green background */
         color: var(--bg-color);                /* Contrasting icon color */
-        /* Hover does not usually include the scale effect */
+        transform: translateY(-3px); /* Lift */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
 }
 
@@ -93,22 +99,37 @@ body {
     transform: translateY(-140%); /* Moves buttons out of view */
 }
 
-/* Content transition for language toggle - Fades content in/out */
-.content {
-    transition: opacity 0.5s ease; /* Smooth fade effect */
-    opacity: 1;                    /* Fully visible by default */
+/* --- Refined Language Content Transition --- */
+.language-content.content {
+    /* Use Material standard curve, adjust duration if needed */
+    transition: opacity 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    opacity: 1;
+    transform: translateY(0); /* Keep */
+    will-change: opacity, transform;
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    height: auto;
 }
 
-.content.hidden {
-    opacity: 0;                    /* Hidden content fades out */
-    display: none;                 /* Removes from layout */
+.language-content.content.hidden {
+    opacity: 0;
+    transform: translateY(8px); /* Slightly less movement */
+    pointer-events: none;
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
+/* --- End Refined Language Content Transition --- */
+
 
 /* Header styling - Styles the top section with your name and contact info */
 .header {
     text-align: center;   /* Centers content */
     margin-bottom: 2rem;  /* Space below header */
-    animation: fadeIn 1s ease-in; /* Fade-in animation */
+    /* Animation handled by fade-in-section */
 }
 
 .header h1 {
@@ -117,21 +138,55 @@ body {
     margin-bottom: 0.5rem; /* Space below title */
 }
 
-/* Download button - Styles the CV download link */
-.download-btn {
-    display: inline-block; /* Behaves like a button */
-    padding: 0.5rem 1rem;  /* Inner spacing */
-    background: var(--accent-color); /* Uses theme variable */
-    color: var(--bg-color);          /* Text color */
-    text-decoration: none;           /* No underline */
-    border-radius: 5px;              /* Rounded corners */
-    transition: opacity 0.3s;        /* Smooth hover effect */
-    margin-top: 1rem;                /* Space above */
+/* Download button & other buttons styling */
+.download-btn,
+.see-more-btn,
+.project-links a { /* Applied common styles here */
+    display: inline-flex; /* Use inline-flex for alignment */
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem; /* Updated padding */
+    background: var(--accent-color); /* Use accent color */
+    color: var(--bg-color); /* Use background color for text */
+    text-decoration: none;
+    border: none;
+    border-radius: 16px; /* Updated radius */
+    cursor: pointer;
+    transition: transform 0.2s ease-out, background-color 0.2s ease-out, opacity 0.2s ease-out, box-shadow 0.2s ease-out; /* Combined transitions */
+    font-size: 1rem;
+    line-height: 1.2;
+    box-shadow: 0 2px 5px var(--shadow-color); /* Add base shadow */
 }
 
-.download-btn:hover {
-    opacity: 0.8;                    /* Slightly transparent on hover */
+.download-btn {
+    margin-top: 1rem;
 }
+
+.see-more-btn {
+    margin: 1rem auto; /* Centers button horizontally */
+    display: flex; /* Already flex, confirm centering */
+}
+
+/* Hover & Active states for general buttons */
+@media (hover: hover) {
+    .download-btn:hover,
+    .see-more-btn:hover,
+    .project-links a:hover {
+        transform: translateY(-3px); /* Subtle lift */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly enhance shadow */
+        opacity: 0.9;
+    }
+}
+
+.download-btn:active,
+.see-more-btn:active,
+.project-links a:active {
+    transform: translateY(1px); /* Press down effect */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Reduce shadow */
+    opacity: 1; /* Ensure full opacity on click */
+}
+
 
 /* Contact information - Styles the contact links/icons */
 .contact-info {
@@ -139,8 +194,8 @@ body {
     justify-content: center; /* Centers items */
     gap: 1.5rem;           /* Space between items */
     margin-bottom: 1rem;   /* Space below */
-    animation: slideIn 1s ease-in; /* Slide-in animation */
     flex-wrap: wrap;       /* Wraps on small screens */
+    /* Animation handled by fade-in-section in header */
 }
 
 .contact-info a, .contact-info span {
@@ -149,11 +204,14 @@ body {
     display: flex;            /* Aligns icon and text */
     align-items: center;      /* Vertically centers */
     gap: 0.5rem;              /* Space between icon and text */
-    transition: color 0.3s ease; /* Smooth color change */
+    transition: color 0.2s ease-out, transform 0.2s ease-out; /* Smooth color/transform change */
 }
 
-.contact-info a:hover {
-    color: #0056b3;           /* Blue on hover */
+@media (hover: hover) {
+    .contact-info a:hover {
+        color: #0056b3;           /* Blue on hover */
+        transform: translateY(-2px); /* Slight lift */
+    }
 }
 
 /* Section styling - Styles each content block (About, Education, etc.) */
@@ -161,9 +219,9 @@ body {
     background-color: var(--card-bg); /* Uses theme variable */
     padding: 1.5rem;                  /* Inner spacing */
     margin-bottom: 1.5rem;            /* Space below */
-    border-radius: 10px;              /* Rounded corners */
+    border-radius: 20px;              /* Rounded corners */
     box-shadow: 0 4px 6px var(--shadow-color); /* Shadow effect */
-    animation: scaleUp 0.5s ease-in;  /* Scale-up animation */
+    /* Animation handled by fade-in-section */
 }
 
 .section h2 {
@@ -213,39 +271,16 @@ body {
     margin-bottom: 0.5rem;      /* Space below */
 }
 
-/* Skills list - Styles the skills section */
-.skills-list {
-    margin-top: 1rem;           /* Space above */
-}
-
-.skill-item {
-    margin-bottom: 1rem;        /* Space between skills */
-}
-
-.skill-item p {
-    margin-bottom: 0.25rem;     /* Space below skill name */
-    color: var(--text-color);   /* Uses theme variable */
-}
-
-/* Skill bar - Container for progress bar */
-.skill-bar {
-    width: 100%;                /* Full width */
-    height: 20px;               /* Bar height */
-    background: #ddd;           /* Gray background */
-    border-radius: 10px;        /* Rounded corners */
+/* More experience section - Controls hidden content with animation */
+.more-experience {
+    max-height: 0;              /* Hidden by default */
     overflow: hidden;           /* Hides overflow */
+    transition: max-height 1s ease; /* Smooth expansion (Adjusted duration) */
 }
 
-/* Skill fill - Animated progress inside bar */
-.skill-fill {
-    height: 100%;               /* Fills bar height */
-    background: var(--accent-color); /* Uses theme variable */
-    width: 0;                   /* Starts at 0 width */
-    transition: width 2s ease-in-out; /* Smooth animation */
-}
-
-.skill-fill.animate {
-    width: var(--skill-width);  /* Expands to set width */
+.more-experience.expanded {
+    max-height: 1000px;         /* Expands to show content (adjust if needed) */
+    margin-top: 1rem; /* Add space when expanded */
 }
 
 /* Footer - Styles the bottom section */
@@ -255,63 +290,15 @@ footer {
     background-color: var(--card-bg); /* Uses theme variable */
     color: var(--text-color);   /* Uses theme variable */
     margin-top: 2rem;           /* Space above */
-    border-radius: 10px;        /* Rounded corners */
+    border-radius: 20px;        /* Rounded corners */
     box-shadow: 0 4px 6px var(--shadow-color); /* Shadow effect */
 }
 
-/* Animations - Defines animation effects */
-@keyframes fadeIn {
-    from { opacity: 0; }        /* Starts invisible */
-    to { opacity: 1; }          /* Ends visible */
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-20px); opacity: 0; } /* Starts above and invisible */
-    to { transform: translateY(0); opacity: 1; }      /* Ends in place and visible */
-}
-
-@keyframes scaleUp {
-    from { transform: scale(0.95); opacity: 0; } /* Starts smaller and invisible */
-    to { transform: scale(1); opacity: 1; }      /* Ends full size and visible */
-}
-
-/* See more button styling - Styles the expandable section button */
-.see-more-btn {
-    background-color: var(--accent-color); /* Uses theme variable */
-    color: var(--bg-color);     /* Text color */
-    padding: 0.5rem 1rem;       /* Inner spacing - MATCHES download-btn */
-    border: none;               /* No border */
-    border-radius: 5px;         /* Rounded corners - MATCHES download-btn */
-    cursor: pointer;            /* Hand cursor */
-    display: flex;              /* Aligns icon and text */
-    align-items: center;        /* Vertically centers */
-    justify-content: center;    /* Horizontally centers */
-    gap: 0.5rem;                /* Space between icon and text */
-    margin: 1rem auto;          /* Centers button horizontally */
-    text-decoration: none;      /* Ensure no underline if used as <a> */
-    transition: opacity 0.3s ease; /* Unified transition */
-    /* --- START ADDITIONS --- */
-    font-size: 1rem;            /* Explicitly set font size (adjust if base differs) */
-    line-height: 1.2;           /* Explicitly set line height (adjust if needed) */
-    /* --- END ADDITIONS --- */
-}
-
-/* More experience section - Controls hidden content with animation */
-.more-experience {
-    max-height: 0;              /* Hidden by default */
-    overflow: hidden;           /* Hides overflow */
-    transition: max-height 2s ease; /* Smooth expansion */
-}
-
-.more-experience.expanded {
-    max-height: 1000px;         /* Expands to show content (adjust if needed) */
-}
-
-/* --- START: Cleaned Scroll to Top Button Styles (Desktop & Mobile) --- */
-
+/* Scroll to Top Button Styles */
 #scrollToTopBtn {
   position: fixed; /* Fixed/sticky position */
-  bottom: 30px; /* Adjust vertical position from bottom */
+  /* Increase bottom value significantly */
+  bottom: 80px; /* Changed from 30px - adjust if needed */
   right: 20px; /* Adjust horizontal position from right */
   z-index: 99; /* Make sure it does not overlap other essential fixed elements */
   border: none; /* Remove borders */
@@ -320,134 +307,81 @@ footer {
   color: var(--bg-color); /* Default color for children (like the icon) */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 0; /* Remove padding to rely on width/height */
-  border-radius: 50%; /* Make it a perfect circle */
+  border-radius: 16px; /* Rounded square/rectangle for FAB-like button */
   width: 45px; /* Set a fixed width */
-  height: 45px; /* Set a fixed height (equal to width for circle) */
+  height: 45px; /* Set a fixed height (equal to width for square) */
   font-size: 18px; /* Controls icon size via inheritance */
   box-shadow: 0 2px 5px var(--shadow-color); /* Add a shadow */
-
-  /* Use flexbox to center the icon perfectly */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Initial state: hidden */
-  opacity: 0;
+  opacity: 0; /* Start hidden */
   visibility: hidden;
-  transform: translateY(20px); /* Start slightly lower for fade-in effect */
-
-  /* Transitions for smooth appearance/disappearance and hover */
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  transform: translateY(20px); /* Start slightly lower */
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #scrollToTopBtn.show {
-  /* Visible state: Fully opaque and in position */
   opacity: 1;
   visibility: visible;
   transform: translateY(0); /* Move to final position */
 }
 
-#scrollToTopBtn:hover {
-  /* Add slight scale effect on hover instead of opacity change */
-  transform: scale(1.05);
+@media (hover: hover) {
+    #scrollToTopBtn:hover {
+      transform: scale(1.05) translateY(-2px); /* Combine scale and slight lift */
+      box-shadow: 0 4px 8px var(--shadow-color); /* Enhance shadow on hover */
+    }
 }
 
-/* --- END: Cleaned Scroll to Top Button Styles (Desktop & Mobile) --- */
-
-
-/* Media queries for responsiveness - Adjusts styles for different screen sizes */
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;          /* Reduces padding on small screens */
-    }
-
-    .header h1 {
-        font-size: 2rem;        /* Smaller title */
-    }
-
-    .section {
-        padding: 1rem;          /* Less padding */
-    }
-
-    .contact-info {
-        flex-direction: column; /* Stacks items vertically */
-        gap: 0.5rem;            /* Less space between */
-    }
-
-    /* --- START: Mobile Toggle Button Styles --- */
-    .theme-toggle, .lang-toggle {
-        /* Increase padding for a larger tap area */
-        padding: 0.5rem;
-        /* Adjust positioning slightly if needed */
-        top: 15px;
-    }
-
-    /* Adjust icon size within the buttons on mobile */
-    .theme-toggle i, .lang-toggle i {
-         font-size: 1.2rem; /* Increase icon size */
-    }
-
-    /* Keep text hidden on mobile */
-    .theme-toggle span, .lang-toggle span {
-        display: none;          /* Hides text on small screens */
-    }
-    /* --- END: Mobile Toggle Button Styles --- */
-
-
-    /* NOTE: The specific #scrollToTopBtn.show rule previously here was removed */
-    /* as the main rules now correctly handle visibility for all screen sizes. */
-
+#scrollToTopBtn:active {
+    transform: scale(0.95); /* Press effect */
+    box-shadow: 0 1px 3px var(--shadow-color);
 }
-
-
-
-
 
 
 /* --- START: Project Showcase Styles --- */
-
 .projects-grid {
     display: grid;
-    /* Creates columns that automatically fit, each at least 300px wide */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem; /* Space between cards */
-    margin-top: 1.5rem; /* Space below the section title */
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .project-item {
-    background-color: var(--card-bg); /* Use card background color from theme */
-    border-radius: 10px; /* Match section border-radius */
-    box-shadow: 0 4px 8px var(--shadow-color); /* Slightly stronger shadow */
-    overflow: hidden; /* Ensures image corners are rounded */
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    overflow: hidden;
     display: flex;
-    flex-direction: column; /* Stack image and content vertically */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-item:hover {
-    transform: translateY(-5px); /* Lift card slightly on hover */
-    box-shadow: 0 8px 16px var(--shadow-color); /* Increase shadow on hover */
+@media (hover: hover) {
+    .project-item:hover {
+        transform: translateY(-5px); /* Lift card slightly on hover */
+        box-shadow: 0 8px 16px var(--shadow-color); /* Increase shadow on hover */
+    }
 }
 
 .project-item img {
-    display: block; /* Remove extra space below image */
+    display: block;
     width: 100%;
-    height: 200px; /* Fixed height for image area */
-    object-fit: cover; /* Cover the area, cropping if needed */
-    /* Optional: Add a border or remove if image touches edges */
-    /* border-bottom: 1px solid #eee; */
+    height: 200px;
+    object-fit: cover;
 }
 
 .project-content {
-    padding: 1rem 1.2rem; /* Padding inside the card below image */
+    padding: 1rem 1.2rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Allows content to fill space if cards have uneven text */
+    flex-grow: 1;
 }
 
 .project-content h3 {
     margin-bottom: 0.5rem;
-    color: var(--accent-color); /* Use accent color for title */
+    color: var(--accent-color);
     font-size: 1.3rem;
 }
 
@@ -459,163 +393,164 @@ footer {
 }
 
 .project-tags .tag {
-    background-color: rgba(128, 128, 128, 0.15); /* Subtle grey background */
-    color: var(--text-color); /* Use default text color */
+    background-color: rgba(128, 128, 128, 0.15);
+    color: var(--text-color);
     padding: 0.2rem 0.6rem;
-    border-radius: 15px; /* Pill shape */
-    font-size: 0.75rem; /* Smaller font */
+    border-radius: 15px;
+    font-size: 0.75rem;
     font-weight: 500;
-    white-space: nowrap; /* Prevent tags from breaking lines */
+    white-space: nowrap;
 }
 
-/* Style description paragraph */
 .project-content p {
     font-size: 0.9rem;
     line-height: 1.5;
     color: var(--text-color);
-    flex-grow: 1; /* Pushes links to the bottom */
-    margin-bottom: 1rem; /* Ensure space before links */
+    flex-grow: 1;
+    margin-bottom: 1rem;
 }
 
 .project-links {
-    margin-top: auto; /* Pushes links to the very bottom */
-    padding-top: 0.5rem; /* Space above links if description is short */
+    margin-top: auto;
+    padding-top: 0.5rem;
     display: flex;
-    /* --- START CHANGES --- */
-    flex-direction: column; /* Stack items vertically instead of horizontally */
-    align-items: flex-start; /* Align buttons to the start (left) of the container */
-    /* Use align-items: center; if you want the buttons centered horizontally */
-    /* --- END CHANGES --- */
-    gap: 0.5rem; /* Adjust vertical gap between buttons if needed (was 0.8rem) */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-start; /* Align left */
+    gap: 0.5rem;
 }
 
+/* Project link buttons inherit base styles from .download-btn etc. */
+/* No need for separate .project-links a styling if it matches .download-btn */
 .project-links a {
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    display: inline-flex; /* Align icon and text */
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-    width: fit-content; /* Ensures button width adjusts to its content */
-
+    width: fit-content; /* Adjust width to content */
+     /* Styles like background, color, border-radius are inherited from common rule */
 }
 
 .project-links a i {
-    font-size: 1rem; /* Adjust icon size if needed */
+    font-size: 1rem; /* Icon size */
 }
 
-
-/* Style primary/secondary buttons differently */
-.project-links .btn-primary { /* Example for a 'Live Demo' button */
-     background-color: var(--accent-color);
-     color: var(--bg-color);
- }
-
-.project-links .btn-secondary { /* Example for a 'GitHub' button */
-     background-color: #e0e0e0; /* Light grey */
-     color: #333;
- }
- [data-theme="dark"] .project-links .btn-secondary { /* Dark mode secondary button */
-      background-color: #444;
-      color: var(--text-color);
- }
-
-
-.project-links a:hover {
-    opacity: 0.8;
-}
-
+/* REMOVED specific background/color rules for .btn-secondary */
 
 /* --- END: Project Showcase Styles --- */
 
+
 /* --- START: Skills Highlights Styles --- */
-
-.skills-highlights { /* Renamed from .about-highlights */
-    display: flex; /* Arrange items horizontally */
-    flex-wrap: wrap; /* Allow items to wrap */
-    justify-content: center; /* Center items horizontally */
-    gap: 1.5rem 2rem; /* Vertical and horizontal gap */
-    margin-top: 2rem; /* Space below section title */
-    text-align: center; /* Ensure text below icons is centered */
-}
-
-/* Styles for individual skill category items (reused from previous attempt) */
-.highlight-item {
-    text-align: center; /* Center icon and text */
-    flex-basis: 130px; /* Give items a base width */
-    /* Removed flex-grow: 1; to prevent too much stretching */
-}
-
-.highlight-item i {
-    display: block; /* Ensure icon is block-level for margin */
-    font-size: 2.2rem; /* Slightly larger icon for skills */
-    color: var(--accent-color); /* Use theme accent color for icon */
-    margin-bottom: 0.7rem; /* Space between icon and text */
-}
-
-.highlight-item span {
-    font-size: 0.9rem; /* Size of the text */
-    font-weight: 500; /* Slightly bolder text */
-    color: var(--text-color); /* Use theme text color */
-    line-height: 1.3; /* Adjust line height for text */
-}
-
-/* --- END: Skills Highlights Styles --- */
-
-/* --- START: Combined About/Skills Section Layout --- */
-
-.about-skills-container {
-    display: grid;
-    /* Adjust column ratio as needed, e.g., 1.5fr 1fr gives more space to text */
-    grid-template-columns: 1.5fr 1fr;
-    gap: 2.5rem; /* Space between the About and Skills columns */
-    align-items: start; /* Align items to the top */
-}
-
-/* Adjust heading margins within the columns if needed */
-.about-content h2,
-.skills-content h2 {
-     margin-bottom: 1rem; /* Ensure consistent heading spacing */
-}
-
-/* Optional: Add some padding to the top of the skills column if needed */
-.skills-content {
-    padding-top: 0rem; /* Example: Add space if heading feels too close to top */
-}
-
-/* Adjust skills highlights margin - remove top margin as it's now inside a container */
 .skills-highlights {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem 2rem;
-    margin-top: 1rem; /* Reduced margin-top */
+    margin-top: 1rem; /* Reduced margin */
     text-align: center;
 }
-/* Keep existing .highlight-item styles */
+
 .highlight-item {
     text-align: center;
     flex-basis: 130px;
 }
+
 .highlight-item i {
     display: block;
     font-size: 2.2rem;
     color: var(--accent-color);
     margin-bottom: 0.7rem;
 }
+
 .highlight-item span {
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--text-color);
     line-height: 1.3;
 }
+/* --- END: Skills Highlights Styles --- */
+
+/* --- START: Combined About/Skills Section Layout --- */
+.about-skills-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.about-content h2,
+.skills-content h2 {
+     margin-bottom: 1rem;
+}
+
+.skills-content {
+    padding-top: 0rem;
+}
+/* --- END: Combined About/Skills Section Layout --- */
+
+/* --- START: Scroll-Triggered Animation Styles --- */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px); /* Start slightly lower */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform; /* Performance hint */
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0); /* Move to final position */
+}
+/* --- END: Scroll-Triggered Animation Styles --- */
 
 
-/* --- Responsive Stacking for Combined Section --- */
-@media (max-width: 800px) { /* Adjust breakpoint as needed */
+/* --- START: Button Click Feedback Animation --- */
+@keyframes button-click-feedback {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); } /* Briefly shrink */
+    100% { transform: scale(1); }
+}
+
+.button-feedback {
+    animation: button-click-feedback 0.2s ease-in-out;
+}
+/* --- END: Button Click Feedback Animation --- */
+
+
+/* --- START: Preloader Styles --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color); /* Match background */
+    z-index: 9999; /* Highest priority */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-out 0.3s; /* Fade out with delay */
+    pointer-events: all; /* Initially block interaction */
+}
+
+#preloader.hidden {
+    opacity: 0;
+    pointer-events: none; /* Allow interaction after hidden */
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1); /* Light border */
+    border-left-color: var(--accent-color); /* Spinner color */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* --- END: Preloader Styles --- */
+
+
+/* Media queries for responsiveness */
+@media (max-width: 800px) { /* Adjusted breakpoint for About/Skills */
     .about-skills-container {
         grid-template-columns: 1fr; /* Stack to a single column */
         gap: 2rem; /* Adjust vertical gap when stacked */
@@ -625,4 +560,108 @@ footer {
      }
 }
 
-/* --- END: Combined About/Skills Section Layout --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 1rem;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .theme-toggle, .lang-toggle {
+        padding: 0.5rem; /* Smaller padding on mobile */
+        top: 15px;
+        /* Radius already updated to 20px */
+    }
+
+    .theme-toggle i, .lang-toggle i {
+         font-size: 1.2rem;
+    }
+
+    .theme-toggle span, .lang-toggle span {
+        display: none; /* Hide text on small screens */
+    }
+
+    #scrollToTopBtn {
+        /* Optionally adjust position/size for smaller screens */
+        right: 15px;
+        bottom: 70px; /* Adjust if needed with footer */
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+/* --- START: Accessibility - Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto; /* Turn off smooth scroll */
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0ms !important;
+    animation-delay: 0ms !important; /* Ensure no animation delay */
+  }
+
+  /* Ensure scroll-triggered elements are visible immediately */
+   .fade-in-section {
+       opacity: 1 !important;
+       transform: none !important;
+   }
+
+   /* Reset hover/active transforms */
+   .download-btn:hover, .see-more-btn:hover, .project-links a:hover,
+   .theme-toggle:hover, .lang-toggle:hover, #scrollToTopBtn:hover,
+   .contact-info a:hover {
+        transform: none !important;
+   }
+    .download-btn:active, .see-more-btn:active, .project-links a:active,
+    .theme-toggle:active, .lang-toggle:active, #scrollToTopBtn:active {
+        transform: none !important;
+   }
+
+   /* Remove specific animation effects */
+   .button-feedback {
+        animation: none !important;
+   }
+    #preloader {
+        transition: none !important; /* Hide immediately */
+        opacity: 0 !important;
+        pointer-events: none !important;
+        display: none !important; /* Ensure it's gone */
+   }
+
+    /* Ensure language content is immediately visible without transition */
+   .language-content.content {
+       transition: none !important;
+       transform: none !important;
+       opacity: 1 !important;
+       height: auto !important; /* Ensure visible height */
+       overflow: visible !important;
+   }
+   .language-content.content.hidden {
+       opacity: 0 !important;
+       height: 0 !important; /* Ensure hidden takes no space */
+       overflow: hidden !important;
+       pointer-events: none !important;
+       margin: 0 !important;
+       padding: 0 !important;
+   }
+
+
+}
+/* --- END: Accessibility - Reduced Motion --- */

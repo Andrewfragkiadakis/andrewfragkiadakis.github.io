@@ -21,8 +21,6 @@ Visit it at <a href="https://andrewfragkiadakis.github.io" target="_blank" rel="
 - Project Showcase Grid (responsive layout)
 - Offline Capability & Progressive Web App (PWA) Enabled (installable, offline support via Service Worker)
 
-Sources and related content
-
 
 ## Screenshot
 ![Website Screenshot](screenshot.png)

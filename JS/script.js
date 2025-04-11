@@ -1,5 +1,6 @@
 /**
  * script.js - Consolidated script for Andreas Fragkiadakis Portfolio
+ * Updated: [Date of update] - Added automatic night mode based on local time (if no preference saved).
  */
 
 (function() {
@@ -10,17 +11,16 @@
     let intersectingSections = {};
     let navElement = null;
     let navLinksNodeList = null;
-    let navHeight = 60; // Default nav height
+    let navHeight = 60;
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // --- Early Setup ---
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
     }
-    window.scrollTo(0, 0); // Force scroll to top on initial load
+    window.scrollTo(0, 0);
 
     // --- CORE FUNCTIONS ---
-    // (Moved setupActiveLinkObserver here, outside event listeners)
 
     /** Gets section elements with IDs within the currently active language block. */
     function getActiveLanguageSections() {
@@ -30,7 +30,7 @@
 
     /** Sets the 'active' class on the correct navigation link. */
     function setActiveLink(targetId) {
-        navLinksNodeList?.forEach(link => { // Ensure navLinksNodeList is available
+        navLinksNodeList?.forEach(link => {
             link.classList.remove('active');
             if (targetId && link.getAttribute('href') === `#${targetId}`) {
                 link.classList.add('active');
@@ -42,26 +42,23 @@
     function setupActiveLinkObserver() {
         if (activeLinkObserver) {
             activeLinkObserver.disconnect();
-            // console.log("Disconnected old observer."); // DEBUG
         }
 
-        // Ensure navElement and navLinksNodeList are cached before calling this
         if (!navElement || !navLinksNodeList) {
-             console.warn("setupActiveLinkObserver called before nav elements cached."); // DEBUG
+             console.warn("Observer: Setup skipped - nav elements not cached yet.");
              return;
         }
 
         const sections = getActiveLanguageSections();
-        intersectingSections = {}; // Reset state
+        intersectingSections = {};
 
         if (sections.length === 0 || !('IntersectionObserver' in window)) {
-            // console.log(`Observer setup skipped: Sections: ${sections.length}, Supported: ${'IntersectionObserver' in window}`); // DEBUG
-            setActiveLink(null); // Clear active link if setup fails
+            setActiveLink(null);
             return;
         }
 
         navHeight = navElement.offsetHeight || 60;
-        const rootMargin = `-${navHeight + 50}px 0px -40% 0px`;
+        const rootMargin = `-${navHeight + 10}px 0px -40% 0px`;
 
         const observerOptions = {
             root: null,
@@ -87,23 +84,23 @@
             if (!latestVisibleSectionId && currentSections.length > 0 && window.pageYOffset < (currentSections[0].offsetTop - navHeight)) {
                 latestVisibleSectionId = currentSections[0].id;
             }
+            else if (!latestVisibleSectionId && currentSections.length > 0 && window.pageYOffset >= (currentSections[currentSections.length - 1].offsetTop - navHeight)) {
+                 latestVisibleSectionId = currentSections[currentSections.length - 1].id;
+             }
 
-            // console.log("Setting active link to:", latestVisibleSectionId); // DEBUG
             setActiveLink(latestVisibleSectionId);
         };
 
         try {
             activeLinkObserver = new IntersectionObserver(observerCallback, observerOptions);
             sections.forEach(section => {
-                // console.log(`Observing section: #${section.id}`); // DEBUG
                 activeLinkObserver.observe(section);
             });
         } catch (e) {
-            console.error("Failed to create or start IntersectionObserver:", e);
+            console.error("Observer: Failed to create or start IntersectionObserver:", e);
             activeLinkObserver = null;
         }
-    } // --- END setupActiveLinkObserver ---
-
+    }
 
     /** Updates the theme-color meta tag based on computed background color. */
     function updateThemeColorMeta() {
@@ -143,7 +140,9 @@
         const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         applyTheme(newTheme);
+        // *** Save the user's explicit choice to localStorage ***
         localStorage.setItem('theme', newTheme);
+        console.log("User toggled theme, preference saved:", newTheme); // Optional debug log
     }
 
     /** Applies the specified language (en/gr) to the document and updates UI. */
@@ -184,19 +183,17 @@
                 : `Δείτε Περισσότερα <i class="fas fa-arrow-down"></i>`;
         }
 
-        // Reset observer AFTER language is applied and elements are potentially visible/cached
-        // Ensure nav elements are cached before calling
         if (navElement && navLinksNodeList) {
              setupActiveLinkObserver();
         } else {
-             // If called before DOMContentLoaded caches them, defer it slightly
              setTimeout(() => {
                  if (navElement && navLinksNodeList) {
                     setupActiveLinkObserver();
+                 } else {
+                    console.warn("Language Applied: Observer setup deferred but elements still not found.");
                  }
              }, 50);
         }
-        window.scrollTo(window.scrollX, window.scrollY);
     }
 
     /** Toggles the language and saves preference. */
@@ -211,7 +208,6 @@
     function setupSeeMoreToggle(buttonId, contentId, moreText, lessText) {
         const button = document.getElementById(buttonId);
         const content = document.getElementById(contentId);
-        // console.log(`Setting up See More: Button ID: ${buttonId}, Found:`, button, `Content ID: ${contentId}, Found:`, content); // DEBUG
 
         if (button && content) {
             button.innerHTML = content.classList.contains('expanded')
@@ -219,16 +215,13 @@
                 : `${moreText} <i class="fas fa-arrow-down"></i>`;
 
             button.addEventListener('click', function() {
-                // console.log(`See More Button Clicked: ${buttonId}`); // DEBUG
                 const isExpanded = content.classList.toggle('expanded');
-                // console.log(`Content ${contentId} is now expanded: ${isExpanded}`); // DEBUG
                 this.innerHTML = isExpanded
                     ? `${lessText} <i class="fas fa-arrow-up"></i>`
                     : `${moreText} <i class="fas fa-arrow-down"></i>`;
             });
-            // console.log(`Event listener added for button: ${buttonId}`); // DEBUG
         } else {
-            console.warn(`Could not setup See More for ${buttonId} or ${contentId} - Elements not found.`); // DEBUG
+            console.warn(`Could not setup See More for ${buttonId} or ${contentId} - Elements not found.`);
         }
     }
 
@@ -247,9 +240,9 @@
     document.addEventListener('DOMContentLoaded', () => {
         console.log("DOM Content Loaded - Initializing Setup");
 
-        // Cache static elements needed by multiple functions/listeners
+        // Cache static elements
         navElement = document.getElementById('main-nav');
-        navLinksNodeList = navElement?.querySelectorAll('.nav-item'); // Cache node list
+        navLinksNodeList = navElement?.querySelectorAll('.nav-item');
         const themeToggle = document.querySelector('.theme-toggle');
         const langToggle = document.querySelector('.lang-toggle');
         const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -259,12 +252,41 @@
         );
 
         // --- Initial State Application ---
-        // Theme
-        const storedTheme = localStorage.getItem('theme') || 'light';
-        applyTheme(storedTheme);
-        // Language (This calls setupActiveLinkObserver internally if elements are ready)
+
+        // Language (Apply saved preference or default)
         const storedLang = localStorage.getItem('language') || 'en';
-        applyLanguage(storedLang);
+        applyLanguage(storedLang); // This also calls setupActiveLinkObserver
+
+        // --- Theme Application Logic (NEW) ---
+        const storedTheme = localStorage.getItem('theme');
+
+        if (!storedTheme) {
+            // No preference saved - check time for automatic theme
+            const currentHour = new Date().getHours(); // Get user's local hour (0-23)
+            // --- Define Night Hours (Adjust as needed) ---
+            const nightStartHour = 21; // 9 PM
+            const morningEndHour = 6;  // 6 AM
+            // --- End Define Night Hours ---
+
+            const isNightTime = currentHour >= nightStartHour || currentHour < morningEndHour;
+
+            if (isNightTime) {
+                console.log("No theme preference found. Applying dark theme based on local time.");
+                applyTheme('dark');
+                // We intentionally DO NOT save this to localStorage
+                // to allow it to re-evaluate on the next visit.
+            } else {
+                 console.log("No theme preference found. Applying light theme based on local time.");
+                 applyTheme('light');
+                 // Also do not save this automatic light theme.
+            }
+        } else {
+            // Preference IS saved - apply the stored theme
+            console.log("Applying stored theme preference:", storedTheme);
+            applyTheme(storedTheme);
+        }
+        // --- End Theme Application Logic ---
+
 
         // --- Setup Component Logic ---
         setupSeeMoreToggle('see-more-btn-en', 'more-experience-en', 'See More', 'See Less');
@@ -284,18 +306,18 @@
             const fadeObserver = new IntersectionObserver(fadeObserverCallback, fadeObserverOptions);
             sectionsToFade.forEach(section => fadeObserver.observe(section));
         } else {
-            sectionsToFade.forEach(section => section.classList.add('is-visible')); // Show immediately
+            sectionsToFade.forEach(section => section.classList.add('is-visible'));
         }
 
         // Add Click Feedback to Buttons
         allButtons.forEach(button => addButtonFeedback(button));
 
-        // Initial setup of Active Link Highlighting Observer (call after elements cached)
-         setupActiveLinkObserver(); // First call now elements are definitely cached
+        // Initial setup of Active Link Highlighting Observer (called again for safety)
+         setupActiveLinkObserver();
 
         // --- Attach Core Event Listeners ---
-        themeToggle?.addEventListener('click', toggleTheme);
-        langToggle?.addEventListener('click', toggleLanguage); // Observer reset handled within toggle->apply->setup
+        themeToggle?.addEventListener('click', toggleTheme); // Toggles AND saves preference
+        langToggle?.addEventListener('click', toggleLanguage); // Toggles AND saves preference
 
         scrollToTopBtn?.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: isReducedMotion ? 'auto' : 'smooth' });
@@ -303,32 +325,31 @@
 
         // Scroll listener ONLY for scroll-to-top button visibility
         window.addEventListener('scroll', () => {
-            const scrollThreshold = 300; // Show after scrolling down this much
-            if (window.pageYOffset > scrollThreshold) {
-                scrollToTopBtn?.classList.add('show');
-            } else {
-                scrollToTopBtn?.classList.remove('show');
+            const scrollThreshold = 300;
+            if (scrollToTopBtn) {
+                 if (window.pageYOffset > scrollThreshold) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
             }
-        });
+        }, { passive: true });
 
         // Nav Link Click Listener (Handles Scrolling Manually)
         navLinksNodeList?.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default anchor jump
+                e.preventDefault();
                 const targetId = link.getAttribute('href')?.substring(1);
-                // console.log(`Nav link clicked for: #${targetId}`); // DEBUG
+                if (!targetId) return;
 
-                setActiveLink(targetId); // Set active class immediately
+                setActiveLink(targetId);
 
                 const activeContent = document.querySelector('.language-content.active');
                 const targetElement = activeContent ? activeContent.querySelector(`#${targetId}`) : null;
 
                 if (targetElement) {
-                    // console.log(`Target element found:`, targetElement); // DEBUG
-                    navHeight = navElement?.offsetHeight || 60; // Update navHeight
-
+                    navHeight = navElement?.offsetHeight || 60;
                     const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                    // console.log(`Calculated scroll position: ${targetPosition}`); // DEBUG
 
                     try {
                         window.scrollTo({
@@ -336,12 +357,12 @@
                             behavior: isReducedMotion ? 'auto' : 'smooth'
                         });
                     } catch (error) {
-                        console.error("Error during scrollTo:", error); // DEBUG
+                        console.error("Error during scrollTo:", error);
                          window.scrollTo(0, targetPosition);
                     }
 
                 } else {
-                    console.warn(`Target element #${targetId} not found within .language-content.active container.`); // DEBUG
+                    console.warn(`Target element #${targetId} not found within .language-content.active container.`);
                 }
             });
         });
@@ -352,39 +373,35 @@
 
     // --- Window Load Event Listener (Tasks needing all assets loaded) ---
     window.addEventListener('load', () => {
-        console.log("Window Loaded - Hiding Preloader and Registering Service Worker.");
-        window.scrollTo(0, 0); // Ensure scrolled top right before hiding preloader
+        console.log("Window Loaded - Hiding Preloader and Final Observer Check.");
+        window.scrollTo(0, 0);
 
         // Preloader Hiding Logic
         const preloader = document.getElementById('preloader');
         if (preloader) {
             if (!isReducedMotion) {
                 preloader.classList.add('hidden');
-                // Use 'transitionend' which waits for the opacity transition
                 preloader.addEventListener('transitionend', () => {
-                   if(preloader.classList.contains('hidden')) { // Double check it's hidden before removing
+                   if(preloader.classList.contains('hidden')) {
                        preloader.remove();
                    }
                 }, { once: true });
-                 // Fallback timeout in case transitionend doesn't fire (e.g., display:none happens first)
                  setTimeout(() => {
                     if(preloader) preloader.remove();
-                 }, 800); // Should match or exceed transition duration + delay
+                 }, 800);
             } else {
-                preloader.remove(); // Remove instantly if reduced motion
+                preloader.remove();
             }
         }
 
         // Optional final observer setup after all images/assets load
-        // Ensure nav elements are cached before calling
         if (navElement && navLinksNodeList) {
-             setTimeout(setupActiveLinkObserver, 100); // Delay slightly after load
+             setTimeout(setupActiveLinkObserver, 100);
         }
-
 
         // --- Service Worker Registration ---
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js') // Path relative to origin (root)
+            navigator.serviceWorker.register('/service-worker.js')
                 .then(registration => {
                     console.log('Service Worker registered successfully with scope:', registration.scope);
                 })

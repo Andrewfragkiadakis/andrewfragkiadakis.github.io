@@ -12,10 +12,11 @@ Visit it at <a href="https://andrewfragkiadakis.github.io" target="_blank" rel="
 
 ## Features
 - Downloadable PDF version of my CV (English and Greek)
-- Light and dark theme toggle with dynamic coloring theme(and auto switching based on current time)
+- Light/Dark Theme Toggle (dynamic colors, auto time-based switch)
 - Bilingual support (English/Greek) with smooth language switching
-- Mobile-friendly webpage
-- Animated skill progress bars
+- Mobile-friendly webpage (responsive design)
+- Sticky Navigation Bar (fixed at top)
+- Project Showcase Grid (responsive layout)
 
 ## Screenshot
 ![Website Screenshot](screenshot.png)

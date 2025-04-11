@@ -37,21 +37,5 @@
        "type":"image/png",
        "purpose": "any"
     }
-  ],
-  "screenshots" : [
-    {
-      "src": "images/screenshots/screenshot-desktop-1.png",
-      "sizes": "1920x1080",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Portfolio landing page on Desktop"
-    },
-    {
-      "src": "images/screenshots/screenshot-mobile-1.png",
-      "sizes": "540x720",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Portfolio landing page on Mobile"
-    }
- ]
+  ]
 }

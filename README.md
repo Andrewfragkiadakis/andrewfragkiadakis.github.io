@@ -16,7 +16,13 @@ Visit it at <a href="https://andrewfragkiadakis.github.io" target="_blank" rel="
 - Bilingual support (English/Greek) with smooth language switching
 - Mobile-friendly webpage (responsive design)
 - Sticky Navigation Bar (fixed at top)
+- Loading Preloader (spinner animation)
+- Active Navigation Highlighting (on scroll)
 - Project Showcase Grid (responsive layout)
+- Offline Capability & Progressive Web App (PWA) Enabled (installable, offline support via Service Worker)
+
+Sources and related content
+
 
 ## Screenshot
 ![Website Screenshot](screenshot.png)

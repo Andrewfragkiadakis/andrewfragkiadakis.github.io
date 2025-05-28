@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andreas Fragkiadakis - Personal CV and Portfolio</title>
+    <meta property="og:title" content="Andreas Fragkiadakis - Personal CV and Portfolio">
+    <meta name="description" content="Explore my CV and portfolio of Andreas Fragkiadakis, an IT & Computer Engineering student showcasing skills in networking, sysadmin, web development, and more.">
+    <meta property="og:description" content="Explore my CV and portfolio of Andreas Fragkiadakis, an IT & Computer Engineering student showcasing skills in networking, sysadmin, web development, and more.">
+    <meta name="theme-color" content="#f5fbf8" />
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DZ0EVXX28"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-2DZ0EVXX28', {
+            'cookie_domain': 'andrewfragkiadakis.github.io'
+          });
+    </script>
+    
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Andreas Fragkiadakis",
+  "url": "https://andrewfragkiadakis.github.io", // Assuming this is your site URL based on README/Analytics
+  "jobTitle": "IT Engineer | IT & Computer Engineering Student", // Combine current roles
+  "worksFor": [
+    {
+      "@type": "Organization",
+      "name": "OMILIA LTD"
+    },
+    {
+       "@type": "Organization",
+       "name": "KEEP EAT HEALTHY"
+    }
+  ],
+  "alumniOf": [
+     {
+       "@type": "CollegeOrUniversity",
+       "name": "University of West Attica"
+     },
+     {
+        "@type": "CollegeOrUniversity",
+        "name": "SRH Hochschule Heidelberg"
+     }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Athens",
+    "addressCountry": "GR"
+  },
+  "email": "mailto:andrewfragkiadakis@gmail.com",
+  "telephone": "+306973453683",
+  "sameAs": [
+    "https://linkedin.com/in/andreas-fragkiadakis"
+    // Add other relevant profile URLs here (e.g., GitHub)
+    // "https://github.com/Andrewfragkiadakis"
+  ],
+  "knowsAbout": [
+    "Information Technology",
+    "Computer Engineering",
+    "Networking",
+    "System Administration",
+    "Web Development",
+    "Project Management",
+    "Technical Support",
+    "Infrastructure Coordination",
+    "Network Security",
+    "Cloud Computing",
+    "IT Support",
+    "Cybersecurity" // Added based on PCI/SOC2 context
+  ],
+   "description": "Dedicated IT & Computer Engineering student and IT Engineer with expertise in networking, system administration, and project management. Experienced in web development, technical support, and infrastructure coordination.", // Based on your About Me section
+   "knowsLanguage": ["en-US", "el-GR", "de-DE"] // Added based on fluent languages mentioned
+}
+</script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <link rel="icon" type="image/x-icon" href="images/favicons/favicon.ico">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <nav id="main-nav">
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="#about-skills" class="nav-item">
+                    <span class="lang-en">ABOUT</span><span class="lang-gr hidden">ΣΧΕΤΙΚΑ</span>
+                </a>
+                <a href="#education" class="nav-item">
+                    <span class="lang-en">EDUCATION</span><span class="lang-gr hidden">ΕΚΠΑΙΔΕΥΣΗ</span>
+                </a>
+                <a href="#experience" class="nav-item">
+                    <span class="lang-en">EXPERIENCE</span><span class="lang-gr hidden">ΕΜΠΕΙΡΙΑ</span>
+                </a>
+                <a href="#projects" class="nav-item">
+                    <span class="lang-en">PROJECTS</span><span class="lang-gr hidden">PROJECTS</span>
+                </a>
+            </div>
+            <div class="nav-controls">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <i class="fas fa-globe" style="color: var(--icon-color);"></i><span id="language-text">GR/EN</span>
+                </button>
+                <button class="theme-toggle">
+                    <i class="fas fa-moon" style="color: var(--icon-color);"></i><span>Night Mode</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="language-content content en active">
+            <header class="header fade-in-section">
+                <h1><span>ANDREAS</span> <span>FRAGKIADAKIS</span></h1>
+                <div class="contact-info">
+                    <span><i class="fas fa-map-marker-alt"></i> Athens, Greece</span>
+                    <a href="tel:+306973453683"><i class="fas fa-phone"></i> (+30) 697-345-3683</a>
+                    <a href="mailto:andrewfragkiadakis@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://linkedin.com/in/andreas-fragkiadakis" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+                <a href="https://drive.google.com/uc?export=download&id=1b-GiyMU1D_6yxr70bmpufj_kIqKgW38A" class="download-btn" onclick="gtag('event', 'file_download', {'link_text': 'Download CV', 'link_url': this.href, 'language': 'en'});">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+            </header>
+
+            <section id="about-skills" class="section fade-in-section">
+                <div class="about-skills-container">
+                    <div class="about-content">
+                        <h2><i class="fas fa-user"></i> ABOUT ME</h2>
+                        <p>Dedicated <strong>IT & Computer Engineering student</strong> with expertise in networking, system administration, and project management. Analytical and detail-oriented, with hands-on experience in web development, technical support,
+                            and infrastructure coordination. Fluent in <strong>English (C2)</strong> and <strong>German (B2)</strong>, delivering innovative solutions to drive efficiency and growth.</p>
+                        <p>Currently writing my <strong>Thesis</strong> titled "<strong>New Hybrid Wireless-Optical Networks (Radio over Fiber) for Fifth Generation (5G) Networks</strong>" and working at <strong>OMILIA LTD</strong> as an <strong>IT Engineer</strong>.</p>
+                    </div>
+                    <div class="skills-content">
+                        <h2><i class="fas fa-tools"></i> CORE SKILLS</h2>
+                        <div class="skills-highlights">
+                            <div class="highlight-item"><i class="fas fa-network-wired"></i><span>Network & Systems Administration</span></div>
+                            <div class="highlight-item"><i class="fas fa-laptop-code"></i><span>Web Development</span></div>
+                            <div class="highlight-item"><i class="fas fa-shield-alt"></i><span>Security Systems</span></div>
+                            <div class="highlight-item"><i class="fas fa-lightbulb"></i><span>Troubleshooting</span></div>
+                            <div class="highlight-item"><i class="fas fa-tasks"></i><span>Project Management</span></div>
+                            <div class="highlight-item"><i class="fas fa-language"></i><span>Excellent Communication</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="section fade-in-section">
+                <h2><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
+                <div class="education-item">
+                    <h3>Integrated Master's Degree (5 Years), Computer Science</h3>
+                    <p>University of West Attica, Athens, Greece | September 2019 – Present</p>
+                    <ul>
+                        <li>Distinguished member of the university’s Tech Society</li>
+                        <li>Relevant coursework: Advanced Computer Systems, AI, Network Security, Databases, Web Development, Cloud Computing</li>
+                        <li>GPA: 2.98</li>
+                    </ul>
+                </div>
+                <div class="education-item">
+                    <h3>Master of Science, Applied Computer Science</h3>
+                    <p>SRH Hochschule Heidelberg, Germany | April 2023 – October 2023 (ERASMUS+ Semester)</p>
+                    <ul>
+                        <li>Awarded presenter and team leader</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="experience" class="section fade-in-section">
+                <h2><i class="fas fa-briefcase"></i> WORK EXPERIENCE</h2>
+                <div class="experience-item">
+                    <h3>Information Technology Support Engineer</h3>
+                    <p>OMILIA LTD, Athens, Greece | September 2024 – Present</p>
+                    <ul>
+                        <li>Provide internal user support and troubleshoot IT infrastructure using tools like Anydesk and RDP</li>
+                        <li>Manage endpoint hardening and implement policies for PCI and SOC2 audits</li>
+                        <li>Oversee cloud and network infrastructure with Jira Cloud, Cisco ISE, Microsoft Active Directory, and ESXi</li>
+                        <li>Administer security and productivity tools including Google Workspace, HID systems, and 1Password</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Information Technology Support & Infrastructure Coordinator</h3>
+                    <p>KEEP EAT HEALTHY, Athens, Greece | May 2022 – Present</p>
+                    <ul>
+                        <li>Coordinate IT infrastructure installation and maintenance</li>
+                        <li>Troubleshoot technical issues and propose modern solutions</li>
+                    </ul>
+                </div>
+                <button id="see-more-btn-en" class="see-more-btn">See More <i class="fas fa-arrow-down"></i></button>
+                <div id="more-experience-en" class="more-experience">
+                    <div class="experience-item">
+                        <h3>Information Technology Support Specialist</h3>
+                        <p>ANEMOMYLOI ANDROS AE, Andros, Greece | January 2023 – February 2024</p>
+                        <ul>
+                            <li>Delivered remote IT support and consultation services</li>
+                            <li>Supported company projects with IT infrastructure management</li>
+                            <li>Organized work portfolios and financial records</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Web Developer</h3>
+                        <p>Self-Employed, Athens, Greece | 2020 – November 2023</p>
+                        <ul>
+                            <li>Developed and launched two fully operational websites</li>
+                            <li>Self-taught web development technologies and methodologies</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Network Systems Installation & Configuration Technician</h3>
+                        <p>Weballdesign, Athens, Greece | 2020 – November 2022</p>
+                        <ul>
+                            <li>Installed and configured server/client systems in educational institutions</li>
+                            <li>Maintained network infrastructure (switches, routers, UPS) and performed diagnostics</li>
+                            <li>Trained on-site personnel and documented procedures</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section fade-in-section">
+                <h2><i class="fas fa-laptop-code"></i> PERSONAL PROJECTS</h2>
+                <div class="projects-grid">
+                    <div class="project-item">
+                        <img src="images\Porftolio website\portfolio-site.png" alt="Screenshot of Andreas Fragkiadakis's Personal Portfolio Website" loading="lazy">
+                        <div class="project-content">
+                            <h3>Portfolio Website</h3>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Responsive Design</span>
+                            </div>
+                            <p>Designed and built this responsive personal CV page. Features light/dark mode, language toggle (EN/GR), and dynamic content sections.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <img src="images/happyfox/happyfox-app.png" alt="HappyFox Mental Health App UI/UX Mockup - Project by Andreas Fragkiadakis" loading="lazy">
+                        <div class="project-content">
+                            <h3>HappyFox 🦊 - Mental Health App</h3>
+                            <div class="project-tags">
+                                <span class="tag">UI/UX Design</span>
+                                <span class="tag">Figma</span>
+                                <span class="tag">Team Project</span>
+                                <span class="tag">SRH Heidelberg</span>
+                            </div>
+                            <p>Developed UI/UX concepts for a user-friendly mental health app aimed at promoting emotional well-being during a Master's course.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+   
+                    <div class="project-item">
+                        <img src="images\Schiller Project\schiller.png" alt="Screenshot of Schiller Language Centers Website developed by Andreas Fragkiadakis" loading="lazy">
+                        <div class="project-content">
+                            <h3>Schiller Language Centers Website</h3>
+                            <div class="project-tags">
+                                <span class="tag">Wix</span>
+                                <span class="tag">Wix Studio</span>
+                                <span class="tag">Web Development</span>
+                                <span class="tag">Educational</span>
+                            </div>
+                            <p>Developed the website for Schiller Language Centers in Rethymno, Greece, using the Wix platform (Wix Studio). The site showcases courses in English, German, and Educational Robotics for various age groups, highlighting 30 years
+                                of experience and success rates. Includes location details and contact form.</p>
+                            <div class="project-links">
+                                <a href="https://www.schiller.edu.gr/" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fas fa-external-link-alt"></i> Live Site
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+   
+   
+                    <div class="project-item">
+                        <img src="images/Raspberry Pi Adblocker & Streamer/raspberry-pi.png" alt="Raspberry Pi Project Graphic" loading="lazy">
+                        <div class="project-content">
+                            <h3>Raspberry Pi Adblocker & Streamer</h3>
+                            <div class="project-tags">
+                                <span class="tag">Raspberry Pi</span>
+                                <span class="tag">Linux</span>
+                                <span class="tag">Networking</span>
+                                <span class="tag">Pi-hole</span>
+                                <span class="tag">Plex</span>
+                            </div>
+                            <p>Configured a Raspberry Pi for network-wide adblocking (Pi-hole) and media streaming (Plex) on a home network.</p>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <img src="images/Research LLMs & Human Knowledge/llm-research.png" alt="LLM Research Concept Graphic" loading="lazy">
+                        <div class="project-content">
+                            <h3>Research: LLMs & Human Knowledge</h3>
+                            <div class="project-tags">
+                                <span class="tag">Research</span>
+                                <span class="tag">Cognitive Science</span>
+                                <span class="tag">LLMs</span>
+                                <span class="tag">GPT-3</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">CTCS</span>
+                            </div>
+                            <p>Compared GPT-3 and human performance on the False Belief Task to assess belief attribution in LLMs. Published in <i>Cognitive Science</i>.</p>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/uc?export=download&id=1w_3VG01O34Q9lNhrvKmhXno2OfptYJYi" target="_blank" rel="noopener noreferrer" class="btn" download="Fragkiadakis-Report & Infographic.pdf">
+                                    <i class="fas fa-download"></i> Download Report
+                                </a>
+                                <a href="https://onlinelibrary.wiley.com/doi/10.1111/cogs.13309" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fas fa-book-open"></i> View Publication
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+   
+                    <div class="project-item">
+                        <img src="images/silence-hero/silence-hero.png" alt="Silence Hero Extension Screenshot" loading="lazy"> <div class="project-content">
+                            <h3>Silence Hero - A browser extension</h3>
+                            <div class="project-tags">
+                                <span class="tag">Chrome Extension</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">UI/UX</span>
+                            </div>
+                            <p>Ever had a neighbor complain about you blasting music? Have they called the cops for being too loud during Greek quiet hours? Well, fear no more! With this simple Chrome extension, you'll never forget when it's quiet time or not, thanks to clear visual cues and a handy countdown timer.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Andrewfragkiadakis/Silence-Hero" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <img src="images/The Friendly Wheelchair (Concept)/friendly-wheelchair.png" alt="Friendly Wheelchair Concept Graphic" loading="lazy">
+                        <div class="project-content">
+                            <h3>The Friendly Wheelchair (Concept)</h3>
+                            <div class="project-tags">
+                                <span class="tag">Project Management</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">NLP</span>
+                                <span class="tag">Agile/SCRUM</span>
+                                <span class="tag">Healthcare IT</span>
+                            </div>
+                            <p>Developed a detailed project management plan and technical specifications for an AI-powered self-driving wheelchair concept for Heidelberg Clinics.</p>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/uc?export=download&id=18gqsCB6UYA1wMTBFjkw2jBoYMqK_HsZT" target="_blank" rel="noopener noreferrer" class="btn" download="The Friendly Wheelchair - Project Report.pdf">
+                                    <i class="fas fa-download"></i> Download Report
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="language-content content gr hidden">
+            <header class="header fade-in-section">
+                <h1><span>ΑΝΔΡΕΑΣ</span> <span>ΦΡΑΓΚΙΑΔΑΚΗΣ</span></h1>
+                <div class="contact-info">
+                    <span><i class="fas fa-map-marker-alt"></i> Αθήνα, Ελλάδα</span>
+                    <a href="tel:+306973453683"><i class="fas fa-phone"></i> (+30) 697-345-3683</a>
+                    <a href="mailto:andrewfragkiadakis@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://linkedin.com/in/andreas-fragkiadakis" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+                <a href="https://drive.google.com/uc?export=download&id=1b-GiyMU1D_6yxr70bmpufj_kIqKgW38A" class="download-btn" onclick="gtag('event', 'file_download', {'link_text': 'Λήψη CV', 'link_url': this.href, 'language': 'gr'});">
+                    <i class="fas fa-download"></i> Λήψη CV
+                </a>
+            </header>
+
+            <section id="about-skills" class="section fade-in-section">
+                <div class="about-skills-container">
+                    <div class="about-content">
+                        <h2><i class="fas fa-user"></i> ΣΧΕΤΙΚΑ ΜΕ ΕΜΕΝΑ</h2>
+                        <p>Αφοσιωμένος <strong>Φοιτητής Πληροφορικής & Μηχανικής Υπολογιστών</strong> με εξειδίκευση στα Δίκτυα, τη διαχείριση συστημάτων και το project management. Αναλυτικός και προσηλωμένος στη λεπτομέρεια, με πρακτική εμπειρία στην ανάπτυξη
+                            ιστοσελίδων, τεχνική υποστήριξη και συντονισμό υποδομών. Άπταιστη γνώση της <strong>Αγγλικής (C2)</strong> και <strong>Γερμανικής (B2)</strong>, παρέχοντας καινοτόμες λύσεις για την αύξηση της αποδοτικότητας και της ανάπτυξης.</p>
+                        <p>Αυτή τη στιγμή γράφω τη <strong>Διπλωματική μου εργασία</strong> με τίτλο "<strong>Νέα Υβριδικά Ασύρματα-Οπτικά Δίκτυα (Radio over Fiber) για Δίκτυα Πέμπτης Γενιάς (5G)</strong>" και εργάζομαι στην <strong>OMILIA LTD</strong> ως
+                            <strong>Μηχανικός Υποστήριξης Πληροφορικής</strong>.</p>
+                    </div>
+                    <div class="skills-content">
+                        <h2><i class="fas fa-tools"></i> ΒΑΣΙΚΕΣ ΔΕΞΙΟΤΗΤΕΣ</h2>
+                        <div class="skills-highlights">
+                            <div class="highlight-item"><i class="fas fa-network-wired"></i><span>Δικτύωση & Διαχ. Συστημάτων</span></div>
+                            <div class="highlight-item"><i class="fas fa-laptop-code"></i><span>Ανάπτυξη Web</span></div>
+                            <div class="highlight-item"><i class="fas fa-shield-alt"></i><span>Ασφάλεια Συστημάτων</span></div>
+                            <div class="highlight-item"><i class="fas fa-lightbulb"></i><span>Επίλυση Προβλημάτων</span></div>
+                            <div class="highlight-item"><i class="fas fa-tasks"></i><span>Διαχείριση Έργων</span></div>
+                            <div class="highlight-item"><i class="fas fa-language"></i><span>Εξαιρετική Επικοινωνία</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="section fade-in-section">
+                <h2><i class="fas fa-graduation-cap"></i> ΕΚΠΑΙΔΕΥΣΗ</h2>
+                <div class="education-item">
+                    <h3>Integrated Master's degree (5yrs), Computer Science</h3>
+                    <p>Πανεπιστήμιο Δυτικής Αττικής | Σεπτέμβριος 2019 - Παρόν</p>
+                    <ul>
+                        <li>Διακεκριμένο μέλος του Tech Society του πανεπιστημίου</li>
+                        <li>Σχετικές γνώσεις: Υπολογιστικά Συστήματα, Τεχνητή Νοημοσύνη, Ασφάλεια Δικτύων, Συστήματα Διαχείρισης Βάσεων Δεδομένων, Τεχνολογία Λογισμικού, Ανάπτυξη Ιστού, Υπολογιστικό Νέφος</li>
+                        <li>ΜΈΣΟΣ ΌΡΟΣ ΒΑΘΜΟΛΟΓΊΑΣ: 7.6 (2.98 GPA)</li>
+                    </ul>
+                </div>
+                <div class="education-item">
+                    <h3>Μεταπτυχιακός τίτλος σπουδών (MS), Εφαρμοσμένη Πληροφορική</h3>
+                    <p>SRH Hochschule Heidelberg | Απρίλιος 2023 - Οκτώβριος 2023 (Ακαδ. Εξάμηνο)</p>
+                    <ul>
+                        <li>Φοιτητικό εξάμηνο ERASMUS+</li>
+                        <li>Βραβευμένος ομιλητής & επικεφαλής ομάδας</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="experience" class="section fade-in-section">
+                <h2><i class="fas fa-briefcase"></i> ΕΠΑΓΓΕΛΜΑΤΙΚΗ ΕΜΠΕΙΡΙΑ</h2>
+                <div class="experience-item">
+                    <h3>Μηχανικός Υποστήριξης Πληροφορικής</h3>
+                    <p>OMILIA LTD, Αθήνα, Ελλάδα | Σεπτέμβριος 2024 – Σήμερα</p>
+                    <ul>
+                        <li>Παροχή εσωτερικής υποστήριξης χρηστών και αντιμετώπιση προβλημάτων υποδομής Πληροφορικής με εργαλεία όπως Anydesk και RDP</li>
+                        <li>Διαχείριση ενίσχυσης τερματικών και εφαρμογή πολιτικών για ελέγχους PCI και SOC2</li>
+                        <li>Επίβλεψη υποδομών cloud και δικτύου με εργαλεία όπως Jira Cloud, Cisco ISE, Microsoft Active Directory και ESXi</li>
+                        <li>Διαχείριση λύσεων ασφάλειας και παραγωγικότητας όπως Google Workspace, συστήματα HID και 1Password</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Συντονιστής Υποστήριξης & Υποδομών Πληροφορικής</h3>
+                    <p>KEEP EAT HEALTHY, Αθήνα, Ελλάδα | Μάιος 2022 - Σήμερα</p>
+                    <ul>
+                        <li>Παροχή υποστήριξης πληροφορικής και συντονισμός υποδομών</li>
+                        <li>Επίβλεψη της εγκατάστασης και της συντήρησης των συστημάτων ΤΠ</li>
+                        <li>Αντιμετώπιση τεχνικών ζητημάτων και πρόταση σύγχρονων λύσεων</li>
+                    </ul>
+                </div>
+                <button id="see-more-btn-gr" class="see-more-btn">Δείτε Περισσότερα <i class="fas fa-arrow-down"></i></button>
+                <div id="more-experience-gr" class="more-experience">
+                    <div class="experience-item">
+                        <h3>Ειδικός Υποστήριξης Πληροφορικής</h3>
+                        <p>ANEMOMYLOI ANDROS AE, Άνδρος, Νότιο Αιγαίο, Ελλάδα | Ιανουάριος 2023 - Φεβρουάριος 2024</p>
+                        <ul>
+                            <li>Παροχή υπηρεσιών απομακρυσμένης υποστήριξης και συμβουλών ΤΠ</li>
+                            <li>Συνδρομή στην υποδομή πληροφορικής και την υποστήριξη εταιρικών έργων</li>
+                            <li>Οργάνωση portfolio εταιρίας & οικονομικών αρχείων</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Web Developer</h3>
+                        <p>Freelance, Αθήνα, Ελλάδα | 2020 - Νοέμβριος 2023</p>
+                        <ul>
+                            <li>Ανάπτυξη και λανσάρισμα λειτουργίας δύο πλήρως λειτουργικών ιστότοπων</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Τεχνικός Εγκατάστασης και Διαμόρφωσης Δικτυακών Συστημάτων</h3>
+                        <p>Weballdesign, Αθήνα, Ελλάδα | 2020 - Νοέμβριος 2022</p>
+                        <ul>
+                            <li>Ρύθμιση και διαμόρφωση συστημάτων διακομιστών και πελατών σε εκπαιδευτικά ιδρύματα & σχολεία</li>
+                            <li>Ρύθμιση και συντήρηση υποδομών δικτύου, συμπεριλαμβανομένων Routers, Switches και UPS</li>
+                            <li>Διασφάλιση της σωστής συνδεσιμότητα δικτύου και διενέργεια διαγνωστικών δικτύου</li>
+                            <li>Διαμόρφωση ρυθμίσεων BIOS και εκκίνησης δικτύου για υπολογιστές-πελάτες</li>
+                            <li>Παροχή κατάρτισης και υποστήριξης στο προσωπικό για τη συνεχή συντήρηση και διαχείριση</li>
+                            <li>Λεπτομερής καταγραφή διαδικασιών εγκατάστασης και διαμόρφωσης για μελλοντική αναφορά και επίλυση προβλημάτων</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section fade-in-section">
+                <h2><i class="fas fa-laptop-code"></i> ΠΡΟΣΩΠΙΚΑ PROJECTS</h2>
+                <div class="projects-grid">
+                    <div class="project-item">
+                        <img src="images\Porftolio website\portfolio-site.png" alt="Screenshot of Andreas Fragkiadakis's Personal Portfolio Website" loading="lazy"> 
+                        <div class="project-content">
+                            <h3>Προσωπική Ιστοσελίδα Portfolio</h3>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Responsive Design</span>
+                            </div>
+                            <p>Σχεδίαση και κατασκευή αυτής της αποκριτικής ιστοσελίδας CV. Διαθέτει light/dark mode, εναλλαγή γλώσσας (EN/GR) και δυναμικές ενότητες περιεχομένου.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <img src="images/happyfox/happyfox-app.png" alt="HappyFox Mental Health App UI/UX Mockup - Project by Andreas Fragkiadakis"loading="lazy">
+                        <div class="project-content">
+                            <h3>HappyFox 🦊 - Εφαρμογή Ψυχικής Υγείας</h3>
+                            <div class="project-tags">
+                                <span class="tag">UI/UX Design</span>
+                                <span class="tag">Figma</span>
+                                <span class="tag">Team Project</span>
+                                <span class="tag">SRH Heidelberg</span>
+                            </div>
+                            <p>Ανάπτυξη concepts UI/UX για μια φιλική προς τον χρήστη εφαρμογή ψυχικής υγείας με στόχο την προώθηση της συναισθηματικής ευεξίας κατά τη διάρκεια μεταπτυχιακού μαθήματος.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Andrewfragkiadakis/Mental-Health-Project/tree/main" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="project-item">
+                        <img src="images\Schiller Project\schiller.png" alt="Screenshot of Schiller Language Centers Website developed by Andreas Fragkiadakis"loading="lazy">
+                        <div class="project-content">
+                            <h3>Ιστοσελίδα Κέντρων Ξένων Γλωσσών Schiller</h3>
+                            <div class="project-tags">
+                                <span class="tag">Wix</span>
+                                <span class="tag">Wix Studio</span>
+                                <span class="tag">Ανάπτυξη Web</span>
+                                <span class="tag">Εκπαιδευτικό</span>
+                            </div>
+                            <p>Ανάπτυξη της ιστοσελίδας για τα Κέντρα Ξένων Γλωσσών Schiller στο Ρέθυμνο, με χρήση της πλατφόρμας Wix (Wix Studio). Η σελίδα παρουσιάζει μαθήματα Αγγλικών, Γερμανικών και Εκπαιδευτικής Ρομποτικής για διάφορες ηλικίες, τονίζοντας
+                                την 30ετή εμπειρία και τα ποσοστά επιτυχίας. Περιλαμβάνει πληροφορίες τοποθεσιών και φόρμα επικοινωνίας.</p>
+                            <div class="project-links">
+                                <a href="https://www.schiller.edu.gr/" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fas fa-external-link-alt"></i> Ιστοσελίδα
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="project-item">
+                        <img src="images/Raspberry Pi Adblocker & Streamer/raspberry-pi.png" alt="Raspberry Pi Project Graphic"loading="lazy">
+                        <div class="project-content">
+                            <h3>Raspberry Pi Adblocker & Streamer</h3>
+                            <div class="project-tags">
+                                <span class="tag">Raspberry Pi</span>
+                                <span class="tag">Linux</span>
+                                <span class="tag">Networking</span>
+                                <span class="tag">Pi-hole</span>
+                                <span class="tag">Plex</span>
+                            </div>
+                            <p>Διαμόρφωση Raspberry Pi για αποκλεισμό διαφημίσεων σε όλο το δίκτυο (Pi-hole) και streaming πολυμέσων (Plex) σε οικιακό δίκτυο.</p>
+                            <div class="project-links">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <img src="images/Research LLMs & Human Knowledge/llm-research.png" alt="LLM Research Concept Graphic" loading="lazy">
+                        <div class="project-content">
+                            <h3>Έρευνα: LLMs & Ανθρώπινη Γνώση</h3>
+                            <div class="project-tags">
+                                <span class="tag">Research</span>
+                                <span class="tag">Cognitive Science</span>
+                                <span class="tag">LLMs</span>
+                                <span class="tag">GPT-3</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">CTCS</span>
+                            </div>
+                            <p>Σύγκριση απόδοσης GPT-3 και ανθρώπων στο False Belief Task για την αξιολόγηση της απόδοσης πεποιθήσεων σε LLMs. Δημοσιεύθηκε στο <i>Cognitive Science</i>.</p>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/uc?export=download&id=1w_3VG01O34Q9lNhrvKmhXno2OfptYJYi" target="_blank" rel="noopener noreferrer" class="btn" download="Fragkiadakis-Report & Infographic.pdf">
+                                    <i class="fas fa-download"></i> Λήψη Αναφοράς
+                                </a>
+                                <a href="https://onlinelibrary.wiley.com/doi/10.1111/cogs.13309" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fas fa-book-open"></i> Προβολή Δημοσίευσης
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <img src="images/silence-hero/silence-hero.png" alt="Στιγμιότυπο Επέκτασης Silence Hero" loading="lazy"> <div class="project-content">
+                            <h3>Silence Hero - Επέκταση για Chrome</h3>
+                            <div class="project-tags">
+                                <span class="tag">Επέκταση Chrome</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">UI/UX</span>
+                            </div>
+                            <p>Σου έχει τύχει ποτέ γείτονας να παραπονιέται που βαράς μουσική στη διαπασών; Έχουν καλέσει την αστυνομία επειδή έκανες φασαρία κατά τις ώρες κοινής ησυχίας; Λοιπόν, μη φοβάσαι άλλο! Με αυτή την απλή επέκταση για Chrome, δεν θα ξεχάσεις ποτέ πότε είναι ώρα κοινής ησυχίας, χάρη στις σαφείς οπτικές ενδείξεις και ένα εύχρηστο χρονόμετρο αντίστροφης μέτρησης.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Andrewfragkiadakis/Silence-Hero" target="_blank" rel="noopener noreferrer" class="btn">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="project-item">
+                        <img src="images/The Friendly Wheelchair (Concept)/friendly-wheelchair.png" alt="Friendly Wheelchair Concept Graphic" loading="lazy">
+                        <div class="project-content">
+                            <h3>The Friendly Wheelchair (Concept)</h3>
+                            <div class="project-tags">
+                                <span class="tag">Project Management</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">NLP</span>
+                                <span class="tag">Agile/SCRUM</span>
+                                <span class="tag">Healthcare IT</span>
+                            </div>
+                            <p>Ανάπτυξη λεπτομερούς σχεδίου διαχείρισης έργου και τεχνικών προδιαγραφών για ένα concept αυτόνομου αναπηρικού αμαξιδίου με AI για τις κλινικές της Χαϊδελβέργης.</p>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/uc?export=download&id=18gqsCB6UYA1wMTBFjkw2jBoYMqK_HsZT" target="_blank" rel="noopener noreferrer" class="btn" download="The Friendly Wheelchair - Project Report.pdf">
+                                    <i class="fas fa-download"></i> Λήψη Αναφοράς
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer id="contact">
+        <p>© 2025 Andreas Fragkiadakis. All rights reserved.</p>
+    </footer>
+
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="JS/script.js"></script>
+</body>
+
+</html>

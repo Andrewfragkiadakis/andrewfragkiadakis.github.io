@@ -14,7 +14,9 @@ Visit the live portfolio at: <a href="https://andrewfragkiadakis.github.io" targ
 [![Framer Motion](https://img.shields.io/badge/Framer%20Motion-Animations-purple)](https://www.framer.com/motion/)
 
 ## Original Static Version
-This project was originally a static website built with HTML, CSS, and vanilla JavaScript. You can see details of that version in previous commits or a separate branch if maintained. The transformation to React aimed to enhance interactivity, maintainability, and implement more dynamic features.
+This project was originally a static website built with HTML, CSS, and vanilla JavaScript. You can see details of that version [here](https://github.com/Andrewfragkiadakis/andrewfragkiadakis.github.io/tree/static-legacy-site).
+
+The transformation to React aimed to enhance interactivity, maintainability, and implement more dynamic features.
 
 ## Key Features & Enhancements in the React Version
 

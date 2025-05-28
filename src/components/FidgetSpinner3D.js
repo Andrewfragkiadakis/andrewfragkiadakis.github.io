@@ -23,7 +23,7 @@ function SpinnerModel() {
       {/* Center bearing */}
       <mesh>
         <cylinderGeometry args={[0.35, 0.35, 0.25, 32]} />
-        <meshStandardMaterial color="#888" metalness={0.9} roughness={0.2} />
+        <meshStandardMaterial color="#4aa17c" metalness={0.9} roughness={0.2} />
       </mesh>
       {/* Arms */}
       {[0, 120, 240].map((deg, i) => {
@@ -32,12 +32,13 @@ function SpinnerModel() {
           <group key={i} rotation={[0, rad, 0]}>
             <mesh position={[1, 0, 0]}>
               <boxGeometry args={[1.2, 0.22, 0.4]} />
-              <meshStandardMaterial color="#2c3e50" metalness={0.7} roughness={0.3} />
+              {/* Use the accent color for the spinner arms */}
+              <meshStandardMaterial color="#4aa17c" metalness={0.7} roughness={0.3} />
             </mesh>
             {/* End weight */}
             <mesh position={[1.7, 0, 0]}>
               <cylinderGeometry args={[0.28, 0.28, 0.22, 24]} />
-              <meshStandardMaterial color="#bbb" metalness={0.8} roughness={0.2} />
+              <meshStandardMaterial color="#4aa17c" metalness={0.8} roughness={0.2} />
             </mesh>
           </group>
         );

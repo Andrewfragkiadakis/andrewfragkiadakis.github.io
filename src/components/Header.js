@@ -34,7 +34,10 @@ const Header = ({ t, language }) => {
                 <a href="tel:+306973453683"><i className="fas fa-phone"></i> {t.phone}</a>
                 <a href="mailto:andrewfragkiadakis@gmail.com"><i className="fas fa-envelope"></i> {t.email}</a>
                 <a href="https://linkedin.com/in/andreas-fragkiadakis" target="_blank" rel="noopener noreferrer">
-                    <i className="fab fa-linkedin"></i> {t.linkedin}
+                    <i className="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/Andrewfragkiadakis" target="_blank" rel="noopener noreferrer">
+                    <i className="fab fa-github"></i> GitHub
                 </a>
             </div>
             <a href={cvLink} className="download-btn" onClick={gtagDownloadCV}>

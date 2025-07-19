@@ -95,89 +95,6 @@
         @media print {
           body { display: none !important; }
         }
-
-        /* --- ΕΝΙΣΧΥΜΕΝΟΙ ΚΑΝΟΝΕΣ ΓΙΑ ΚΙΝΗΤΑ --- */
-        @media (max-width: 768px) {
-            body {
-                font-size: 14px;
-            }
-
-            #presentation-container {
-                /* Καταργεί το σταθερό aspect ratio για να επιτρέπει στο περιεχόμενο να καθορίζει το ύψος */
-                height: auto;
-                aspect-ratio: unset;
-                min-height: 75vh;
-            }
-
-            .slide-content {
-                /* Μειώνει το padding και επιτρέπει το κάθετο scroll αν χρειαστεί */
-                padding: 1.5rem 1rem;
-                justify-content: flex-start;
-                overflow-y: auto;
-            }
-            
-            /* --- Γενικές Προσαρμογές Γραμματοσειρών --- */
-            h1.text-4xl, h1.text-5xl { font-size: 1.5rem !important; line-height: 1.25; }
-            .slide-content h2 { font-size: 1.4rem !important; margin-bottom: 1rem !important; }
-            .slide-content h3 { font-size: 1.1rem !important; }
-            .slide-content p, .slide-content li { font-size: 0.95rem !important; }
-            p.text-xl { font-size: 1rem !important; }
-            p.text-lg { font-size: 0.9rem !important; }
-            p.text-2xl { font-size: 1.1rem !important; }
-            
-            /* --- Γενικές Προσαρμογές Διάταξης (Layout) --- */
-            .slide-content.flex-row {
-                flex-direction: column !important;
-                gap: 1rem !important;
-            }
-            .slide-content .w-1\/2 {
-                width: 100% !important;
-                text-align: left !important;
-            }
-            .slide-content .w-1\/2 > ul {
-                margin-bottom: 1rem;
-                padding-left: 20px;
-            }
-
-            /* --- ΒΕΛΤΙΩΣΕΙΣ ΑΝΑ SLIDE --- */
-
-            /* Slide 1: Τίτλος */
-            .slide[data-slide="1"] .slide-content { justify-content: center; }
-            .slide[data-slide="1"] img.h-28 { height: 4.5rem; margin-bottom: 1rem; }
-            .slide[data-slide="1"] .text-gray-300 { font-size: 0.8rem !important; }
-            .slide[data-slide="1"] .w-24 { margin-top: 1rem; margin-bottom: 1rem; }
-
-            /* Slide 2: Πίνακας Περιεχομένων */
-            .slide[data-slide="2"] .grid { grid-template-columns: 1fr !important; }
-            .slide[data-slide="2"] h3, .slide[data-slide="2"] p { text-align: left; }
-
-            /* Slide 5, 10, 11: Slides με μεγάλες εικόνες */
-            .slide[data-slide="5"] .slide-content,
-            .slide[data-slide="10"] .slide-content,
-            .slide[data-slide="11"] .slide-content {
-                justify-content: center;
-            }
-            .slide[data-slide="5"] img,
-            .slide[data-slide="10"] img,
-            .slide[data-slide="11"] img {
-                width: 100% !important; /* Η εικόνα πιάνει όλο το πλάτος */
-                margin-top: 1rem;
-            }
-
-            /* Slide 12: Ευχαριστίες */
-            .slide[data-slide="12"] .slide-content { justify-content: center; }
-            .slide[data-slide="12"] .h-64 { height: 8rem; width: 8rem; }
-            .slide[data-slide="12"] .text-gray-400 { font-size: 0.8rem !important; margin-top: 1rem; }
-
-            /* Κουμπιά & Footer */
-            .nav-button { padding: 0.6rem 1.2rem; }
-            .flex.space-x-4 { gap: 0.5rem; }
-            footer {
-                position: relative;
-                padding: 0.5rem;
-                font-size: 0.6rem;
-            }
-        }
     </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4">
@@ -368,7 +285,7 @@
                  </div>
                  <div class="mt-12 text-lg text-gray-400">
                     <p>ΦΡΑΓΚΙΑΔΑΚΗΣ ΑΝΔΡΕΑΣ | ΑΜ: 19390297</p>
-                 </div>
+                </div>
             </div>
         </div>
 

@@ -64,7 +64,7 @@ const ProjectItem = ({
                     )}
                     {liveSiteLink && (
                         <a href={liveSiteLink} target="_blank" rel="noopener noreferrer" className="btn">
-                            <i className="fas fa-external-link-alt"></i> {language === 'gr' ? 'Ιστοσελίδα' : 'Live Site'}
+                            <i className="fas fa-external-link-alt"></i> {language === 'gr' ? 'Live Παρουσίαση' : 'Live Presentation'}
                         </a>
                     )}
                     {reportLink && (
@@ -75,7 +75,7 @@ const ProjectItem = ({
                             className="btn"
                             onClick={(e) => { e.stopPropagation(); gtagDownloadReport(name); }} // Stop propagation to prevent item click
                         >
-                            <i className="fas fa-download"></i> {language === 'gr' ? 'Λήψη Αναφοράς' : 'Download Report'}
+                            <i className="fas fa-download"></i> {language === 'gr' ? 'Λήψη Διπλωματικής Εργασίας' : 'Download Thesis Report'}
                         </a>
                     )}
                     {publicationLink && (
@@ -107,6 +107,7 @@ const Projects = ({ t, language }) => {
             raspberryPi: 'raspberry-pi-adblocker-streamer/raspberry-pi.png',
             llmResearch: 'research-llms-human-knowledge/llm-research.png',
             silenceHero: 'silence-hero/silence-hero.png',
+            thesisPresentation: 'thesis-presentation/thesis-image.png',
             friendlyWheelchair: 'friendly-wheelchair-concept/friendly-wheelchair.png',
         };
         return imageMap[projectKey] || '';
@@ -149,6 +150,12 @@ const Projects = ({ t, language }) => {
                 <ProjectItem 
                     {...t.raspberryPi} 
                     imageSrc={getProjectImage('raspberryPi')} 
+                    language={language}
+                    onProjectClick={handleProjectClick}
+                />
+                <ProjectItem 
+                    {...t.thesisPresentation}
+                    imageSrc={getProjectImage('thesisPresentation')}
                     language={language}
                     onProjectClick={handleProjectClick}
                 />

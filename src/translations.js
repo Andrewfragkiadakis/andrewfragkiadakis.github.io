@@ -156,6 +156,13 @@ export const translations = {
             tags: ["Raspberry Pi", "Linux", "Networking", "Pi-hole", "Plex"],
             description: "Configured a Raspberry Pi for network-wide adblocking (Pi-hole) and media streaming (Plex) on a home network."
         },
+        thesisPresentation: {
+            name: "Thesis Presentation: Hybrid Wireless-Optical Networks for 5G",
+            tags: ["Thesis", "5G", "Radio over Fiber", "Presentation"],
+            description: "Master's thesis presentation on new hybrid wireless-optical networks (Radio over Fiber) for 5G. Includes slides and full thesis PDF.",
+            liveSiteLink: "/thesis-presentation", // Subpage for fullscreen presentation
+            reportLink: "https://drive.usercontent.google.com/download?id=1iayG5SCoUykioRzLPl1BeOkO7iwxxHkD&export=download&authuser=0&confirm=t&uuid=c4f9c118-2803-4240-a7c8-3b88152419c7&at=AN8xHorfqC2aZv7oMArcWi_8O2I2:1752941627429" // Link to full thesis PDF
+        },
         llmResearch: {
             name: "Research: LLMs & Human Knowledge",
             tags: ["Research", "Cognitive Science", "LLMs", "GPT-3", "Python", "CTCS"],
@@ -350,6 +357,13 @@ export const translations = {
             name: "Raspberry Pi Adblocker & Streamer",
             tags: ["Raspberry Pi", "Linux", "Networking", "Pi-hole", "Plex"],
             description: "Διαμόρφωση Raspberry Pi για αποκλεισμό διαφημίσεων σε όλο το δίκτυο (Pi-hole) και streaming πολυμέσων (Plex) σε οικιακό δίκτυο."
+        },
+        thesisPresentation: {
+            name: "Παρουσίαση διπλωματικής εργασίας: Υβριδικά ασύρματα-οπτικά δίκτυα για 5G",
+            tags: ["Διπλωματική", "5G", "Radio over Fiber", "Παρουσίαση"],
+            description: "Παρουσίαση διπλωματικής εργασίας με θέμα τα νέα υβριδικά ασύρματα-οπτικά δίκτυα (Radio over Fiber) για 5G. Περιλαμβάνει διαφάνειες και πλήρες PDF της διπλωματικής εργασίας.",
+            liveSiteLink: "/thesis-presentation", // Subpage for fullscreen presentation
+            reportLink: "https://andrewfragkiadakis.github.io/thesis.pdf" // Link to full thesis PDF
         },
         llmResearch: {
             name: "Έρευνα: LLMs & Ανθρώπινη Γνώση",

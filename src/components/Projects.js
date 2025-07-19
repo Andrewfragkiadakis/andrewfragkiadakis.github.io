@@ -64,7 +64,7 @@ const ProjectItem = ({
                     )}
                     {liveSiteLink && (
                         <a href={liveSiteLink} target="_blank" rel="noopener noreferrer" className="btn">
-                            <i className="fas fa-external-link-alt"></i> Live Presentation
+                            <i className="fas fa-external-link-alt"></i> {language === 'gr' ? 'Ιστοσελίδα' : 'Live Site'}
                         </a>
                     )}
                     {reportLink && (
@@ -108,7 +108,6 @@ const Projects = ({ t, language }) => {
             llmResearch: 'research-llms-human-knowledge/llm-research.png',
             silenceHero: 'silence-hero/silence-hero.png',
             friendlyWheelchair: 'friendly-wheelchair-concept/friendly-wheelchair.png',
-            portfolioPresentation: 'presentation/placeholder-thesis-image.png',
         };
         return imageMap[projectKey] || '';
     };
@@ -144,13 +143,6 @@ const Projects = ({ t, language }) => {
                 <ProjectItem 
                     {...t.schiller} 
                     imageSrc={getProjectImage('schiller')} 
-                    language={language}
-                    onProjectClick={handleProjectClick}
-                />
-                {/* Move portfolioPresentation before raspberryPi */}
-                <ProjectItem 
-                    {...t.portfolioPresentation} 
-                    imageSrc={getProjectImage('portfolioPresentation')} 
                     language={language}
                     onProjectClick={handleProjectClick}
                 />

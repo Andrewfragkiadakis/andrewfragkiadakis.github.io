@@ -174,14 +174,6 @@ export const translations = {
             tags: ["Project Management", "AI", "NLP", "Agile/SCRUM", "Healthcare IT"],
             description: "Developed a detailed project management plan and technical specifications for an AI-powered self-driving wheelchair concept for Heidelberg Clinics.",
             reportLink: "https://drive.google.com/uc?export=download&id=18gqsCB6UYA1wMTBFjkw2jBoYMqK_HsZT"
-        },
-        portfolioPresentation: {
-            name: "5G Radio over Fiber Thesis Presentation",
-            tags: ["HTML", "CSS", "JavaScript", "Presentation"],
-            description: "Interactive thesis presentation on hybrid wireless-optical networks (Radio over Fiber) for 5G.",
-            thesisLink: "https://tinyurl.com/yc3knyak", // NEW: Full thesis link
-            liveSiteLink: "/presentation/Presentation.html",
-            imageSrc: "presentation/placeholder-logo.png"
         }
     },
     footer: {
@@ -377,14 +369,6 @@ export const translations = {
             tags: ["Project Management", "AI", "NLP", "Agile/SCRUM", "Healthcare IT"],
             description: "Ανάπτυξη λεπτομερούς σχεδίου διαχείρισης έργου και τεχνικών προδιαγραφών για ένα concept αυτόνομου αναπηρικού αμαξιδίου με AI για τις κλινικές της Χαϊδελβέργης.",
             reportLink: "https://drive.google.com/uc?export=download&id=18gqsCB6UYA1wMTBFjkw2jBoYMqK_HsZT"
-        },
-        portfolioPresentation: {
-            name: "Παρουσίαση Διπλωματικής: 5G Radio over Fiber",
-            tags: ["HTML", "CSS", "JavaScript", "Παρουσίαση"],
-            description: "Διαδραστική παρουσίαση διπλωματικής για υβριδικά ασύρματα-οπτικά δίκτυα (Radio over Fiber) σε δίκτυα 5G.",
-            thesisLink: "https://tinyurl.com/yc3knyak", // NEW: Full thesis link
-            liveSiteLink: "/presentation/Presentation.html",
-            imageSrc: "presentation/placeholder-logo.png"
         }
     },
     footer: {

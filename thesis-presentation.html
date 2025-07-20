@@ -9,6 +9,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* --- UPDATED PRELOADER STYLES --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ffffff; /* UPDATED: White background */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out;
+        }
+
+        #preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            border: 8px solid #e3e3e3; /* A slightly darker gray for contrast on white */
+            border-top: 8px solid #0E2841; /* UPDATED: Deeper blue from presentation background */
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* --- END OF PRELOADER STYLES --- */
+
         body {
             font-family: 'Comfortaa', sans-serif;
             background-color: #f0f2f5;
@@ -96,32 +131,27 @@
           body { display: none !important; }
         }
 
-        /* --- ΕΝΙΣΧΥΜΕΝΟΙ ΚΑΝΟΝΕΣ ΓΙΑ ΚΙΝΗΤΑ --- */
         @media (max-width: 768px) {
             body {
                 font-size: 14px;
             }
 
             #presentation-container {
-                /* Καταργεί το σταθερό aspect ratio για να επιτρέπει στο περιεχόμενο να καθορίζει το ύψος */
                 height: auto;
                 aspect-ratio: unset;
                 min-height: 75vh;
             }
 
             .slide-content {
-                /* Μειώνει το padding και επιτρέπει το κάθετο scroll αν χρειαστεί */
                 padding: 1.5rem 1rem;
                 justify-content: flex-start;
                 overflow-y: auto;
             }
             
-            /* --- Απόκρυψη QR Code σε Κινητά --- */
             .qr-code-image {
                 display: none;
             }
 
-            /* --- Γενικές Προσαρμογές Γραμματοσειρών --- */
             h1.text-4xl, h1.text-5xl { font-size: 1.5rem !important; line-height: 1.25; }
             .slide-content h2 { font-size: 1.4rem !important; margin-bottom: 1rem !important; }
             .slide-content h3 { font-size: 1.1rem !important; }
@@ -130,7 +160,6 @@
             p.text-lg { font-size: 0.9rem !important; }
             p.text-2xl { font-size: 1.1rem !important; }
             
-            /* --- Γενικές Προσαρμογές Διάταξης (Layout) --- */
             .slide-content.flex-row {
                 flex-direction: column !important;
                 gap: 1rem !important;
@@ -144,19 +173,14 @@
                 padding-left: 20px;
             }
 
-            /* --- ΒΕΛΤΙΩΣΕΙΣ ΑΝΑ SLIDE --- */
-
-            /* Slide 1: Τίτλος */
             .slide[data-slide="1"] .slide-content { justify-content: center; }
             .slide[data-slide="1"] img.h-28 { height: 4.5rem; margin-bottom: 1rem; }
             .slide[data-slide="1"] .text-gray-300 { font-size: 0.8rem !important; }
             .slide[data-slide="1"] .w-24 { margin-top: 1rem; margin-bottom: 1rem; }
 
-            /* Slide 2: Πίνακας Περιεχομένων */
             .slide[data-slide="2"] .grid { grid-template-columns: 1fr !important; }
             .slide[data-slide="2"] h3, .slide[data-slide="2"] p { text-align: left; }
 
-            /* Slide 5, 10, 11: Slides με μεγάλες εικόνες */
             .slide[data-slide="5"] .slide-content,
             .slide[data-slide="10"] .slide-content,
             .slide[data-slide="11"] .slide-content {
@@ -165,16 +189,14 @@
             .slide[data-slide="5"] img,
             .slide[data-slide="10"] img,
             .slide[data-slide="11"] img {
-                width: 100% !important; /* Η εικόνα πιάνει όλο το πλάτος */
+                width: 100% !important;
                 margin-top: 1rem;
             }
 
-            /* Slide 12: Ευχαριστίες */
             .slide[data-slide="12"] .slide-content { justify-content: center; }
             .slide[data-slide="12"] .h-64 { height: 8rem; width: 8rem; }
             .slide[data-slide="12"] .text-gray-400 { font-size: 0.8rem !important; margin-top: 1rem; }
 
-            /* Κουμπιά & Footer */
             .nav-button { padding: 0.6rem 1.2rem; }
             .flex.space-x-4 { gap: 0.5rem; }
             footer {
@@ -187,8 +209,11 @@
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4">
 
-    <div id="presentation-container" class="w-full max-w-6xl aspect-[16/9] bg-[#0E2841] text-white rounded-xl overflow-hidden relative shadow-2xl">
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
 
+    <div id="presentation-container" class="w-full max-w-6xl aspect-[16/9] bg-[#0E2841] text-white rounded-xl overflow-hidden relative shadow-2xl">
         <div class="slide active" data-slide="1">
             <div class="slide-content text-center">
                 <div class="mb-6">
@@ -393,6 +418,13 @@
     </div>
 
     <script>
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 200); 
+        });
+
         const slides = document.querySelectorAll('.slide');
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');

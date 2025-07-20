@@ -1,9 +1,8 @@
 // src/components/Projects.js
-import React, { useState } from 'react';
+import React from 'react';
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
-// import Project3DPlaceholder from './Project3DPlaceholder'; // No longer needed if we removed all 3D project items
 
-// ProjectItem remains largely the same
+// ProjectItem updated to handle navigation directly
 const ProjectItem = ({ 
     name, 
     tags, 
@@ -13,9 +12,7 @@ const ProjectItem = ({
     reportLink, 
     publicationLink, 
     imageSrc,
-    language,
-    // is3D, // Removing this prop as we are not using 3D placeholders for projects now
-    onProjectClick 
+    language
 }) => {
     const fullImageSrc = imageSrc ? `${process.env.PUBLIC_URL}/images/${imageSrc}` : null;
 
@@ -30,15 +27,16 @@ const ProjectItem = ({
         }
     };
     
+    // Clicking the item will navigate to the live site or github
     const handleItemClick = () => {
-        if (onProjectClick) {
-            onProjectClick({ name, tags, description, githubLink, liveSiteLink, reportLink, publicationLink, imageSrc });
+        const primaryLink = liveSiteLink || githubLink;
+        if (primaryLink) {
+            window.open(primaryLink, '_blank', 'noopener,noreferrer');
         }
     };
 
     return (
         <div className="project-item" onClick={handleItemClick} role="button" tabIndex={0} onKeyPress={(e) => e.key === 'Enter' && handleItemClick()}> 
-            {/* Always render image now, or placeholder if no imageSrc */}
             {fullImageSrc ? (
                 <img src={fullImageSrc} alt={`${name} screenshot`} loading="lazy" />
             ) : (
@@ -58,12 +56,12 @@ const ProjectItem = ({
                 <p>{description}</p>
                 <div className="project-links">
                     {githubLink && (
-                        <a href={githubLink} target="_blank" rel="noopener noreferrer" className="btn">
+                        <a href={githubLink} target="_blank" rel="noopener noreferrer" className="btn" onClick={(e) => e.stopPropagation()}>
                             <i className="fab fa-github"></i> GitHub
                         </a>
                     )}
                     {liveSiteLink && (
-                        <a href={liveSiteLink} target="_blank" rel="noopener noreferrer" className="btn">
+                        <a href={liveSiteLink} target="_blank" rel="noopener noreferrer" className="btn" onClick={(e) => e.stopPropagation()}>
                             <i className="fas fa-external-link-alt"></i> {language === 'gr' ? 'Live Παρουσίαση' : 'Live Presentation'}
                         </a>
                     )}
@@ -73,7 +71,7 @@ const ProjectItem = ({
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn"
-                            onClick={(e) => { e.stopPropagation(); gtagDownloadReport(name); }} // Stop propagation to prevent item click
+                            onClick={(e) => { e.stopPropagation(); gtagDownloadReport(name); }}
                         >
                             <i className="fas fa-download"></i> {language === 'gr' ? 'Λήψη Διπλωματικής Εργασίας' : 'Download Thesis Report'}
                         </a>
@@ -89,19 +87,18 @@ const ProjectItem = ({
     );
 };
 
-
 const Projects = ({ t, language }) => {
     const [sectionRef, isVisible] = useIntersectionObserver({ threshold: 0.05 });
     
-    const [selectedProject, setSelectedProject] = useState(null); // Keep for future modal
-
+    // No state or handlers for modal needed
+    
     if (!t || !t.portfolio) {
         return <section id="projects" className="section" ref={sectionRef}>Loading projects...</section>;
     }
 
     const getProjectImage = (projectKey) => {
         const imageMap = {
-            portfolio: 'portfolio-website/portfolio-site.png', // Ensure this path is correct
+            portfolio: 'portfolio-website/portfolio-site.png',
             happyFox: 'happyfox/happyfox-app.png',
             schiller: 'schiller-project/schiller.png',
             raspberryPi: 'raspberry-pi-adblocker-streamer/raspberry-pi.png',
@@ -113,14 +110,6 @@ const Projects = ({ t, language }) => {
         return imageMap[projectKey] || '';
     };
 
-    const handleProjectClick = (projectData) => {
-        // This is where you would open a modal with projectData
-        // For now, let's just log it to show it's working.
-        console.log("Project item clicked:", projectData.name);
-        alert(`Project Clicked: ${projectData.name}`);
-        // setSelectedProject(projectData);
-    };
-
     return (
         <section 
             id="projects" 
@@ -129,57 +118,16 @@ const Projects = ({ t, language }) => {
         >
             <h2><i className="fas fa-laptop-code"></i> {t.title}</h2>
             <div className="projects-grid">
-                <ProjectItem 
-                    {...t.portfolio} 
-                    imageSrc={getProjectImage('portfolio')} // Use image for portfolio
-                    language={language}
-                    onProjectClick={handleProjectClick}
-                />
-                <ProjectItem 
-                    {...t.happyFox} 
-                    imageSrc={getProjectImage('happyFox')} 
-                    language={language}
-                    onProjectClick={handleProjectClick}
-                />
-                <ProjectItem 
-                    {...t.schiller} 
-                    imageSrc={getProjectImage('schiller')} 
-                    language={language}
-                    onProjectClick={handleProjectClick}
-                />
-                <ProjectItem 
-                    {...t.raspberryPi} 
-                    imageSrc={getProjectImage('raspberryPi')} 
-                    language={language}
-                    onProjectClick={handleProjectClick}
-                />
-                <ProjectItem 
-                    {...t.thesisPresentation}
-                    imageSrc={getProjectImage('thesisPresentation')}
-                    language={language}
-                    onProjectClick={handleProjectClick}
-                />
-                <ProjectItem 
-                    {...t.llmResearch} 
-                    imageSrc={getProjectImage('llmResearch')} 
-                    language={language}
-                    onProjectClick={handleProjectClick}
-                />
-                <ProjectItem 
-                    {...t.silenceHero} 
-                    imageSrc={getProjectImage('silenceHero')} 
-                    language={language}
-                    onProjectClick={handleProjectClick}
-                />
-                <ProjectItem 
-                    {...t.friendlyWheelchair} 
-                    imageSrc={getProjectImage('friendlyWheelchair')} 
-                    language={language}
-                    onProjectClick={handleProjectClick}
-                />
+                {Object.keys(t).filter(key => key !== 'title').map(projectKey => (
+                    <ProjectItem 
+                        key={projectKey}
+                        {...t[projectKey]} 
+                        imageSrc={getProjectImage(projectKey)} 
+                        language={language}
+                        // onProjectClick prop is removed
+                    />
+                ))}
             </div>
-            {/* Modal placeholder */}
-            {/* {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />} */}
         </section>
     );
 };

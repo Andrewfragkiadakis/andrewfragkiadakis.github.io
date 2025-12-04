@@ -7,7 +7,7 @@ This project represents a significant transformation from previous versions, mov
 ## 🚀 Live Site
 Visit the live portfolio at: [https://andreas.technology](https://andreas.technology)
 
-## �‍💻 About Me
+## About Me
 I’m an IT & Computer Engineering student with expertise in networking, system administration, and web development. This site is a creative and dynamic representation of my professional journey, showcasing my ability to work with modern web technologies to build engaging user experiences.
 
 ## ✨ Key Features
@@ -23,7 +23,7 @@ The v2 portfolio introduces significant improvements and new features:
 - **Project Showcase**: A dynamic grid displaying my latest projects with hover effects and detailed information.
 - **Performance**: Static export configuration for lightning-fast loading on GitHub Pages.
 
-## 🛠 Built With
+##  Built With
 - **Framework**: [Next.js 16](https://nextjs.org/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
@@ -31,54 +31,12 @@ The v2 portfolio introduces significant improvements and new features:
 - **3D Graphics**: [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
 - **Icons**: [Font Awesome](https://fontawesome.com/)
 
-## 📂 Project Structure
+## Project Structure
 - `andreas-technology-v2/`: Source code for the Next.js application.
 - `out/`: Static build output (deployed to root).
 - `public/`: Static assets (images, icons).
 - `backup_v1_2025/`: Backup of the previous version of the site.
 
-## 💻 Development
-
-To run the project locally:
-
-1. Navigate to the project directory:
-   ```bash
-   cd andreas-technology-v2
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 📦 Deployment
-
-This project is configured for static export to GitHub Pages.
-
-1. Build the project:
-   ```bash
-   cd andreas-technology-v2
-   npm run build
-   ```
-
-2. Copy the static output to the root:
-   ```bash
-   cp -r out/* ../
-   ```
-
-3. Commit and push:
-   ```bash
-   git add .
-   git commit -m "Deploy update"
-   git push
-   ```
 
 ## 📄 License
 © 2025 Andreas Fragkiadakis. All rights reserved.

@@ -76,7 +76,7 @@ export default function Experience() {
                     x,
                     y,
                     char: Math.random() > 0.5 ? '0' : '1',
-                    life: 100,
+                    life: 0,
                     maxLife: 100,
                     velocity: {
                         x: (Math.random() - 0.5) * 0.5,

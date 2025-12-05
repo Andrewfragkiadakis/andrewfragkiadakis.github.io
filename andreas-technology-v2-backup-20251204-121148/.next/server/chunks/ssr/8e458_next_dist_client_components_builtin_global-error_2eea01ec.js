@@ -1,3 +1,0 @@
-module.exports=[65728,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(63728);a.n(d("[project]/andreas-technology-v2/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},86285,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(63728);a.n(d("[project]/andreas-technology-v2/node_modules/next/dist/client/components/builtin/global-error.js"))},57128,a=>{"use strict";a.i(65728);var b=a.i(86285);a.n(b)}];
-
-//# sourceMappingURL=8e458_next_dist_client_components_builtin_global-error_2eea01ec.js.map

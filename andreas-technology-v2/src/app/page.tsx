@@ -25,7 +25,7 @@ export default function Home() {
       </div>
 
       {/* Main scrollable container with snap */}
-      <main id="scroller" className="relative h-screen overflow-y-scroll snap-y snap-mandatory">
+      <main id="scroller" className="relative h-screen overflow-y-scroll snap-y snap-proximity scroll-pt-24">
         {/* Hero Section */}
         <section id="hero" className="relative w-full h-screen snap-start snap-always bg-transparent">
           <div className="relative z-10 pointer-events-none">

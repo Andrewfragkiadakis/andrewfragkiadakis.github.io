@@ -6,7 +6,7 @@ export default function Experience() {
     const t = useContent()
 
     return (
-        <section id="experience" className="min-h-screen snap-start snap-always bg-white dark:bg-zinc-950 text-black dark:text-white py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8">
+        <section id="experience" className="min-h-screen snap-start bg-white dark:bg-zinc-950 text-black dark:text-white py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8">
             <div className="max-w-6xl mx-auto">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}

@@ -9,7 +9,7 @@ export default function Contact() {
     const cvLink = "https://drive.google.com/uc?export=download&id=1b-GiyMU1D_6yxr70bmpufj_kIqKgW38A"
 
     return (
-        <section id="contact" className="h-screen snap-start snap-always bg-white dark:bg-zinc-950 text-black dark:text-white px-4 sm:px-6 md:px-8 flex flex-col justify-center relative">
+        <section id="contact" className="h-screen snap-start bg-white dark:bg-zinc-950 text-black dark:text-white px-4 sm:px-6 md:px-8 flex flex-col justify-center relative">
             <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 md:mb-12">{t.contactTitle}</h2>
 

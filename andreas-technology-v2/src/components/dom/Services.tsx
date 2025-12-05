@@ -7,7 +7,7 @@ export default function Services() {
     const t = useContent()
 
     return (
-        <section id="services" className="min-h-screen snap-start snap-always bg-zinc-50 dark:bg-zinc-900 text-black dark:text-white py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 flex items-center">
+        <section id="services" className="min-h-screen snap-start bg-zinc-50 dark:bg-zinc-900 text-black dark:text-white py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 flex items-center">
             <div className="max-w-7xl mx-auto w-full">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}

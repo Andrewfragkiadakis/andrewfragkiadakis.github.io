@@ -6,7 +6,7 @@ export default function Projects() {
     const t = useContent()
 
     return (
-        <section id="projects" className="min-h-screen snap-start snap-always bg-white dark:bg-zinc-950 text-black dark:text-white py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8">
+        <section id="projects" className="min-h-screen snap-start bg-white dark:bg-zinc-950 text-black dark:text-white py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8">
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 md:mb-12">
                     {t.projectsTitle}

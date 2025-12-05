@@ -65,7 +65,11 @@ export default function Experience() {
             const dx = mouseRef.current.x - mouseRef.current.lastX
             const dy = mouseRef.current.y - mouseRef.current.lastY
             const distance = Math.sqrt(dx * dx + dy * dy)
-            const steps = Math.ceil(distance / 15)
+
+            // Only create particles if mouse moved at least 10 pixels to prevent clustering
+            if (distance < 5) return
+
+            const steps = Math.ceil(distance / 23) // Increased from 15 to prevent overlapping
 
             for (let i = 0; i < steps; i++) {
                 const t = i / steps

@@ -13,10 +13,11 @@ export default function Contact() {
             <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 md:mb-12">{t.contactTitle}</h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_auto] gap-8 sm:gap-12 items-start">
+                    {/* Contact Details */}
                     <div>
                         <h3 className="text-2xl font-semibold mb-6 text-zinc-600 dark:text-zinc-400">
-                            {t.nav.contact}
+                            CONTACT
                         </h3>
                         <div className="space-y-4">
                             <div>
@@ -49,35 +50,63 @@ export default function Contact() {
                         </div>
                     </div>
 
+                    {/* Links */}
                     <div>
                         <h3 className="text-2xl font-semibold mb-6 text-zinc-600 dark:text-zinc-400">Links</h3>
                         <div className="space-y-4">
-                            <a
-                                href={t.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-3 text-lg hover:text-black dark:hover:text-white transition-colors cursor-pointer group"
-                            >
-                                <i className="fab fa-github text-2xl group-hover:scale-110 transition-transform"></i>
-                                <span>GitHub</span>
-                            </a>
-                            <a
-                                href={t.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-3 text-lg hover:text-black dark:hover:text-white transition-colors cursor-pointer group"
-                            >
-                                <i className="fab fa-linkedin text-2xl group-hover:scale-110 transition-transform"></i>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a
-                                href={cvLink}
-                                download
-                                className="flex items-center gap-3 text-lg hover:text-black dark:hover:text-white transition-colors cursor-pointer group"
-                            >
-                                <i className="fas fa-file-download text-2xl group-hover:scale-110 transition-transform"></i>
-                                <span>Download CV</span>
-                            </a>
+                            <div>
+                                <div className="text-sm text-zinc-500 mb-1 opacity-0">Social</div>
+                                <a
+                                    href={t.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 text-lg hover:text-black dark:hover:text-white transition-colors cursor-pointer group"
+                                >
+                                    <i className="fab fa-github text-2xl group-hover:scale-110 transition-transform"></i>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                            <div>
+                                <div className="text-sm text-zinc-500 mb-1 opacity-0">Social</div>
+                                <a
+                                    href={t.linkedin}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 text-lg hover:text-black dark:hover:text-white transition-colors cursor-pointer group"
+                                >
+                                    <i className="fab fa-linkedin text-2xl group-hover:scale-110 transition-transform"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </div>
+                            <div>
+                                <div className="text-sm text-zinc-500 mb-1 opacity-0">Document</div>
+                                <a
+                                    href={cvLink}
+                                    download
+                                    className="flex items-center gap-3 text-lg hover:text-black dark:hover:text-white transition-colors cursor-pointer group"
+                                >
+                                    <i className="fas fa-file-download text-2xl group-hover:scale-110 transition-transform"></i>
+                                    <span>Download CV</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* QR Code - Theme Aware */}
+                    <div className="hidden lg:flex justify-center items-start">
+                        <div className="relative">
+                            {/* Light mode QR code */}
+                            <img
+                                src="/images/QR Codes/qr-code-for white-background.png"
+                                alt="QR Code"
+                                className="w-48 h-48 dark:hidden rounded-lg"
+                            />
+                            {/* Dark mode QR code */}
+                            <img
+                                src="/images/QR Codes/qr-code-for-dark-background.png"
+                                alt="QR Code"
+                                className="w-48 h-48 hidden dark:block rounded-lg"
+                            />
                         </div>
                     </div>
                 </div>

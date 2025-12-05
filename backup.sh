@@ -5,7 +5,7 @@
 
 set -e
 
-BACKUP_DIR="../.backups"
+BACKUP_DIR="../backups"
 TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
 BACKUP_NAME="portfolio-backup-$TIMESTAMP"
 BACKUP_PATH="$BACKUP_DIR/$BACKUP_NAME"

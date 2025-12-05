@@ -6,6 +6,9 @@ DEPLOY_GUIDE.md
 __next.*
 *.txt
 !CNAME
+_not-found.html
+_not-found/
+favicon.ico
 
 # Backup folders
 *-backup-*

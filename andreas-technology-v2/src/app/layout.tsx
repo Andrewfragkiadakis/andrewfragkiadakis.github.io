@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: 'Andreas Fragkiadakis Portfolio',
     images: [
       {
-        url: '/og-image.png',
+        url: '/images/Porftolio website/portfolio-site-2025.png',
         width: 1200,
         height: 630,
         alt: 'Andreas Fragkiadakis Portfolio Preview',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Andreas | Creative Technologist',
     description: 'The digital portfolio of Andreas Fragkiadakis.',
-    images: ['/og-image.png'],
+    images: ['/images/Porftolio website/portfolio-site-2025.png'],
   },
 }
 

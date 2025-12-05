@@ -357,7 +357,7 @@ export const content: Record<'en' | 'gr', Content> = {
             }
         ],
 
-        servicesTitle: "ΤΙ ΚΑΝΩ",
+        servicesTitle: "ΥΠΗΡΕΣΙΕΣ",
         services: [
             {
                 icon: "fas fa-laptop-code",
@@ -367,7 +367,7 @@ export const content: Record<'en' | 'gr', Content> = {
             {
                 icon: "fas fa-headset",
                 title: "Υπηρεσίες & Υποστήριξη IT",
-                description: "Διαχείριση περιβαλλόντων IT με έμφαση στην αξιοπιστία υπηρεσιών, την επίλυση περιστατικών και την τήρηση βέλτιστων πρακτικών ITIL για επαγγελματική διαχείριση υπηρεσιών."
+                description: "Διαχείριση περιβαλλόντων IT με έμφαση στην επίλυση προβλημάτων και την τήρηση βέλτιστων πρακτικών ITIL για επαγγελματική διαχείριση υπηρεσιών."
             },
             {
                 icon: "fas fa-robot",
@@ -519,6 +519,6 @@ export const content: Record<'en' | 'gr', Content> = {
         ],
 
         contactTitle: "ΕΠΙΚΟΙΝΩΝΙΑ",
-        copyright: "© 2025 Ανδρέας Φραγκιαδάκης. Με επιφύλαξη παντός δικαιώματος."
+        copyright: "© 2025 Ανδρέας Φραγκιαδάκης. All rights reserved."
     }
 }

@@ -294,7 +294,7 @@ export const content: Record<'en' | 'gr', Content> = {
         ],
 
         contactTitle: "GET IN TOUCH",
-        copyright: "© 2025 Andreas Fragkiadakis. All rights reserved."
+        copyright: "© 2025 Created By Andreas Fragkiadakis. All rights reserved."
     },
 
     gr: {
@@ -519,6 +519,6 @@ export const content: Record<'en' | 'gr', Content> = {
         ],
 
         contactTitle: "ΕΠΙΚΟΙΝΩΝΙΑ",
-        copyright: "© 2025 Ανδρέας Φραγκιαδάκης. All rights reserved."
+        copyright: "© 2025 Created By Ανδρέας Φραγκιαδάκης. All rights reserved."
     }
 }

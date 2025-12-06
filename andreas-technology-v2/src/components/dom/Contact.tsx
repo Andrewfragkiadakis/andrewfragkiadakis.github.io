@@ -93,7 +93,13 @@ export default function Contact() {
                     </div>
 
                     {/* QR Code - Theme Aware */}
-                    <div className="hidden lg:flex justify-center items-start">
+                    <div className="hidden lg:flex flex-col items-center">
+                        {/* Spacer to align QR code with the first link (GitHub) */}
+                        {/* We only duplicate the header so the QR code starts at the same level as the first link item */}
+                        <div className="invisible pointer-events-none" aria-hidden="true">
+                            <h3 className="text-2xl font-semibold mb-6">Links</h3>
+                        </div>
+
                         <div className="relative">
                             {/* Light mode QR code */}
                             <img

@@ -21,7 +21,9 @@ export default function HeroOverlay() {
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-black dark:text-white mb-4">
                 {t.name.split(' ')[0]}
             </h1>
-
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-black dark:text-white mb-4">
+                {t.name.split(' ')[1]}
+            </h1>
             <div className="text-lg sm:text-xl md:text-2xl font-light tracking-widest text-zinc-600 dark:text-zinc-400 uppercase h-12 flex items-center">
                 <Typewriter
                     options={{

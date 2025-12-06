@@ -27,7 +27,6 @@ export default function Navigation() {
                         height={24}
                         className="rounded sm:w-8 sm:h-8"
                     />
-                    <span className="text-black dark:text-white font-bold tracking-wider text-sm sm:text-base">AF</span>
                 </div>
 
                 {/* Desktop Navigation */}

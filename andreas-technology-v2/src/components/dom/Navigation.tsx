@@ -25,7 +25,7 @@ export default function Navigation() {
                         alt="AF Logo"
                         width={24}
                         height={24}
-                        className="rounded sm:w-8 sm:h-8"
+                        className="rounded sm:w-8 sm:h-8 md:hidden"
                     />
                 </div>
 
